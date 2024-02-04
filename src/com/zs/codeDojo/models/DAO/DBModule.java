@@ -13,21 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.dailyQuestions.Question;
+import com.zs.codeDojo.properties.SQLQueries;
 
 public class DBModule {
     private Connection conn = null;
-    private final String ADD_QUESTION_QUERY = "INSERT INTO Questions VALUES(?, ?, ?, ?, ?)";
-    private final String ADD_TEST_CASES_QUERY = "INSERT INTO TestCases VALUES(?, ?, ?, ?)";
-    private final String GET_LAST_ID_QUERY = "SELECT count(*) FROM ";
-    private final String PUBLISH_QUESTION = "INSERT INTO schedule_questions VALUES(?, ?, ?, ?, ?)";
-    private final String GET_TODAY_QUESTION = "SELECT title, description FROM Questions, schedule_questions as s WHERE s.publish_date = ? and s.is_published = 'Y'";
-    private final String GET_TODAY_QUESTION_PUBLISHING_TIME = "SELECT publish_time FROM schedule_questions WHERE publish_date = ?";
-
-    private final String GET_STREAK = "SELECT count(*) AS cnt FROM "
-                                    + "(SELECT activity_date, " 
-                                    + "DATE_ADD(activity_date, INTERVAL -(@row_number := @row_number + 1) DAY) AS base_date "
-                                    + "FROM user_activity WHERE user_id = ? ORDER BY activity_date) "
-                                    + "AS t GROUP BY base_date ORDER BY cnt LIMIT 1";
 
     private String error = null;
     private String publishingTime = null;
@@ -43,7 +32,7 @@ public class DBModule {
         JSONObject question = json.getJSONObject("question");
         boolean status = false;
 
-        try (PreparedStatement statement = conn.prepareStatement(ADD_QUESTION_QUERY)) {
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.ADD_QUESTION_QUERY)) {
             conn.setAutoCommit(false);
 
             int questionId = getLastId("Questions");
@@ -85,7 +74,7 @@ public class DBModule {
     }
 
     private boolean addTestCases(int questionId, String input, String output) throws SQLException {        
-        PreparedStatement statement1 = conn.prepareStatement(ADD_TEST_CASES_QUERY);
+        PreparedStatement statement1 = conn.prepareStatement(SQLQueries.ADD_TEST_CASES_QUERY);
         statement1.setInt(1, getLastId("TestCases"));
         statement1.setInt(2, questionId);
         statement1.setString(3, input);
@@ -107,7 +96,7 @@ public class DBModule {
             publishTime = json.getString("publish_time");
         }
         
-        PreparedStatement statement = conn.prepareStatement(PUBLISH_QUESTION);
+        PreparedStatement statement = conn.prepareStatement(SQLQueries.PUBLISH_QUESTION);
         statement.setInt(1, getLastId("schedule_questions"));
         statement.setInt(2, questionId);
         statement.setString(3, publishNow ? "Y" : "N");
@@ -151,7 +140,7 @@ public class DBModule {
 
     public int getLastId(String tableName) {
         int lastId = 0;
-        try (PreparedStatement statement = conn.prepareStatement(GET_LAST_ID_QUERY + tableName)) {
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_LAST_ID_QUERY + tableName)) {
             if (statement.execute()) {
                 ResultSet rs = statement.getResultSet();
                 
@@ -171,7 +160,7 @@ public class DBModule {
     // get question start
     public boolean fetchTodayQuestion() {
         boolean status = false;
-        try (PreparedStatement statement = conn.prepareStatement(GET_TODAY_QUESTION)){
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION)){
             java.sql.Date current_date = new java.sql.Date(System.currentTimeMillis());
             statement.setString(1, current_date.toString());
 
@@ -179,7 +168,7 @@ public class DBModule {
                 ResultSet rs = statement.getResultSet();
 
                 if (!rs.isBeforeFirst()) {
-                    try (PreparedStatement statement1 = conn.prepareStatement(GET_TODAY_QUESTION_PUBLISHING_TIME)) {
+                    try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION_PUBLISHING_TIME)) {
                         statement1.setDate(1, current_date);
 
                         if (statement1.execute()) {
@@ -221,7 +210,7 @@ public class DBModule {
         try (PreparedStatement statement = conn.prepareStatement("set @row_number = 0")) {
             statement.execute();
 
-            try (PreparedStatement statement1 = conn.prepareStatement(GET_STREAK)) {
+            try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_STREAK)) {
                 statement1.setInt(1, userId);
     
                 if (statement1.execute()) {
@@ -242,8 +231,59 @@ public class DBModule {
     }
     //get streak end.
 
+
+    public TestCases getTodayQuestionTestCases() {
+        TestCases testCases = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION_TEST_CASES)){
+            java.sql.Date current_date = new java.sql.Date(System.currentTimeMillis());
+            statement.setDate(1, current_date);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                if (!rs.isBeforeFirst()) {
+                    error = "No today question available.";
+                }
+                else {
+                    int size = 0;
+                    try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_TEST_CASES_COUNT)) {
+                        statement1.setDate(1, current_date);
+
+                        if (statement1.execute()) {
+                            ResultSet rs1 = statement1.getResultSet();
+
+                            if (rs1.next()) {
+                                size = rs1.getInt(1);
+                            }
+                            rs1.close();
+                        }
+                    }
+
+                    String[] input = new String[size], output = new String[size];
+                    
+                    int i=0;
+                    while (rs.next()) {
+                        input[i++] = rs.getString("input_value");
+                        output[i++] = rs.getString("expexted_value");
+                    }
+                    testCases = new TestCases(input, output);
+                }
+                rs.close();
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return testCases;
+    }
+
     public String getError() {
         return error;
+    }
+
+    public boolean hasError() {
+        return error != null;
     }
 
     public boolean hasPublishingTime() {

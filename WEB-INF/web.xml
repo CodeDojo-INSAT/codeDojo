@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <listener-class>com.zs.codeDojo.models.config.Config</listener-class>
+    </listener>
+
+    <!-- dailyQuestions section start -->
+    <servlet>
+        <servlet-name>getQuestion</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.GetQuestion</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getQuestion</servlet-name>
+        <url-pattern>/services/getQuestion.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>postQuestion</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.PostQuestion</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>postQuestion</servlet-name>
+        <url-pattern>/services/postQuestion.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getStreak</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.GetUserStreak</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getStreak</servlet-name>
+        <url-pattern>/services/getUserStreak.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>submitAnswer</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.CheckAnswer</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>submitAnswer</servlet-name>
+        <url-pattern>/services/submitAnswer.dojo</url-pattern>
+    </servlet-mapping>
+    <!-- dailyQuestions section end  -->
+
+    
+
+</web-app>
