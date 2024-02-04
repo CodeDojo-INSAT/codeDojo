@@ -1,7 +1,6 @@
 package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ public class GetUserStreak extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
 
-        DBModule dbModule = new DBModule((Connection) context.getAttribute("conn"));
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
         int streak = dbModule.getStreakForUser(1);
 

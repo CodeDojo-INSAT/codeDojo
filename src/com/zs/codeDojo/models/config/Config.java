@@ -16,6 +16,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.zs.codeDojo.models.DAO.DBConnection;
+import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.properties.Properties;
 import com.zs.codeDojo.properties.SQLQueries;
@@ -35,7 +36,7 @@ public class Config implements ServletContextListener {
 
         Connection conn = new DBConnection().getConnection();
 
-        context.setAttribute("conn", conn);
+        context.setAttribute("db", new DBModule(conn));
         context.setAttribute("streams", streams);
 
         try {

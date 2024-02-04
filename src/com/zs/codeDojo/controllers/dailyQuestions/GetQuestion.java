@@ -1,7 +1,6 @@
 package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,10 +16,9 @@ import com.zs.codeDojo.models.dailyQuestions.Question;
 public class GetQuestion extends HttpServlet { 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
-        Connection conn = (Connection) context.getAttribute("conn");
 
         JSONObject json = new JSONObject();
-        DBModule dbModule = new DBModule(conn);
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
         if (dbModule.fetchTodayQuestion()) {
             Question todayQuestion = dbModule.getTodayQuestion();

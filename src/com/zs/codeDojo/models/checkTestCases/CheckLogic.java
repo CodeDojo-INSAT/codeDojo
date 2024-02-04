@@ -17,7 +17,7 @@ import com.zs.codeDojo.models.DAO.TestCases;
 public class CheckLogic {
     private final Class<?> clazz;
     private final TestCases tc;
-    private final IOStreams streams;
+    private final IOStreams streams;    
     private byte[] res;
     private String message = null;
     private String error = null;

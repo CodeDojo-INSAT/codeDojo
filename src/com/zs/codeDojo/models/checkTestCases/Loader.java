@@ -2,19 +2,20 @@ package com.zs.codeDojo.models.checkTestCases;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.tools.*;
 
-public class LoadClass {
+public class Loader {
     private final String qualifiedClassName;
     private final String sourceCode;
 
 
-    public LoadClass (String name, String source) {
-        qualifiedClassName = name;
+    public Loader (String source) {
+        qualifiedClassName = findMainClass(source);
         sourceCode = source;
     }
-
 
     public Class<?> compileAndLoadClass() throws IOException {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
@@ -74,5 +75,18 @@ public class LoadClass {
     private Iterable<? extends JavaFileObject> getCompilationUnit(String classname) {
         JavaSourceFromString source = new JavaSourceFromString(classname, this.sourceCode);
         return Arrays.asList(source);
+    }
+
+    private String findMainClass(String code) {
+        String mainClassName = null;
+        Pattern pattern = Pattern.compile("(?<=public class )[A-Z][a-zA-Z]*");
+
+        Matcher matcher = pattern.matcher(code);
+
+        if (matcher.find()) {
+            mainClassName = matcher.group();
+        }
+
+        return mainClassName;
     }
 }

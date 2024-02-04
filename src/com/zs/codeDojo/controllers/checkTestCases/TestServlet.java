@@ -14,15 +14,14 @@ import org.json.JSONObject;
 import com.zs.codeDojo.models.DAO.IOStreams;
 // import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
-import com.zs.codeDojo.models.checkTestCases.LoadClass;
+import com.zs.codeDojo.models.checkTestCases.Loader;
 // import com.zs.codeDojo.models.checkTestCases.LoadTestCases;
 
 public class TestServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String javaCode = processInput(request).getString("code");
 
-        LoadClass loader = new LoadClass("Test", javaCode);
-        Class<?> clazz = loader.compileAndLoadClass();
+        Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
 
         // TestCases tc = new LoadTestCases(6).load();
 

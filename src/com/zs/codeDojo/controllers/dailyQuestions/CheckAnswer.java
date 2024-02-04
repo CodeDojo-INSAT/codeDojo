@@ -1,7 +1,6 @@
 package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.Scanner;
 
 import javax.servlet.ServletContext;
@@ -16,20 +15,18 @@ import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
-import com.zs.codeDojo.models.checkTestCases.LoadClass;
+import com.zs.codeDojo.models.checkTestCases.Loader;
 
 public class CheckAnswer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JSONObject json = processRequest(request);
-        
         String javaCode = json.getString("code");
 
-        LoadClass loader = new LoadClass("Test", javaCode);
-        Class<?> clazz = loader.compileAndLoadClass();
+        Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
 
         json.clear();
         ServletContext context = getServletContext();
-        DBModule dbModule = new DBModule((Connection) context.getAttribute("conn"));
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
         TestCases testCases = null;
         if ((testCases = dbModule.getTodayQuestionTestCases()) != null) {

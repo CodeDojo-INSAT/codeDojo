@@ -185,16 +185,17 @@ public class DBModule {
                         }
                     }
                 }
+                else {
+                    while (rs.next()) {
+                        String title = rs.getString("title");
+                        String description = rs.getString("description");
 
-                while (rs.next()) {
-                    String title = rs.getString("title");
-                    String description = rs.getString("description");
+                        todayQuestion = new Question(title, description);
+                    }
+                    rs.close();
 
-                    todayQuestion = new Question(title, description);
+                    status = true;
                 }
-                rs.close();
-
-                status = true;
             }
         }
         catch (SQLException sqlEx) {

@@ -1,7 +1,6 @@
 package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.Scanner;
 
 import javax.servlet.ServletContext;
@@ -19,9 +18,8 @@ public class PostQuestion extends HttpServlet {
         JSONObject json = processRequest(request);
 
         ServletContext context = getServletContext();
-        Connection conn = (Connection) context.getAttribute("conn");
-        System.out.println("conn " + conn);
-        DBModule dbModule = new DBModule(conn);
+        
+        DBModule dbModule = (DBModule) context.getAttribute("db");
         
         boolean status = dbModule.addQuestion(json, json.has("testCases"));
 
