@@ -4,6 +4,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "/opt/apache/lib/servlet-api.jar",
-        "/opt/lib/json-20231013.jar"
+        "/opt/lib/json-20231013.jar",
+        "/opt/lib/javaparser-core-3.25.7.jar"
     ]
 }

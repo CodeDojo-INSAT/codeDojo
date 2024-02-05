@@ -13,7 +13,7 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
 
 ## Available api's
 
-- Dailyquestions Api's
+- Daily questions Api's
     - /services/submitAnswer.dojo
     - /services/getUserStreak.dojo
     - /services/postQuestion.dojo

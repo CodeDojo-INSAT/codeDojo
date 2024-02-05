@@ -51,5 +51,25 @@
     <!-- dailyQuestions section end  -->
 
     
+    <!-- main section start -->
+    
+    <servlet>
+        <servlet-name>checkAnswerWithChecker</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.main.CheckQuestion</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>checkAnswerWithChecker</servlet-name>
+        <url-pattern>/services/checkAnswer.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getQuestionAndDescription</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.main.GetQuest</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getQuestionAndDescription</servlet-name>
+        <url-pattern>/services/getQuestionAndDesc.dojo</url-pattern>
+    </servlet-mapping>
 </web-app>

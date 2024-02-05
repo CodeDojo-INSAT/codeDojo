@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -40,7 +41,7 @@ public class Config implements ServletContextListener {
         context.setAttribute("streams", streams);
 
         try {
-            System.setErr(new PrintStream(new FileOutputStream(Properties.logPath)));
+            System.setErr(new PrintStream(new FileOutputStream(Properties.logPath, true))); 
 
             deleteOldEventsAndProcedures(conn);
             createProcedure(conn);
@@ -90,16 +91,26 @@ public class Config implements ServletContextListener {
     }
 
     private boolean deleteOldEventsAndProcedures(Connection conn) {
-        try (Statement statement = conn.createStatement()){
-            if (statement.executeUpdate(SQLQueries.DELETE_PROCEDURE) != 0)  {
-                if (statement.executeUpdate(SQLQueries.DELETE_EVENT) != 0) {
-                    return true;
-                }
+        boolean status = false;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.DELETE_PROCEDURE)){
+            conn.setAutoCommit(false);
+            if (statement.execute())  {
+                try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.DELETE_EVENT)) {
+                    if (statement.execute()) {
+                        status = true;
+                    }
+                } 
             }
+            conn.commit();
         }
         catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             ex.printStackTrace();
         }
-        return false;
+        return status;
     }
 }

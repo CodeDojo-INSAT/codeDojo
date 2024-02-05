@@ -21,15 +21,14 @@ public class CheckAnswer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JSONObject json = processRequest(request);
         String javaCode = json.getString("code");
-
-        Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
-
+        
         json.clear();
         ServletContext context = getServletContext();
         DBModule dbModule = (DBModule) context.getAttribute("db");
-
+        
         TestCases testCases = null;
         if ((testCases = dbModule.getTodayQuestionTestCases()) != null) {
+            Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
             CheckLogic logicChecker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
             json.put("res", logicChecker.getResult());
@@ -38,7 +37,8 @@ public class CheckAnswer extends HttpServlet {
             }
         }
         else {
-            json.put("error", dbModule.getError());
+            if (dbModule.hasError())
+                json.put("error", dbModule.getError());
         }
 
         response.getWriter().write(json.toString());

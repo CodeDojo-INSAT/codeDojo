@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
-import com.zs.codeDojo.models.dailyQuestions.Question;
+import com.zs.codeDojo.models.DAO.Question;
 
 public class GetQuestion extends HttpServlet { 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

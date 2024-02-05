@@ -1,4 +1,4 @@
-package com.zs.codeDojo.models.dailyQuestions;
+package com.zs.codeDojo.models.DAO;
 
 public class Question {
     private final String title;

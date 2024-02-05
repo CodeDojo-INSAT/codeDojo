@@ -20,4 +20,13 @@ public class SQLQueries {
     public static final String GET_TODAY_QUESTION_TEST_CASES = "SELECT input_value, expected_value FROM TestCases WHERE question_id = ("
                                                              + "SELECT question_id FROM Questions, schedule_questions AS s WHERE s.publish_date = ? AND s.is_published = 'Y')";
     public static final String GET_TEST_CASES_COUNT = "SELECT count(*) FROM (" + GET_TODAY_QUESTION_TEST_CASES + ") AS t";
+
+    public static final String INSERT_QUERY = "INSERT INTO questions VALUES(?, ?, ?)";
+    public static final String READ_QUERY = "SELECT description, questionCode FROM questions WHERE level = ?";
+
+    public static final String GET_TYPE_OF_QUESTION = "SELECT checkerId FROM QCheckerRelation WHERE level = ?";
+    public static final String GET_CHECKER_CLASS_NAME = "SELECT class_name FROM checkers WHERE id = ?";
+
+    public static final String GET_TEST_CASES_CHECKER = "SELECT input_value, expected_value FROM testcases_checker WHERE question_id = ?";
+    public static final String GET_TEST_CASES_CHECKER_COUNT = "SELECT count(*) FROM (" + GET_TEST_CASES_CHECKER + ") AS t";
 }

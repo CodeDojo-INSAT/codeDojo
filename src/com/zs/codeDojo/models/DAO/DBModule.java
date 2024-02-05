@@ -12,7 +12,6 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.zs.codeDojo.models.dailyQuestions.Question;
 import com.zs.codeDojo.properties.SQLQueries;
 
 public class DBModule {
@@ -27,7 +26,6 @@ public class DBModule {
     }
 
     // start post Question
-
     public boolean addQuestion(JSONObject json, boolean withTestCases) {
         JSONObject question = json.getJSONObject("question");
         boolean status = false;
@@ -89,19 +87,24 @@ public class DBModule {
     private boolean publishQuestion(int questionId, JSONObject json) throws SQLException {
         boolean status = false;
         boolean publishNow = json.getBoolean("publish_now");
-        String publishDate = null, publishTime = null;
+        java.sql.Date publishDate = null;
+        java.sql.Time publishTime = null;
 
         if (!publishNow) {
-            publishDate = json.getString("publish_date");
-            publishTime = json.getString("publish_time");
+            publishDate = sqlDate(json.getString("publish_date"));
+            publishTime = sqlTime(json.getString("publish_time"));
+        }
+        else {
+            publishDate = new java.sql.Date(System.currentTimeMillis());
+            publishTime = new java.sql.Time(System.currentTimeMillis());
         }
         
         PreparedStatement statement = conn.prepareStatement(SQLQueries.PUBLISH_QUESTION);
         statement.setInt(1, getLastId("schedule_questions"));
         statement.setInt(2, questionId);
         statement.setString(3, publishNow ? "Y" : "N");
-        statement.setDate(4, sqlDate(publishDate));
-        statement.setTime(5, sqlTime(publishTime));
+        statement.setDate(4, publishDate);
+        statement.setTime(5, publishTime);
 
         if (statement.executeUpdate() != 0) {
             status = true;
@@ -264,8 +267,8 @@ public class DBModule {
                     
                     int i=0;
                     while (rs.next()) {
-                        input[i++] = rs.getString("input_value");
-                        output[i++] = rs.getString("expexted_value");
+                        input[i] = rs.getString("input_value");
+                        output[i++] = rs.getString("expected_value");
                     }
                     testCases = new TestCases(input, output);
                 }
@@ -278,6 +281,129 @@ public class DBModule {
 
         return testCases;
     }
+
+
+    //main
+    public Question readContentFromDatabase(int level) {
+        String description = null;
+        String code = null;
+        try (PreparedStatement preparedStatement = conn.prepareStatement(SQLQueries.READ_QUERY)) {
+            preparedStatement.setInt(1, level);
+
+            if (preparedStatement.execute()){
+                
+                ResultSet res = preparedStatement.getResultSet();
+                while (res.next()) {
+                    description = res.getString(1);
+                    code = res.getString(2);
+                }
+    
+                res.close();
+            } else {
+                System.out.println("Results not found");
+            }
+
+        } catch (SQLException psEx) {
+            psEx.printStackTrace();
+        }
+        return new Question(description, code);
+    }
+
+    public void writeContentToDatabase(int level, String description, String code) {
+        try (PreparedStatement preparedStatement = conn.prepareStatement(SQLQueries.INSERT_QUERY)) {
+            preparedStatement.setInt(1, level);
+            preparedStatement.setString(2, description);
+            preparedStatement.setString(3, code);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            System.err.println("Rows affected: " + rowsAffected);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+        }
+    }
+
+    public int getTypeOfQuestion(int level) {
+        int type = 0;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TYPE_OF_QUESTION)) {
+            statement.setInt(1, level);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                while (rs.next()) {
+                    type = rs.getInt(1);
+                }
+
+                rs.close();
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return type;
+    }
+
+
+    public String getClassNameOfType(int type) {
+        String className = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_CHECKER_CLASS_NAME)) {
+            statement.setInt(1, type);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                while (rs.next()) {
+                    className = rs.getString("class_name");
+                }
+
+                rs.close();
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return className;
+    }
+
+    public TestCases getTestCases(int level) {
+        TestCases testCases = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TEST_CASES_CHECKER)) {
+            statement.setInt(1, level);
+
+            if (statement.execute()) {
+                int size = 0;
+                try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_TEST_CASES_CHECKER_COUNT)) {
+                    statement1.setInt(1, level);
+
+                    if (statement1.execute()) {
+                        ResultSet rs1 = statement1.getResultSet();
+
+                        while (rs1.next()) {
+                            size = rs1.getInt(1);
+                        }
+                        rs1.close();
+                    }
+                }
+                ResultSet rs = statement.getResultSet();
+
+                String[] input = new String[size], output = new String[size];
+                int i=0;
+                while (rs.next()) {
+                    input[i] = rs.getString("input_value");
+                    output[i++] = rs.getString("expected_value");
+                }
+                rs.close();
+
+                testCases = new TestCases(input, output);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return testCases;
+    } 
 
     public String getError() {
         return error;
