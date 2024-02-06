@@ -25,6 +25,7 @@ import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
+import com.zs.codeDojo.models.main.JavaFileCompile;
 
 public class CheckQuestion extends HttpServlet {
     private PrintWriter writer = null;
@@ -68,12 +69,19 @@ public class CheckQuestion extends HttpServlet {
             TestCases testCases = dbModule.getTestCases(level);
             
             if (testCases != null) {
-                Class<?> clazz = new Loader(javaCodeString).compileAndLoadClass();
-                CheckLogic checker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
+                Loader loader = new Loader(javaCodeString);
+                Class<?> clazz = loader.compileAndLoadClass();
+                
+                if (clazz == null) {
+                    jsonObject.put("compilationError", loader.getError());
+                }
+                else {
+                    CheckLogic checker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
-                jsonObject.put("res", checker.getResult());
-                if (!checker.isMatched()) {
-                    jsonObject.put("message", checker.getMessage());
+                    jsonObject.put("res", checker.getResult());
+                    if (!checker.isMatched()) {
+                        jsonObject.put("message", checker.getMessage());
+                    }
                 }
             } 
             else {

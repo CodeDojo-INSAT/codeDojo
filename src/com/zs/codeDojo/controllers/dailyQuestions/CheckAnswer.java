@@ -28,12 +28,19 @@ public class CheckAnswer extends HttpServlet {
         
         TestCases testCases = null;
         if ((testCases = dbModule.getTodayQuestionTestCases()) != null) {
-            Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
-            CheckLogic logicChecker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
+            Loader loader = new Loader(javaCode);
+            Class<?> clazz = loader.compileAndLoadClass();
 
-            json.put("res", logicChecker.getResult());
-            if (!logicChecker.isMatched()) {
-                json.put("message", logicChecker.getMessage());
+            if (clazz == null) {
+                json.put("compilationError", loader.getError());
+            }
+            else {
+                CheckLogic logicChecker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
+
+                json.put("res", logicChecker.getResult());
+                if (!logicChecker.isMatched()) {
+                    json.put("message", logicChecker.getMessage());
+                }
             }
         }
         else {

@@ -10,6 +10,7 @@ import javax.tools.*;
 public class Loader {
     private final String qualifiedClassName;
     private final String sourceCode;
+    private String error = null;
 
 
     public Loader (String source) {
@@ -21,7 +22,7 @@ public class Loader {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 
         if (compiler == null) {
-            System.out.println("Compiler is null");
+            System.err.println("\n\nCompiler is null\n");
             return null;
         }
 
@@ -34,19 +35,26 @@ public class Loader {
 
         JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, null, null, null, getCompilationUnit(qualifiedClassName));
 
-        if (!task.call()) {
-            dc.getDiagnostics().forEach(System.out::println);
+        boolean compilationStatus = task.call();
+        Class<?> clazz = null;
+
+        if (!compilationStatus) {
+            error = "";
+            for (Diagnostic<? extends JavaFileObject> diagnostic: dc.getDiagnostics()) {
+                error += diagnostic.toString().substring(1);
+            }
+        }
+        else {
+            try {
+                clazz = loadClass(byteObject);
+            }
+            catch (ClassNotFoundException | IllegalArgumentException | SecurityException e) {
+                e.printStackTrace();
+            }
         }
         fileManager.close();
-
-        Class<?> $ = null;
-        try {
-            $ = loadClass(byteObject);
-        }
-        catch (ClassNotFoundException | IllegalArgumentException | SecurityException e) {
-            e.printStackTrace();
-        }
-        return $;
+        
+        return clazz;
     }
 
     private Class<?> loadClass(JavaByteObject byteObject) throws ClassNotFoundException {
@@ -64,7 +72,7 @@ public class Loader {
     }
 
     private ClassLoader createClassLoader(JavaByteObject byteObject) {
-        return new ClassLoader(){
+        return new ClassLoader() {
             @Override
             public Class<?> findClass(String name) throws ClassNotFoundException {
                 return defineClass(name, byteObject.getBytes(), 0, byteObject.getBytes().length);
@@ -88,5 +96,9 @@ public class Loader {
         }
 
         return mainClassName;
+    }
+
+    public String getError() {
+        return error;
     }
 }

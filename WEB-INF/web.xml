@@ -72,4 +72,88 @@
         <servlet-name>getQuestionAndDescription</servlet-name>
         <url-pattern>/services/getQuestionAndDesc.dojo</url-pattern>
     </servlet-mapping>
+
+    <!-- main section end -->
+
+    <!-- auth section start -->
+    <servlet>
+        <servlet-name>getName</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.GetName</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getName</servlet-name>
+        <url-pattern>/services/getName.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.Home</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/services/home.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginSubmit</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.Login</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginSubmit</servlet-name>
+        <url-pattern>/services/login.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.LogOut</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/services/logout.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signupSubmit</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.Signup</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>signupSubmit</servlet-name>
+        <url-pattern>/services/signup.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signupPage</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.SignupPage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>signupPage</servlet-name>
+        <url-pattern>/services/signupPage.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>verify</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.Verify</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>verify</servlet-name>
+        <url-pattern>/services/generateOtp.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>verifySubmit</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.auth.VerifySubmit</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>verifySubmit</servlet-name>
+        <url-pattern>/services/verifyOtp.dojo</url-pattern>
+    </servlet-mapping>
+    <!-- auth section end -->
 </web-app>

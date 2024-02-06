@@ -15,31 +15,33 @@ import com.zs.codeDojo.models.DAO.IOStreams;
 // import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
-// import com.zs.codeDojo.models.checkTestCases.LoadTestCases;
 
 public class TestServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String javaCode = processInput(request).getString("code");
 
-        Class<?> clazz = new Loader(javaCode).compileAndLoadClass();
-
-        // TestCases tc = new LoadTestCases(6).load();
-
-        ServletContext context = getServletContext();
-        CheckLogic obj = new CheckLogic(clazz, null, (IOStreams) context.getAttribute("streams"));    
+        Loader loader = new Loader(javaCode);
+        Class<?> clazz = loader.compileAndLoadClass();
 
         JSONObject json = new JSONObject();
-
-        if (obj.hasError()) {
-            json.put("error", obj.getError());
+        if (clazz == null) {
+            json.put("compilationError", loader.getError());
         }
         else {
-            json.put("res", obj.getResultWithExecTime());
-            if (!obj.isMatched()) {
-                json.put("message", obj.getMessage());
+            // TestCases tc = new LoadTestCases(6).load();
+            ServletContext context = getServletContext();
+            CheckLogic obj = new CheckLogic(clazz, null, (IOStreams) context.getAttribute("streams"));    
+
+            if (obj.hasError()) {
+                json.put("error", obj.getError());
+            }
+            else {
+                json.put("res", obj.getResultWithExecTime());
+                if (!obj.isMatched()) {
+                    json.put("message", obj.getMessage());
+                }
             }
         }
-
         response.getWriter().write(json.toString());
     }
 
