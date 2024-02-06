@@ -1,11 +1,7 @@
 package com.zs.codeDojo.models.checkers;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-// import java.util.ArrayList;
 import java.util.List;
-
-// import org.json.JSONObject;
 
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
