@@ -23,11 +23,10 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
     - /services/getQuestionAndDesc.dojo
     - /services/checkAnswer.dojo
 - Auth api's
-    - /services/getName.dojo
-    - /services/home.dojo
+    - /auth/home
+    - /auth/signup
+    - /auth/logout
     - /services/login.dojo
-    - /services/logout.dojo
     - /services/signup.dojo
-    - /services/signupPage.dojo
     - /services/generateOtp.dojo
     - /services/verifyOtp.dojo
