@@ -3,8 +3,8 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
 	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:75)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:49)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
@@ -18,13 +18,15 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+mark
+knock knock
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
 	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:75)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:49)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
@@ -38,3 +40,4 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+markmarkmadhukar03@gmail.comMarkMadhukar
