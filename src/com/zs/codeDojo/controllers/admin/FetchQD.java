@@ -20,6 +20,7 @@ public class FetchQD extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int level = Integer.parseInt(request.getParameter("level"));
         ServletContext context = getServletContext();
+        response.setContentType("application/json");
 
         Question question = null;
         DBModule dbModule;

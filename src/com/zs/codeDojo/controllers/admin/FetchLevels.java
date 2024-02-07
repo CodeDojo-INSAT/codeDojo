@@ -17,6 +17,7 @@ public class FetchLevels extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int levels = -1;
         ServletContext context = getServletContext();
+        response.setContentType("application/json");
 
         try {
             DBModule dbModule = (DBModule) context.getAttribute("db");

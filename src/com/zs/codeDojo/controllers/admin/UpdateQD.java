@@ -28,19 +28,22 @@ public class UpdateQD extends HttpServlet {
         int level = Integer.parseInt(jsonObject.getString("level"));
 
         DBModule dbModule = null;
+        jsonObject.clear();
         try {
             dbModule = (DBModule) context.getAttribute("db");
 
             if (!dbModule.updateLevel(desc, quest, level)) {
-                return;
+                jsonObject.put("status", false);
             }
         }
         catch (Exception sqlEx) {
             sqlEx.printStackTrace();
         }
 
-        response.setContentType("text/html");
-        response.getWriter().println("success");
+        response.setContentType("application/json");
+        jsonObject.put("status", true);
+        
+        response.getWriter().write(jsonObject.toString());
     }
 
     public String processRequest(HttpServletRequest request) throws IOException {

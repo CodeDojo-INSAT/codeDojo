@@ -18,6 +18,7 @@ import com.zs.codeDojo.models.checkTestCases.Loader;
 
 public class TestServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
         String javaCode = processInput(request).getString("code");
 
         Loader loader = new Loader(javaCode);

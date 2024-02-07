@@ -16,6 +16,7 @@ import com.zs.codeDojo.models.DAO.DBModule;
 public class PostQuestion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JSONObject json = processRequest(request);
+        response.setContentType("application/json");
 
         ServletContext context = getServletContext();
         

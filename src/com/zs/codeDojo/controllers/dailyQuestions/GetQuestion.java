@@ -16,6 +16,7 @@ import com.zs.codeDojo.models.DAO.Question;
 public class GetQuestion extends HttpServlet { 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
+        response.setContentType("application/json");
 
         JSONObject json = new JSONObject();
         DBModule dbModule = (DBModule) context.getAttribute("db");

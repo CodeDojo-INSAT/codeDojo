@@ -27,19 +27,21 @@ public class UploadQD extends HttpServlet {
         int[] checkerIds = convertJsonToIntArray(checkers);
 
         DBModule dbModule = null;
+        jsonObject.clear();
         try {
             dbModule = (DBModule) context.getAttribute("db");
 
             if (!dbModule.uploadLevel(desc, question, checkerIds)) {
-                return;
+                jsonObject.put("status", false);
             }
         }
         catch (Exception sqlEx) {
             sqlEx.printStackTrace();
-            return;
         }
+        jsonObject.put("status", true);
+        response.setContentType("application/json");
 
-        response.getWriter().println("success");
+        response.getWriter().write(jsonObject.toString());
     }
 
     private int[] convertJsonToIntArray(JSONArray source) {

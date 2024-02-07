@@ -20,6 +20,8 @@ import com.zs.codeDojo.models.checkTestCases.Loader;
 public class CheckAnswer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JSONObject json = processRequest(request);
+        response.setContentType("application/json");
+        
         String javaCode = json.getString("code");
         
         json.clear();

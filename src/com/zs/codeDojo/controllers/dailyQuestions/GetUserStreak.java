@@ -15,6 +15,7 @@ import com.zs.codeDojo.models.DAO.DBModule;
 public class GetUserStreak extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
+        response.setContentType("application/json");
 
         DBModule dbModule = (DBModule) context.getAttribute("db");
 
