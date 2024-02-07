@@ -5,7 +5,7 @@ public class SQLQueries {
     public static final String ADD_TEST_CASES_QUERY = "INSERT INTO TestCases VALUES(?, ?, ?, ?)";
     public static final String GET_LAST_ID_QUERY = "SELECT count(*) FROM ";
     public static final String PUBLISH_QUESTION = "INSERT INTO schedule_questions VALUES(?, ?, ?, ?, ?)";
-    public static final String GET_TODAY_QUESTION = "SELECT title, description FROM Questions, schedule_questions as s WHERE s.publish_date = ? and s.is_published = 'Y'";
+    public static final String GET_TODAY_QUESTION = "SELECT title, description FROM Questions, schedule_questions as s WHERE s.publish_date = ? AND s.is_published = 'Y'";
     public static final String GET_TODAY_QUESTION_PUBLISHING_TIME = "SELECT publish_time FROM schedule_questions WHERE publish_date = ?";
 
     public static final String GET_STREAK = "SELECT count(*) AS cnt FROM "
@@ -29,4 +29,16 @@ public class SQLQueries {
 
     public static final String GET_TEST_CASES_CHECKER = "SELECT input_value, expected_value FROM testcases_checker WHERE question_id = ?";
     public static final String GET_TEST_CASES_CHECKER_COUNT = "SELECT count(*) FROM (" + GET_TEST_CASES_CHECKER + ") AS t";
+
+    public static final String SELECT_USERNAME_PS = "SELECT * FROM Users WHERE username = ?;";
+
+    public static final String SELECT_VERIFY_CODE = "SELECT code FROM VerifyCodes WHERE email = ?";
+    public static final String CREATE_VERIFY_CODE = "INSERT INTO VerifyCodes VALUES (?, ?, ?);";
+    public static final String SELECT_EMAIL_PS = "SELECT * FROM Users WHERE email = ?;";
+    public static final String SELECT_USERNAME_PASS_PS = "SELECT * FROM Users WHERE username = ? AND password = ?";
+    public static final String INSERT_USER_PS = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)";
+    public static final String UPDATE_VERIFIED_PS = "UPDATE Users SET isVerified = ? WHERE email = ?";
+
+    public static final String DELETE_VERIFY_CODE = "DELETE FROM VerifyCodes WHERE email = ?";
+    public static final String SELECT_USER_DETAILS = "SELECT username, email, firstname, lastname, isVerified from Users where username = ?";
 }

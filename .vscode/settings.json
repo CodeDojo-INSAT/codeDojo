@@ -5,6 +5,8 @@
         "lib/**/*.jar",
         "/opt/apache/lib/servlet-api.jar",
         "/opt/lib/json-20231013.jar",
-        "/opt/lib/javaparser-core-3.25.7.jar"
+        "/opt/lib/javaparser-core-3.25.7.jar",
+        "/opt/lib/javax.mail.jar",
+        "/opt/lib/activation-1.1.1.jar"
     ]
 }

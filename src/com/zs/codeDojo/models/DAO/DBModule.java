@@ -5,13 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.zs.codeDojo.models.auth.AuthStatus;
 import com.zs.codeDojo.properties.SQLQueries;
 
 public class DBModule {
@@ -404,6 +407,231 @@ public class DBModule {
         }
         return testCases;
     } 
+
+    // main section end
+
+    // auth section start
+    public AuthStatus authenticate(User user){
+        try {
+            if (!isExistingUser(user)) {
+                return new AuthStatus("404");
+            }
+
+            PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_USERNAME_PASS_PS);
+            stmt.setString(1, user.getUsername());
+
+            stmt.setString(2, user.getPassword());
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new AuthStatus("200");
+            }
+            rs.close();
+            stmt.close();
+
+            return new AuthStatus("400");
+        }catch (SQLException e){
+            return new AuthStatus("406", e);
+        }
+    }
+
+    public boolean isExistingUser(User user) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_USERNAME_PS);
+        stmt.setString(1, user.getUsername());
+
+        ResultSet rs = stmt.executeQuery();
+
+        boolean status =  rs.next();
+        rs.close();
+        stmt.close();
+
+        return status;
+    }
+
+    public boolean isExistingUser(String user) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_USERNAME_PS);
+        stmt.setString(1, user);
+
+        ResultSet rs = stmt.executeQuery();
+
+        boolean status =  rs.next();
+        rs.close();
+        stmt.close();
+
+        return status;
+    }
+
+    public boolean isExistingEmail(User user) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_EMAIL_PS);
+        stmt.setString(1, user.getEmail());
+
+        ResultSet rs = stmt.executeQuery();
+
+        boolean status = rs.next();
+        rs.close();
+        stmt.close();
+
+        return status;
+    }
+
+    public boolean isExistingEmail(String email) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_EMAIL_PS);
+        stmt.setString(1, email);
+
+        ResultSet rs = stmt.executeQuery();
+
+        boolean status = rs.next();
+        rs.close();
+        stmt.close();
+
+        return status;
+    }
+
+    public AuthStatus createUser(User user){
+        try{
+            if (user.isEmpty()){
+                return new AuthStatus("405");
+            }
+
+            if (isExistingEmail(user)){
+                return new AuthStatus("402");
+            }
+
+            if (isExistingUser(user)) {
+                return new AuthStatus("401");
+            }
+
+
+            PreparedStatement stmt = conn.prepareStatement(SQLQueries.INSERT_USER_PS);
+
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.setString(4, user.getFirstName());
+            stmt.setString(5, user.getLastName());
+            stmt.setString(6, String.valueOf(user.isVerified()));
+
+
+            if (stmt.executeUpdate() != 0) {
+                conn.commit();
+            }
+
+            stmt.close();
+            return new AuthStatus("201");
+        }catch (SQLException e){
+            try {
+                conn.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            return new AuthStatus("406", e);
+        }
+    }
+
+    public User getUser(String username) throws SQLException {
+        User user = null;
+        PreparedStatement stmt = conn.prepareStatement(SQLQueries.SELECT_USER_DETAILS);
+        stmt.setString(1, username);
+
+        ResultSet resultSet = stmt.executeQuery();
+        if (resultSet.isBeforeFirst()) {
+            resultSet.next();
+
+            user = new User(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    null,
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    Boolean.parseBoolean(resultSet.getString(5))
+            );
+        }
+        resultSet.close();
+        stmt.close();
+
+        return user;
+    }
+
+    public AuthStatus setVerified(User user) {
+        try {
+            PreparedStatement statement = conn.prepareStatement(SQLQueries.SELECT_EMAIL_PS);
+            statement.setString(1, user.getEmail());
+            ResultSet resultSet = statement.executeQuery();
+
+            if (!resultSet.next()){
+                return new AuthStatus("409");
+            }
+
+            statement = conn.prepareStatement(SQLQueries.UPDATE_VERIFIED_PS);
+
+            statement.setString(1, "true");
+            statement.setString(2, user.getEmail());
+
+            statement.execute();
+            conn.commit();
+            return new  AuthStatus("205");
+        }
+        catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ex.printStackTrace();
+        } 
+        return null;
+    }
+
+    public void createVerifyCode(User user, String code) {
+        try {
+            Timestamp instant= Timestamp.from(Instant.now());
+
+            PreparedStatement statement = conn.prepareStatement(SQLQueries.CREATE_VERIFY_CODE);
+
+            statement.setString(1, user.getEmail());
+            statement.setString(2, code);
+            statement.setString(3, instant.toString());
+
+            statement.execute();
+            conn.commit();
+        }
+        catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    public boolean verifyCodeExistsFor(User user) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(SQLQueries.SELECT_VERIFY_CODE);
+        statement.setString(1, user.getEmail());
+        ResultSet resultSet = statement.executeQuery();
+        return resultSet.next();
+    }
+
+    public String getVerifyCode(User user) throws SQLException {
+        PreparedStatement statement = conn.prepareStatement(SQLQueries.SELECT_VERIFY_CODE);
+        statement.setString(1, user.getEmail());
+        ResultSet resultSet = statement.executeQuery();
+
+        if(resultSet.next()){
+            return resultSet.getString(1);
+        }
+
+        return null;
+    }
+
+    public void deleteVerifyCode(User user) throws SQLException{
+        PreparedStatement statement = conn.prepareStatement(SQLQueries.DELETE_VERIFY_CODE);
+        statement.setString(1, user.getEmail());
+        statement.execute();
+    }
+
+    // auth section end
 
     public String getError() {
         return error;
