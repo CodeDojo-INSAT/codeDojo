@@ -41,4 +41,11 @@ public class SQLQueries {
 
     public static final String DELETE_VERIFY_CODE = "DELETE FROM VerifyCodes WHERE email = ?";
     public static final String SELECT_USER_DETAILS = "SELECT username, email, firstname, lastname, isVerified from Users where username = ?";
+
+    public static final String FETCH_LEVEL = "SELECT COUNT(*) FROM questions";
+    public static final String READ_Q_D = "SELECT description, questionCode FROM questions WHERE level = ?";
+    public static final String UPDATE_LEVEL = "UPDATE questions SET description = ?, questionCode = ? WHERE level = ?";
+    public static final String UPLOAD_LEVEL = "INSERT INTO questions VALUES(?, ?, ?)";
+    public static final String FETCH_CHECKER = "SELECT name FROM checkers";
+    public static final String CHECKER_RELATION = "INSERT INTO QCheckerRelation values(?, ?)";
 }

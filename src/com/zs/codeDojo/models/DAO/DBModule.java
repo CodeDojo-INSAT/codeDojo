@@ -26,6 +26,11 @@ public class DBModule {
 
     public DBModule(Connection conn) {
         this.conn = conn;
+        try {
+            conn.setAutoCommit(false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // start post Question
@@ -34,8 +39,6 @@ public class DBModule {
         boolean status = false;
 
         try (PreparedStatement statement = conn.prepareStatement(SQLQueries.ADD_QUESTION_QUERY)) {
-            conn.setAutoCommit(false);
-
             int questionId = getLastId("Questions");
             statement.setInt(1, questionId);
             statement.setString(2, question.getString("title"));
@@ -632,6 +635,130 @@ public class DBModule {
     }
 
     // auth section end
+
+    // admin section start
+    public int fetchLevels() {
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.FETCH_LEVEL)) {
+            ResultSet rs = statement.executeQuery();
+
+            rs.next();
+
+            int ret = rs.getInt(1);
+            rs.close();
+
+            return ret;
+        }
+        catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+            return -1;
+        }
+    }
+
+    public Question readQuestionFromDatabase(int level) {
+        String questionCode = null;
+        String description = null;
+
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.READ_Q_D)) {
+            statement.setInt(1, level);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+                rs.next();
+                
+                description = rs.getString(1);
+                questionCode = rs.getString(2);
+                rs.close();
+                return new Question(description, questionCode);
+            }   
+            else {
+                return null;
+            }
+        }
+        catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+            return null;
+        }
+    } 
+
+    public boolean updateLevel(String desc, String question, int level) {
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPDATE_LEVEL)) {
+            statement.setString(1, desc);
+            statement.setString(2, question);
+            statement.setInt(3, level);
+
+            boolean status = statement.executeUpdate() == 1;
+            
+            conn.commit();
+            return status;
+        }
+        catch (SQLException sqlEx) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            sqlEx.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean uploadLevel(String desc, String question, int[] checkers) {
+        boolean status = false;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPLOAD_LEVEL)) {
+            int currentLevel = fetchLevels();
+            statement.setInt(1, currentLevel+1);
+            statement.setString(2, desc);
+            statement.setString(3, question);
+
+            if (statement.executeUpdate() == 1) {
+                try (PreparedStatement statement2 = conn.prepareStatement(SQLQueries.CHECKER_RELATION)) {
+                    for (int i=0; i<checkers.length; i++) {
+                        statement2.setInt(1, currentLevel+1);
+                        statement2.setInt(2, checkers[i]);
+
+                        if (statement2.executeUpdate() != 1) {
+                            return false;
+                        }
+                    }
+                }
+                status = true;
+            }
+
+            conn.commit();
+            return status;
+        }
+        catch (SQLException sqlEx) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            sqlEx.printStackTrace();
+            return false;
+        }
+    }
+
+    public String fetchCheckers() {
+        String res = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.FETCH_CHECKER)) {
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                res = "[";
+                while (rs.next()) {
+                    String name = rs.getString(1);
+                    res += '"' + name + "\",";
+                }
+                res = res.substring(0, res.length()-1) + "]";
+                rs.close();
+            }
+        }
+        catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        }
+        return res;
+    }
+    // admin section end
 
     public String getError() {
         return error;

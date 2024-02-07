@@ -14,14 +14,14 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
 ## Available api's
 
 - Daily questions Api's
-    - /services/submitAnswer.dojo
-    - /services/getUserStreak.dojo
-    - /services/postQuestion.dojo
-    - /services/getQuestion.dojo
+    - /services/submit_answer.dojo
+    - /services/get_userstreak.dojo
+    - /services/post_question.dojo
+    - /services/get_question.dojo
 
 - Main app api's
-    - /services/getQuestionAndDesc.dojo
-    - /services/checkAnswer.dojo
+    - /services/get_question_description.dojo
+    - /services/check_answer.dojo
     
 - Auth api's
     - /auth/home
@@ -29,5 +29,12 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
     - /auth/logout
     - /services/login.dojo
     - /services/signup.dojo
-    - /services/generateOtp.dojo
-    - /services/verifyOtp.dojo
+    - /services/generate_otp.dojo
+    - /services/verify_otp.dojo
+
+- Admin api's
+    - /services/upload_course_questions.dojo
+    - /services/update_course_questions.dojo
+    - /services/fetch_course_questions.dojo
+    - /services/fetch_levels.dojo
+    - /services/fetch_checker.dojo
