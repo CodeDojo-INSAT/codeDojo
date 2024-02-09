@@ -14,27 +14,33 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
 ## Available api's
 
 - Daily questions Api's
-    - /services/submit_answer.dojo
-    - /services/get_userstreak.dojo
-    - /services/post_question.dojo
-    - /services/get_question.dojo
+    - /services/dq/submit_answer.dojo
+    - /services/dq/get_userstreak.dojo
+    - /services/dq/get_question.dojo
 
-- Main app api's
-    - /services/get_question_description.dojo
-    - /services/check_answer.dojo
+- Course api's
+    - /services/course/get_course_question.dojo
+    - /services/course/check_answer.dojo
     
 - Auth api's
     - /auth/home
     - /auth/signup
     - /auth/logout
-    - /services/login.dojo
-    - /services/signup.dojo
-    - /services/generate_otp.dojo
-    - /services/verify_otp.dojo
+    - /services/auth/login.dojo
+    - /services/auth/signup.dojo
+    - /services/auth/generate_otp.dojo
+    - /services/auth/verify_otp.dojo
 
 - Admin api's
-    - /services/upload_course_questions.dojo
-    - /services/update_course_questions.dojo
-    - /services/fetch_course_questions.dojo
-    - /services/fetch_levels.dojo
-    - /services/fetch_checker.dojo
+    - /services/admin/course/upload_course_questions.dojo
+    - /services/admin/course/update_course_questions.dojo
+    - /services/admin/course/fetch_course_questions.dojo
+    - /services/admin/course/fetch_levels.dojo
+    - /services/admin/course/fetch_checker.dojo
+
+    - /services/admin/dq/post_question.dojo
+    - /services/admin/dq/update_testcase.dojo
+    - /services/admin/dq/fetch_testcase.dojo
+    - /services/admin/dq/update_question.dojo
+    - /services/admin/dq/fetch_titles.dojo
+    - /services/admin/dq/delete_question.dojo
