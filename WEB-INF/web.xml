@@ -208,4 +208,60 @@
         <url-pattern>/services/upload_course_questions.dojo</url-pattern>
     </servlet-mapping>
     <!-- admin section end -->
+
+    <!-- Quizz section starts here  -->
+
+    <servlet>
+        <servlet-name>addQuiz</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.quizz.AddQuiz</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addQuiz</servlet-name>
+        <url-pattern>/services/admin/quiz/addQuiz.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>checkQuizAnswer</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.quizz.CheckAnswer</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>checkQuizAnswer</servlet-name>
+        <url-pattern>/services/quiz/checkAnswer.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteQuiz</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.quizz.DeleteQuiz</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteQuiz</servlet-name>
+        <url-pattern>/services/admin/quiz/deleteQuiz.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getQuizQuestions</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.quizz.GetQuestions</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getQuizQuestions</servlet-name>
+        <url-pattern>/services/quiz/getQuestions.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getQuiz</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.quizz.GetQuizzes</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getQuiz</servlet-name>
+        <url-pattern>/services/quiz/getqiz.dojo</url-pattern>
+    </servlet-mapping>
+
+    get
+
+
 </web-app>

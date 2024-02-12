@@ -2,11 +2,8 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "WEB-INF/classes",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "/opt/apache/lib/servlet-api.jar",
-        "/opt/lib/json-20231013.jar",
-        "/opt/lib/javaparser-core-3.25.7.jar",
-        "/opt/lib/javax.mail.jar",
-        "/opt/lib/activation-1.1.1.jar"
+        "WEB-INF/lib/**/*.jar",
+        "WEB-INF/lib/servlet-api.jar",
+        "/home/magesh/Documents/apache-tomcat-8.5.50/lib/servlet-api.jar"
     ]
 }

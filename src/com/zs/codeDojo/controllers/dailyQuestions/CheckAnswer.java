@@ -43,6 +43,11 @@ public class CheckAnswer extends HttpServlet {
                 if (!logicChecker.isMatched()) {
                     json.put("message", logicChecker.getMessage());
                 }
+                else{
+
+                    // push java code
+
+                }
             }
         }
         else {
