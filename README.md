@@ -49,5 +49,5 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
     - /services/admin/quiz/addQuiz.dojo `[Post]` 
     - /services/quiz/checkAnswer.dojo `[GET]`
     - /services/quiz/getQuestions.dojo `[GET]`
-    - /services/quiz/getqiz.dojo `[GET]`
+    - /services/quiz/getQuizzes.dojo `[GET]`
     - /services/admin/quiz/deleteQuiz.dojo `[GET]`
