@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 // import java.util.ArrayList;
 
 
-@WebServlet("/services/quiz/getQuizzes.dojo")
+// @WebServlet("/services/quiz/getQuizzes.dojo")
 public class GetQuizzes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
