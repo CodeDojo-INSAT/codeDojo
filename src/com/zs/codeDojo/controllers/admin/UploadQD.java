@@ -13,11 +13,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 
 
 public class UploadQD extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
         JSONObject jsonObject = new JSONObject(processRequest(request));
         ServletContext context = getServletContext();
 
@@ -26,28 +28,23 @@ public class UploadQD extends HttpServlet {
         JSONArray checkers = jsonObject.getJSONArray("checkers");
         int[] checkerIds = convertJsonToIntArray(checkers);
 
-        DBModule dbModule = null;
-        jsonObject.clear();
-        try {
-            dbModule = (DBModule) context.getAttribute("db");
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
-            if (!dbModule.uploadLevel(desc, question, checkerIds)) {
-                jsonObject.put("status", false);
-            }
+        JsonResponse jsonResponse = null;
+        if (!dbModule.uploadLevel(desc, question, checkerIds)) {
+            jsonResponse = new JsonResponse(false, "upload Question fails", null);
         }
-        catch (Exception sqlEx) {
-            sqlEx.printStackTrace();
+        else {
+            jsonResponse = new JsonResponse(true, "successfully uploaded", null);
         }
-        jsonObject.put("status", true);
-        response.setContentType("application/json");
 
-        response.getWriter().write(jsonObject.toString());
+        response.getWriter().print(jsonResponse);
     }
 
     private int[] convertJsonToIntArray(JSONArray source) {
         int[] arr = new int[source.length()];
         for (int i=0; i<source.length(); i++) {
-            arr[i] = Integer.valueOf(source.getString(i));
+            arr[i] = source.getInt(i);
         }
         return arr;
     }

@@ -12,7 +12,7 @@ import java.io.*;
 
 // @WebServlet("/signupSubmit")
 public class Signup extends HttpServlet {
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
         ServletContext context = getServletContext();
 

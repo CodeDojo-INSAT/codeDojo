@@ -9,42 +9,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
 
-public class PostQuestion extends HttpServlet {
+public class UpdateTestcase extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        JSONObject json = processRequest(request);
+        ServletContext context = getServletContext();
         response.setContentType("application/json");
 
-        ServletContext context = getServletContext();
-        
+        JSONObject json = processRequest(request);
+
+        JSONArray tcIds = json.getJSONArray("tcIds");
+        JSONArray inputs = json.getJSONArray("inputs");
+        JSONArray outputs = json.getJSONArray("outputs");
+
         DBModule dbModule = (DBModule) context.getAttribute("db");
-        
-        boolean status = dbModule.addQuestion(json, json.has("testCases"));
+        boolean status = true;
+        for (int i=0; i<tcIds.length(); i++) {
+            if (!dbModule.updateTestcases(tcIds.getInt(i), inputs.getString(i), outputs.getString(i), i==tcIds.length()-1)) {
+                status = false;
+                break;
+            }
+        }
 
         json.clear();
-        JsonResponse jsonResponse = null;
         
-        if (!status) {
-            json.put("error", dbModule.getError());
-            jsonResponse = new JsonResponse(false, "can't add question", json);
+        JsonResponse jsonResponse = null;
+        if (status) {
+            jsonResponse = new JsonResponse(true, "testcases updated", null);
         }
         else {
-            jsonResponse = new JsonResponse(true, "successfully added", null);
+            jsonResponse = new JsonResponse(false, "can't update testcases", null);
         }
-        
+
         response.getWriter().print(jsonResponse);
     }
 
     private JSONObject processRequest(HttpServletRequest req) throws IOException {
         Scanner sc = new Scanner(req.getInputStream());
-
+        
         String content = "";
         while (sc.hasNextLine()) {
-            content += sc.nextLine() + "\n";
+            content += sc.nextLine();
         }
         sc.close();
 

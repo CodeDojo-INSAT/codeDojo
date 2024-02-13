@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 
 public class GetUserStreak extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,10 +22,17 @@ public class GetUserStreak extends HttpServlet {
 
         int streak = dbModule.getStreakForUser(1);
 
-        JSONObject json = new JSONObject();
-        json.put("streak", streak);
+        JsonResponse jsonResponse = null;
+        if (streak >= 0) {
+            JSONObject json = new JSONObject();
+            json.put("streak", streak);
 
-        response.getWriter().write(json.toString());
+            jsonResponse = new JsonResponse(true, "User streak fetched", json);
+        }
+        else {
+            jsonResponse = new JsonResponse(false, "can't fetch user streak", null);
+        }
         
+        response.getWriter().print(jsonResponse);
     }
 }

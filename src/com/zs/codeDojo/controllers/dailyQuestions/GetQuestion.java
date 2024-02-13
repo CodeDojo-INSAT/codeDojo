@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.Question;
 
 public class GetQuestion extends HttpServlet { 
@@ -21,21 +22,25 @@ public class GetQuestion extends HttpServlet {
         JSONObject json = new JSONObject();
         DBModule dbModule = (DBModule) context.getAttribute("db");
 
+        JsonResponse jsonResponse = null;
         if (dbModule.fetchTodayQuestion()) {
             Question todayQuestion = dbModule.getTodayQuestion();
 
             json.put("title", todayQuestion.getTitle());
             json.put("description", todayQuestion.getDescription());
+
+            jsonResponse = new JsonResponse(true, "successfully fetched today question", json);
         }
         else {
             if (dbModule.hasPublishingTime()) {
                 json.put("publishing_time", dbModule.getPublishingTime());
+                jsonResponse = new JsonResponse(false, "question is not publish yet", json);
             }
             else {
-                json.put("error", "today question is not prepared yet.");
+                jsonResponse = new JsonResponse(false, "today have no question", null);
             }
         }
         
-        response.getWriter().write(json.toString());
+        response.getWriter().print(jsonResponse);
     }
 }

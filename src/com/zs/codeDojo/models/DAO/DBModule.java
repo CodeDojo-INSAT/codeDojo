@@ -33,7 +33,7 @@ public class DBModule {
         }
     }
 
-    // start post Question
+    // daily Question_start 
     public boolean addQuestion(JSONObject json, boolean withTestCases) {
         JSONObject question = json.getJSONObject("question");
         boolean status = false;
@@ -216,7 +216,7 @@ public class DBModule {
 
     //get streak start.
     public int getStreakForUser(int userId) {
-        int streak = 0;
+        int streak = -1;
         try (PreparedStatement statement = conn.prepareStatement("set @row_number = 0")) {
             statement.execute();
 
@@ -288,6 +288,127 @@ public class DBModule {
         return testCases;
     }
 
+    public boolean deleteQuestion(int id) {
+        boolean status = false;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.DELETE_QUESTION)) {
+            statement.setInt(1, id);
+
+            if (statement.executeUpdate() != 0) {
+                status = true;
+            }
+            conn.commit();
+        }
+        catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ex.printStackTrace();
+        }
+        return status;
+    }
+
+    public String[] fetchAllTitles() {
+        String[] res = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.FETCH_TITLES)) {
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                String content = "";
+                while (rs.next()) {
+                    content += rs.getString(1) + "#EOL#";
+                }
+                rs.close();
+
+                res = content.split("#EOL#");
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return res;
+    }
+
+    public boolean updateQuestion(int id, String title, String question) {
+        boolean status = false;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPDATE_QUESTION)) {
+            statement.setString(1, title);
+            statement.setString(2, question);
+            statement.setTime(3, new java.sql.Time(System.currentTimeMillis()));
+            statement.setInt(4, id);
+            
+
+            if (statement.executeUpdate() != 0) {
+                status = true;
+            }
+            conn.commit();
+        }
+        catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ex.printStackTrace();
+        }
+        return status;
+    }
+
+    public TestCases fetchTestCase(int id) {
+        TestCases testCases = null;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.FETCH_TESTCASE)) {
+            statement.setInt(1, id);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                String input = "";
+                String output = "";
+                String tcId = "";
+
+                while (rs.next()) {
+                    tcId += rs.getString("id") + "#eof#";
+                    input += rs.getString("input_value") + "#eof#";
+                    output += rs.getString("expected_value") + "#eof#";
+                }
+
+                testCases = new TestCases(input.split("#eof#"), output.split("#eof#"), tcId.split("#eof#"));
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return testCases;
+    }
+
+    public boolean updateTestcases(int tcId, String input, String output, boolean commit) {
+        boolean status = false;
+
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPDATE_TESTCASE)) {
+            statement.setString(1, input);
+            statement.setString(2, output);
+            statement.setInt(3, tcId);
+
+            if (statement.executeUpdate() != 0) {
+                status = true;
+            }
+
+            if (commit)
+                conn.commit();
+        }
+        catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ex.printStackTrace();
+        }
+        return status;
+    }
+    // daily question end
 
     //main
     public Question readContentFromDatabase(int level) {
@@ -738,25 +859,23 @@ public class DBModule {
         }
     }
 
-    public String fetchCheckers() {
-        String res = null;
+    public String[] fetchCheckers() {
+        String res = "";
         try (PreparedStatement statement = conn.prepareStatement(SQLQueries.FETCH_CHECKER)) {
             if (statement.execute()) {
                 ResultSet rs = statement.getResultSet();
 
-                res = "[";
                 while (rs.next()) {
                     String name = rs.getString(1);
-                    res += '"' + name + "\",";
+                    res += name + "#EOL#";
                 }
-                res = res.substring(0, res.length()-1) + "]";
                 rs.close();
             }
         }
         catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         }
-        return res;
+        return res.split("#EOL#");
     }
     // admin section end
 

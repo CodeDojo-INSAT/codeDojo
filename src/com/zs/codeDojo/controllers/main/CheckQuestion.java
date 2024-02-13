@@ -22,6 +22,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
@@ -36,6 +37,7 @@ public class CheckQuestion extends HttpServlet {
     private String javaCodeString;
     private int level;
     private JavaFileCompile compiler = null;
+    private JsonResponse jsonResponse = null;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +53,8 @@ public class CheckQuestion extends HttpServlet {
         String className = findMainClass(javaCodeString);
         
         if (className == null) {
-            (compilationError = new ErrorList()).add("Main class not found");
+            jsonResponse = new JsonResponse(false, "main class not found", null);
+            response.getWriter().print(jsonResponse);
             return ;
         }
         
@@ -63,7 +66,9 @@ public class CheckQuestion extends HttpServlet {
         jsonObject.clear();
 
         if (type == 0) {
-            writer.write(jsonObject.put("error", "this question doesn't have any checkers related").toString());
+            // writer.write(jsonObject.put("error", "this question doesn't have any checkers related").toString());
+            jsonResponse = new JsonResponse(false, "Question doesn't have relate to any checker", null);
+            writer.print(jsonResponse);
         }
         else if (type == 5) {
             TestCases testCases = dbModule.getTestCases(level);
@@ -73,21 +78,28 @@ public class CheckQuestion extends HttpServlet {
                 Class<?> clazz = loader.compileAndLoadClass();
                 
                 if (clazz == null) {
-                    jsonObject.put("compilationError", loader.getError());
+                    // jsonObject.put("compilationError", loader.getError());
+                    jsonResponse = new JsonResponse(false, "compilation error", loader.getError());
                 }
                 else {
                     CheckLogic checker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
-                    jsonObject.put("res", checker.getResult());
+                    // jsonObject.put("res", checker.getResult());
                     if (!checker.isMatched()) {
-                        jsonObject.put("message", checker.getMessage());
+                        // jsonObject.put("message", checker.getMessage());
+                        jsonResponse = new JsonResponse(false, "testcases not matched", checker.getResult());
                     }
+                    else {
+                        jsonResponse = new JsonResponse(true, "all testcases passed", checker.getResult());
+                    }
+
                 }
             } 
             else {
-                jsonObject.put("error", "it doesn't have any testcases");
+                // jsonObject.put("error", "it doesn't have any testcases");
+                jsonResponse = new JsonResponse(false, "question doesn't have any testcases", null);
             }
-            writer.write(jsonObject.toString());
+            writer.print(jsonResponse);
         }
         else {
             (compiler = new JavaFileCompile(className, javaCodeString, (compilationError = new ErrorList()) )).compileJava();
@@ -183,19 +195,26 @@ public class CheckQuestion extends HttpServlet {
             Field statusField = clazz.getDeclaredField("status");
 
             boolean status = (boolean) statusField.get(instance);
-            writeData(status, error);
+            
+            if (status) {
+                jsonResponse = new JsonResponse(status, "oops checked", null);
+            }
+            else {
+                jsonResponse = new JsonResponse(status, "can't check oops by checker", error.toArray());
+            }
+            writer.print(jsonResponse);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void writeData(boolean status, ErrorList errorList) {
-        jsonObject.put("status", status);
-        if (!status)
-            jsonObject.put("error", errorList.toString());
+    // private void writeData(boolean status, ErrorList errorList) {
+    //     jsonObject.put("status", status);
+    //     if (!status)
+    //         jsonObject.put("error", errorList.toString());
 
-        writer.println(jsonObject.toString());
-    }
+    //     writer.println(jsonObject.toString());
+    // }
 
     private String findMainClass(String code) {
         String mainClassName = null;

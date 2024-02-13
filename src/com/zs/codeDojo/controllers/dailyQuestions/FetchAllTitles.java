@@ -1,4 +1,4 @@
-package com.zs.codeDojo.controllers.admin;
+package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
 
@@ -8,37 +8,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
-import com.zs.codeDojo.models.DAO.Question;
 
-
-public class FetchQD extends HttpServlet {
-    @Override
+public class FetchAllTitles extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int level = Integer.parseInt(request.getParameter("level"));
         ServletContext context = getServletContext();
         response.setContentType("application/json");
 
-        Question question = null;
         DBModule dbModule = (DBModule) context.getAttribute("db");
-
-        question = dbModule.readQuestionFromDatabase(level);
+        
+        String[] title = dbModule.fetchAllTitles();
 
         JsonResponse jsonResponse = null;
-        if (question == null) {
-            jsonResponse = new JsonResponse(false, "Can't fetch questions", null);
+        if (title.length < 1) {
+            jsonResponse = new JsonResponse(false, "can't fetch titles", null);
         }
         else {
-            JSONObject json = new JSONObject();
-            json.put("description", question.getTitle());
-            json.put("code", question.getDescription());
-
-            jsonResponse = new JsonResponse(true, "successfully Fetched", json);
+            jsonResponse = new JsonResponse(true, "Titles fetched successfully", title);
         }
 
         response.getWriter().print(jsonResponse);
-    }
+    } 
 }

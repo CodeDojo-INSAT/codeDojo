@@ -1,7 +1,6 @@
 package com.zs.codeDojo.controllers.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,7 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 
 
 public class FetchLevels extends HttpServlet {
@@ -19,18 +21,21 @@ public class FetchLevels extends HttpServlet {
         ServletContext context = getServletContext();
         response.setContentType("application/json");
 
-        try {
-            DBModule dbModule = (DBModule) context.getAttribute("db");
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
-            levels = dbModule.fetchLevels();
+        levels = dbModule.fetchLevels();
+
+        JsonResponse jsonResponse = null;
+        if (levels > 1) {
+            JSONObject json = new JSONObject();
+            json.put("levels", levels);
+
+            jsonResponse = new JsonResponse(true, "Successfully levlels fetched", json);
         }
-        catch (Exception sqlEx) {
-            sqlEx.printStackTrace();
+        else {
+            jsonResponse = new JsonResponse(false, "Can't fetch levels", null);
         }
 
-        PrintWriter writer = response.getWriter();
-        writer.println("{'level':" + levels + "}");
-
-        writer.close();
+        response.getWriter().print(jsonResponse);
     }
 }

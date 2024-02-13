@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 // @WebServlet("/verify")
 public class Verify extends HttpServlet{
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
         ServletContext context = getServletContext();
 
