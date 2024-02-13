@@ -3,7 +3,5 @@
     "java.project.outputPath": "WEB-INF/classes",
     "java.project.referencedLibraries": [
         "WEB-INF/lib/**/*.jar",
-        "WEB-INF/lib/servlet-api.jar",
-        "/home/magesh/Documents/apache-tomcat-8.5.50/lib/servlet-api.jar"
     ]
 }
