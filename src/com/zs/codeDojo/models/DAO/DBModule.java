@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import com.zs.codeDojo.models.auth.AuthStatus;
 import com.zs.codeDojo.properties.SQLQueries;
 
+import com.zs.codeDojo.controllers.quizz.*;
 public class DBModule {
     private Connection conn = null;
 
@@ -878,6 +879,274 @@ public class DBModule {
         return res.split("#EOL#");
     }
     // admin section end
+
+    // Quiz section start 
+
+    public JSONObject getQuestions(String quizID){
+        JSONObject res = new JSONObject();
+        JSONObject info = getQuizInfo(quizID);
+
+        if (info != null && info.isEmpty()){
+            return res;
+        }
+
+        res.put("quizInfo", info);
+
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUESTIONS_MINMAL)){
+            stmt.setString(1, quizID);
+            JSONArray questions = new JSONArray();
+            if (stmt.execute()) {
+                ResultSet resSet = stmt.getResultSet();
+
+
+                while (resSet.next()) {
+                    JSONObject obj = new JSONObject();
+                    String questionID = resSet.getString(1);
+                    String questionText = resSet.getString(2);
+
+                    obj.put("questionID", questionID);
+                    obj.put("questionText", questionText);
+
+                    if (info.getString("quizType").equals("MCQ")) {
+                        obj.put("options", getOptions(quizID, questionID));
+                    }
+
+                    questions.put(obj);
+
+                }
+
+                res.put("questions", questions);
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    public JSONArray getOptions(String quizID, String questionsID){
+        JSONArray res = new JSONArray();
+        try(PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_OPTIONS_MINIMAL)) {
+            stmt.setString(1, quizID);
+            stmt.setString(2, questionsID);
+            ResultSet resSet = stmt.executeQuery();
+
+            while (resSet.next()){
+                JSONObject option = new JSONObject();
+                option.put("OptionID", resSet.getString(1));
+                option.put("OptionText", resSet.getString(2));
+
+                res.put(option);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    public Status deleteQuiz(String quizID){
+        Status status = null;
+        try(PreparedStatement stmt = conn.prepareStatement(SQLQueries.DELETE_QUIZ)) {
+            stmt.setString(1, quizID);
+            if (stmt.executeUpdate() == 1){
+                status =  new Status("802");
+            }else {
+                status =  new Status("410");
+            }
+            conn.commit();
+        }catch (SQLException e){
+            try {
+
+                conn.rollback();
+
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+            }
+            return new Status("406");
+        }
+        return status;
+    }
+    public JSONObject getQuizInfo(String quizID){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZ)){
+
+            stmt.setString(1, quizID);
+
+            if (stmt.execute()) {
+                ResultSet res = stmt.getResultSet();
+                if (res.next()) {
+                    String quizName = res.getString("QuizName");
+                    String quizType = res.getString("QuizType");
+                    int numQuestions = res.getInt("QuestionCount");
+                    String createdOn = res.getString("CreateDate");
+                    String lastUpdated = res.getString("UpdateDate");
+                    return new QuizObject(quizID, quizName, quizType, createdOn, lastUpdated, numQuestions).toJSON();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return null;
+    }
+
+    public JSONArray getQuizzes(){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZZES)) {
+
+            JSONArray arr = new JSONArray();
+            ResultSet res = stmt.executeQuery();
+            while (res.next()){
+                String quizID = res.getString(1);
+                String quizName = res.getString(2);
+                String quizType = res.getString(3);
+                int numQuestions = res.getInt(4);
+                String createdOn = res.getString(5);
+                String lastUpdated = res.getString(6);
+                arr.put(new QuizObject(quizID, quizName, quizType, createdOn,lastUpdated , numQuestions).toJSON()) ;
+            }
+            stmt.close();
+            return arr;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+
+    // private String getAnswerOption(String quizID, String questionID){
+    //     try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)){
+    //         stmt.setString(1, quizID);
+    //         stmt.setString(2, questionID);
+    //         if (stmt.execute()){
+    //             ResultSet resultSet = stmt.getResultSet();
+    //             return resultSet.getString(1);
+    //         }
+    //     }catch (SQLException e){
+    //         e.printStackTrace();
+    //     }
+
+    //     return null;
+    // }
+
+    private String getAnswerText(String quizID, String questionID){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)){
+            stmt.setString(1, quizID);
+            stmt.setString(2, questionID);
+
+            if (stmt.execute()){
+                ResultSet resultSet = stmt.getResultSet();
+                resultSet.next();
+                return resultSet.getString(1);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    public boolean isCorrectAnswer(String quizID, String questionID, String response){
+        String answer;
+
+        answer = getAnswerText(quizID, questionID);
+        System.out.println(answer);
+
+
+        return  answer != null && answer.equals(response) ;
+    }
+    public Status createQuiz(QuizExternObject obj){
+        String quizID = obj.getQuizID();
+        String quizName = obj.getQuizName();
+        String quizType = obj.getQuizType();
+        JSONArray questions = obj.getQuestions();
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_QUIZ)){
+
+            stmt.setString(1, quizID);
+            stmt.setString(2, quizName);
+            stmt.setString(3, quizType);
+            stmt.setInt(4, questions.length());
+            Timestamp createTime = new Timestamp(new java.util.Date().getTime());
+            stmt.setTimestamp(5,createTime);
+            stmt.setTimestamp(6,  createTime);
+
+            stmt.execute();
+
+            conn.commit();
+
+        } catch (SQLException e) {
+            try {
+                
+                conn.rollback();
+
+            } catch (Exception ei) {
+                
+                ei.printStackTrace();
+            }
+
+            return new Status("406", e);
+        }
+
+        try {
+            for (int i = 0; i < questions.length(); i++) {
+                JSONObject questionObj = questions.getJSONObject(i);
+                PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_QUESTION);
+                stmt.setString(1, quizID);
+                stmt.setString(2, "q"+(i+1));
+                stmt.setString(3, questionObj.getString("question"));
+                stmt.setString(4, "o" + questionObj.getInt("answer"));
+
+                stmt.execute();
+                stmt.close();
+                if (quizType.equals("MCQ")){
+                    JSONArray optionsObj = questionObj.getJSONArray("options");
+                    for (int j = 0; j < optionsObj.length(); j++) {
+                        PreparedStatement optionStmt = conn.prepareStatement(SQLQueries.CREATE_OPTION);
+                        optionStmt.setString(1, quizID);
+                        optionStmt.setString(2, "q"+(i+1));
+                        optionStmt.setString(3, "o"+(j+1));
+
+                        optionStmt.setString(4, optionsObj.getString(j));
+                        if (("o"+(j+1)).equals("o" + questionObj.getInt("answer"))) {
+                            optionStmt.setString(5, "true");
+                        }else {
+                            optionStmt.setString(5, "false");
+                        }
+
+                        optionStmt.execute();
+                        optionStmt.close();
+                    }
+                }
+
+            }
+            conn.commit();
+        } catch (SQLException e) {
+            try {
+
+                conn.rollback();
+
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+            }
+            return new Status("406", e);
+        }
+    return new Status("800");
+    }
+
+
+    public void close(){
+        if (conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
 
     public String getError() {
         return error;

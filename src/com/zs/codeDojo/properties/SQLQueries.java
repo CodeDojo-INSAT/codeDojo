@@ -53,4 +53,23 @@ public class SQLQueries {
     public static final String UPLOAD_LEVEL = "INSERT INTO questions VALUES(?, ?, ?)";
     public static final String FETCH_CHECKER = "SELECT name FROM checkers";
     public static final String CHECKER_RELATION = "INSERT INTO QCheckerRelation values(?, ?)";
+
+    // quizes query goes hereeee
+
+    public static final String CREATE_QUIZ = "insert into Quizzes Values (?, ?, ?, ?, ?, ?);";
+    public static final String GET_QUIZ = "SELECT * FROM Quizzes WHERE QuizID = ?;";
+    public static final String GET_QUIZZES = "SELECT * FROM Quizzes;";
+    public static final String DELETE_QUIZ = "DELETE FROM Quizzes WHERE QuizID = ?;";
+    public static final String GET_QUESTIONS_MINMAL = "SELECT QuestionID, QuestionText FROM QuizQuestions WHERE QuizID = ?;";
+    public static final String GET_QUIZZES_MINIMAL = "SELECT QuizID, QuizName, QuizType FROM Quizzes;";
+
+    public static final String GET_CORRECT_ANSWER_TEXT = "SELECT Answer from QuizQuestions WHERE QuizID = ? AND QuestionID = ?;";
+    public static final String GET_CORRECT_OPTION = "SELECT OptionID from Options WHERE QuizID = ? AND QuestionID = ? AND IsAnswer = 'true';";
+    public static final String GET_OPTIONS_MINIMAL = "SELECT OptionID, OptionText FROM Options WHERE QuizID = ? AND QuestionID = ?;";
+    public static final String CREATE_QUESTION = "insert into QuizQuestions Values (?, ?, ?, ?);";
+
+    public static final String CREATE_OPTION = "insert into Options Values (?, ?, ?, ?, ?);";
+
+
+    
 }

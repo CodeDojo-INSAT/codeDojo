@@ -44,3 +44,10 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
     - /services/admin/dq/update_question.dojo `[POST]`
     - /services/admin/dq/fetch_titles.dojo `[GET]`
     - /services/admin/dq/delete_question.dojo `[GET]`
+
+- Quiz api's
+    - /services/admin/quiz/addQuiz.dojo `[Post]` 
+    - /services/quiz/checkAnswer.dojo `[GET]`
+    - /services/quiz/getQuestions.dojo `[GET]`
+    - /services/quiz/getqiz.dojo `[GET]`
+    - /services/admin/quiz/deleteQuiz.dojo `[GET]`
