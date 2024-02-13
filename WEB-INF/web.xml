@@ -258,10 +258,9 @@
 
     <servlet-mapping>
         <servlet-name>getQuiz</servlet-name>
-        <url-pattern>/services/quiz/getqiz.dojo</url-pattern>
+        <url-pattern>/services/quiz/getQuizzes.dojo</url-pattern>
     </servlet-mapping>
 
-    get
 
 
 </web-app>
