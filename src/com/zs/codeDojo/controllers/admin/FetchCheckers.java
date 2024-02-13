@@ -24,7 +24,7 @@ public class FetchCheckers extends HttpServlet {
         String[] checkersName = dbModule.fetchCheckers();
         
         JsonResponse jsonResponse = null;
-        if (checkersName != null) {
+        if (checkersName.length > 0) {
             JSONObject json = new JSONObject();
             json.put("checkers", checkersName);
 
