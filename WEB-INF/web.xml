@@ -261,7 +261,6 @@
         <url-pattern>/services/quiz/getqiz.dojo</url-pattern>
     </servlet-mapping>
 
-    get
 
 
 </web-app>
