@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.Question;
 
 
@@ -31,19 +32,18 @@ public class GetQuest extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         JSONObject jsonObject = new JSONObject();
+        JsonResponse jsonResponse = null;
 
         if (question.getTitle() != null && question.getDescription() != null) {
             jsonObject.put("questionDescription", question.getDescription());
             jsonObject.put("questionCode", question.getTitle());
+
+            jsonResponse = new JsonResponse(true, "successfully fetched question", jsonObject);            
         } else {
-            jsonObject.put("status", false);
-            jsonObject.put("reason", "can't read question from db. check logs");
+            jsonResponse = new JsonResponse(false, "can't fetch question", null);
         }
 
-        String jsonString = jsonObject.toString();
-
-        writer.println(jsonString);
-        writer.close();
+        writer.print(jsonResponse);
     }
 
     private void setResponseHeader(HttpServletResponse response) {

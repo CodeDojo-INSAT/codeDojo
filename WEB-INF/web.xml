@@ -16,7 +16,7 @@
 
     <servlet-mapping>
         <servlet-name>getQuestion</servlet-name>
-        <url-pattern>/services/get_question.dojo</url-pattern>
+        <url-pattern>/services/dq/get_question.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -26,7 +26,7 @@
 
     <servlet-mapping>
         <servlet-name>postQuestion</servlet-name>
-        <url-pattern>/services/post_question.dojo</url-pattern>
+        <url-pattern>/services/admin/dq/post_question.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -36,7 +36,7 @@
 
     <servlet-mapping>
         <servlet-name>getStreak</servlet-name>
-        <url-pattern>/services/get_user_streak.dojo</url-pattern>
+        <url-pattern>/services/dq/get_user_streak.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -46,13 +46,62 @@
 
     <servlet-mapping>
         <servlet-name>submitAnswer</servlet-name>
-        <url-pattern>/services/submit_answer.dojo</url-pattern>
+        <url-pattern>/services/dq/submit_answer.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteQuestion</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.DeleteQuestion</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteQuestion</servlet-name>
+        <url-pattern>/services/admin/dq/delete_question.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fetchTitles</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.FetchAllTitles</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>fetchTitles</servlet-name>
+        <url-pattern>/services/admin/dq/fetch_titles.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateDailyQuestion</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.UpdateQuestion</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateDailyQuestion</servlet-name>
+        <url-pattern>/services/admin/dq/update_question.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fetchTestCase</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.FetchTestCase</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>fetchTestCase</servlet-name>
+        <url-pattern>/services/admin/dq/fetch_testcase.dojo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateTestcase</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.dailyQuestions.UpdateTestcase</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateTestcase</servlet-name>
+        <url-pattern>/services/admin/dq/update_testcase.dojo</url-pattern>
     </servlet-mapping>
     <!-- dailyQuestions section end  -->
 
     
     <!-- main section start -->
-    
     <servlet>
         <servlet-name>checkAnswerWithChecker</servlet-name>
         <servlet-class>com.zs.codeDojo.controllers.main.CheckQuestion</servlet-class>
@@ -60,7 +109,7 @@
 
     <servlet-mapping>
         <servlet-name>checkAnswerWithChecker</servlet-name>
-        <url-pattern>/services/check_answer.dojo</url-pattern>
+        <url-pattern>/services/course/check_answer.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -70,13 +119,13 @@
 
     <servlet-mapping>
         <servlet-name>getQuestionAndDescription</servlet-name>
-        <url-pattern>/services/get_question_description.dojo</url-pattern>
+        <url-pattern>/services/course/get_course_question.dojo</url-pattern>
     </servlet-mapping>
 
     <!-- main section end -->
 
     <!-- auth section start -->
-    <servlet>
+    <!-- <servlet>
         <servlet-name>getName</servlet-name>
         <servlet-class>com.zs.codeDojo.controllers.auth.GetName</servlet-class>
     </servlet>
@@ -84,7 +133,7 @@
     <servlet-mapping>
         <servlet-name>getName</servlet-name>
         <url-pattern>/services/get_name.dojo</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> -->
 
     <servlet>
         <servlet-name>home</servlet-name>
@@ -103,7 +152,7 @@
 
     <servlet-mapping>
         <servlet-name>loginSubmit</servlet-name>
-        <url-pattern>/services/login.dojo</url-pattern>
+        <url-pattern>/services/auth/login.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -113,7 +162,7 @@
 
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
-        <url-pattern>/services/logout.dojo</url-pattern>
+        <url-pattern>/services/auth/logout.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -123,7 +172,7 @@
 
     <servlet-mapping>
         <servlet-name>signupSubmit</servlet-name>
-        <url-pattern>/services/signup.dojo</url-pattern>
+        <url-pattern>/services/auth/signup.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -133,7 +182,7 @@
 
     <servlet-mapping>
         <servlet-name>signupPage</servlet-name>
-        <url-pattern>/services/signup_page.dojo</url-pattern>
+        <url-pattern>/services/auth/signup_page.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -143,7 +192,7 @@
 
     <servlet-mapping>
         <servlet-name>verify</servlet-name>
-        <url-pattern>/services/generate_otp.dojo</url-pattern>
+        <url-pattern>/services/auth/generate_otp.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -153,7 +202,7 @@
 
     <servlet-mapping>
         <servlet-name>verifySubmit</servlet-name>
-        <url-pattern>/services/verify_otp.dojo</url-pattern>
+        <url-pattern>/services/auth/verify_otp.dojo</url-pattern>
     </servlet-mapping>
     <!-- auth section end -->
 
@@ -165,7 +214,7 @@
 
     <servlet-mapping>
         <servlet-name>fetchChecker</servlet-name>
-        <url-pattern>/services/fetch_checker.dojo</url-pattern>
+        <url-pattern>/services/admin/course/fetch_checker.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -175,7 +224,7 @@
 
     <servlet-mapping>
         <servlet-name>fetchLevels</servlet-name>
-        <url-pattern>/services/fetch_levels.dojo</url-pattern>
+        <url-pattern>/services/admin/course/fetch_levels.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -185,7 +234,7 @@
 
     <servlet-mapping>
         <servlet-name>fetchQuestion</servlet-name>
-        <url-pattern>/services/fetch_course_questions.dojo</url-pattern>
+        <url-pattern>/services/admin/course/fetch_course_questions.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -195,7 +244,7 @@
 
     <servlet-mapping>
         <servlet-name>updateQuestions</servlet-name>
-        <url-pattern>/services/update_course_questions.dojo</url-pattern>
+        <url-pattern>/services/admin/course/update_course_questions.dojo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -205,7 +254,7 @@
 
     <servlet-mapping>
         <servlet-name>uploadQuestions</servlet-name>
-        <url-pattern>/services/upload_course_questions.dojo</url-pattern>
+        <url-pattern>/services/admin/course/upload_course_questions.dojo</url-pattern>
     </servlet-mapping>
     <!-- admin section end -->
 

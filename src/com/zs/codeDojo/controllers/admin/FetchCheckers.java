@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 
 // @WebServlet("/fetchCheckers")
 public class FetchCheckers extends HttpServlet {
@@ -18,27 +19,21 @@ public class FetchCheckers extends HttpServlet {
         ServletContext context = getServletContext();
         res.setContentType("application/json");
 
-        DBModule dbModule = null;
-        try {
-            dbModule = (DBModule) context.getAttribute("db");
+        DBModule dbModule = (DBModule) context.getAttribute("db");
 
-            String checkersName = dbModule.fetchCheckers();
-            if (checkersName != null) {
-                writeAsJson(checkersName, res);
-            }
-            else {
-                writeAsJson("null", res);
-            }
+        String[] checkersName = dbModule.fetchCheckers();
+        
+        JsonResponse jsonResponse = null;
+        if (checkersName.length > 0) {
+            JSONObject json = new JSONObject();
+            json.put("checkers", checkersName);
+
+            jsonResponse = new JsonResponse(true, "Checkers fetched", json);
         }
-        catch (Exception sqlEx) {
-            sqlEx.printStackTrace();
+        else {
+            jsonResponse = new JsonResponse(false, "can't fetch checker", null);
         }
-    }
 
-    private void writeAsJson(String data, HttpServletResponse res) throws IOException {
-        JSONObject json = new JSONObject();
-
-        json.put("checkers", data);
-        res.getWriter().println(json.toString());
+        res.getWriter().print(jsonResponse);
     }
 }

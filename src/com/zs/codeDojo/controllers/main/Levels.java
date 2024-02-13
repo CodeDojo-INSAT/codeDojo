@@ -3,7 +3,7 @@ package com.zs.codeDojo.controllers.main;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.zs.codeDojo.models.checkers.EncapsulationChecker;
-import com.zs.codeDojo.models.checkers.InheritanceChecker;
+// import com.zs.codeDojo.models.checkers.InheritanceChecker;
 import com.zs.codeDojo.models.checkers.NamingConventionChecker;
 
 public class Levels {
@@ -16,10 +16,10 @@ public class Levels {
       return testUnit.status;
    }
 
-   protected boolean handleLevelTwo(CompilationUnit compilationUnit, ErrorList errorList) {
-      InheritanceChecker testUnit = new InheritanceChecker(errorList, compilationUnit);
-      return testUnit.status;
-   }
+   // protected boolean handleLevelTwo(CompilationUnit compilationUnit, ErrorList errorList) {
+   //    // InheritanceChecker testUnit = new InheritanceChecker(errorList, compilationUnit);
+   //    // return testUnit.status;
+   // }
 
    protected boolean handleLevelThree(CompilationUnit compilationUnit, ErrorList errorList) {
       return false;

@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 
 
 public class UpdateQD extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
         String content = processRequest(request);
         ServletContext context = getServletContext();
 
@@ -27,23 +29,17 @@ public class UpdateQD extends HttpServlet {
         String quest = jsonObject.getString("questionCode");
         int level = Integer.parseInt(jsonObject.getString("level"));
 
-        DBModule dbModule = null;
-        jsonObject.clear();
-        try {
-            dbModule = (DBModule) context.getAttribute("db");
-
-            if (!dbModule.updateLevel(desc, quest, level)) {
-                jsonObject.put("status", false);
-            }
-        }
-        catch (Exception sqlEx) {
-            sqlEx.printStackTrace();
-        }
-
-        response.setContentType("application/json");
-        jsonObject.put("status", true);
+        DBModule dbModule = (DBModule) context.getAttribute("db");
+        JsonResponse jsonResponse = null;
         
-        response.getWriter().write(jsonObject.toString());
+        if (!dbModule.updateLevel(desc, quest, level)) {
+            jsonResponse = new JsonResponse(false, "Update question failed", null);
+        }
+        else {
+            jsonResponse = new JsonResponse(true, "successfully updated", null);
+        }
+        
+        response.getWriter().print(jsonResponse);
     }
 
     public String processRequest(HttpServletRequest request) throws IOException {

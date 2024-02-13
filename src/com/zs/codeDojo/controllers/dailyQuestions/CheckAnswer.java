@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
@@ -25,37 +26,36 @@ public class CheckAnswer extends HttpServlet {
         String javaCode = json.getString("code");
         
         json.clear();
+
+        JsonResponse jsonResponse = null;
+        TestCases testCases = null;
+        
         ServletContext context = getServletContext();
         DBModule dbModule = (DBModule) context.getAttribute("db");
         
-        TestCases testCases = null;
         if ((testCases = dbModule.getTodayQuestionTestCases()) != null) {
             Loader loader = new Loader(javaCode);
             Class<?> clazz = loader.compileAndLoadClass();
 
             if (clazz == null) {
-                json.put("compilationError", loader.getError());
+                jsonResponse = new JsonResponse(false, "compilation error occured", loader.getError());
             }
             else {
                 CheckLogic logicChecker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
-                json.put("res", logicChecker.getResult());
                 if (!logicChecker.isMatched()) {
-                    json.put("message", logicChecker.getMessage());
+                    jsonResponse = new JsonResponse(false, "testcases not matched", logicChecker.getResult());
                 }
-                else{
-
-                    // push java code
-
+                else {
+                    jsonResponse = new JsonResponse(true, "All test cases matched", logicChecker.getResult());
                 }
             }
         }
         else {
-            if (dbModule.hasError())
-                json.put("error", dbModule.getError());
+            jsonResponse = new JsonResponse(false, "can't get today question", null);
         }
 
-        response.getWriter().write(json.toString());
+        response.getWriter().print(jsonResponse);
     }
 
     private JSONObject processRequest(HttpServletRequest req) throws IOException {

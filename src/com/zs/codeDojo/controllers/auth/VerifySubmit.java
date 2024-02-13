@@ -13,7 +13,7 @@ import java.sql.*;
 
 // @WebServlet("/verifySubmit")
 public class VerifySubmit extends HttpServlet {
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         ServletContext context = getServletContext();
 
         DBModule db = null;

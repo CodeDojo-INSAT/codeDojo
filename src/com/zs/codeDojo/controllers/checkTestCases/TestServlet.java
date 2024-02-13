@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.IOStreams;
+import com.zs.codeDojo.models.DAO.JsonResponse;
 // import com.zs.codeDojo.models.DAO.TestCases;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
@@ -24,26 +25,30 @@ public class TestServlet extends HttpServlet {
         Loader loader = new Loader(javaCode);
         Class<?> clazz = loader.compileAndLoadClass();
 
-        JSONObject json = new JSONObject();
+        JsonResponse jsonResponse = null;
         if (clazz == null) {
-            json.put("compilationError", loader.getError());
+            jsonResponse = new JsonResponse(false, "compilation error", loader.getError());
         }
         else {
-            // TestCases tc = new LoadTestCases(6).load();
             ServletContext context = getServletContext();
             CheckLogic obj = new CheckLogic(clazz, null, (IOStreams) context.getAttribute("streams"));    
 
             if (obj.hasError()) {
-                json.put("error", obj.getError());
+                jsonResponse = new JsonResponse(false, "Runtime error occured", obj.getError());
             }
             else {
-                json.put("res", obj.getResultWithExecTime());
+                JSONObject json = new JSONObject();
+                json.put("result", obj.getResult());
+                
                 if (!obj.isMatched()) {
-                    json.put("message", obj.getMessage());
+                    jsonResponse = new JsonResponse(false, "testcases not matched", json);
                 }
+                else {
+                    jsonResponse = new JsonResponse(true, "All testcases passed", json);
+                }  
             }
         }
-        response.getWriter().write(json.toString());
+        response.getWriter().print(jsonResponse);
     }
 
     private JSONObject processInput(HttpServletRequest req) throws IOException {

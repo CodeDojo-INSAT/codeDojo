@@ -14,28 +14,27 @@ import org.json.JSONObject;
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
 
-public class PostQuestion extends HttpServlet {
+public class UpdateQuestion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        JSONObject json = processRequest(request);
+        ServletContext context = getServletContext();
         response.setContentType("application/json");
 
-        ServletContext context = getServletContext();
-        
+        JSONObject json = processRequest(request);
+        int id = json.getInt("question_id");
+        String title = json.getString("title");
+        String question = json.getString("question");
+
         DBModule dbModule = (DBModule) context.getAttribute("db");
-        
-        boolean status = dbModule.addQuestion(json, json.has("testCases"));
 
         json.clear();
         JsonResponse jsonResponse = null;
-        
-        if (!status) {
-            json.put("error", dbModule.getError());
-            jsonResponse = new JsonResponse(false, "can't add question", json);
+        if (dbModule.updateQuestion(id, title, question)) {
+            jsonResponse = new JsonResponse(true, "successfully question updated", null);
         }
         else {
-            jsonResponse = new JsonResponse(true, "successfully added", null);
+            jsonResponse = new JsonResponse(false, "updating question fails", null);
         }
-        
+
         response.getWriter().print(jsonResponse);
     }
 
@@ -44,7 +43,7 @@ public class PostQuestion extends HttpServlet {
 
         String content = "";
         while (sc.hasNextLine()) {
-            content += sc.nextLine() + "\n";
+            content += sc.nextLine();
         }
         sc.close();
 

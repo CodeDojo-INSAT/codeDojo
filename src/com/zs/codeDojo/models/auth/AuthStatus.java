@@ -33,18 +33,17 @@ public class AuthStatus {
         authCodeMsgs.put("407", "Server Error");
         authCodeMsgs.put("408", "Error Sending Verification mail");
         authCodeMsgs.put("409", "Email ID Not Found");
-
-
+        authCodeMsgs.put("222", "Compilation error occured");
     }
 
     public AuthStatus(String code){
         this.authStatusCode = code;
     }
+
     public AuthStatus(String code, Exception e){
 
         this.authStatusCode = code;
         this.returnedException = e;
-
     }
 
     public String getAuthStatusCode() {

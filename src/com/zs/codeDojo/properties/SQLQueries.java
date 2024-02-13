@@ -7,6 +7,10 @@ public class SQLQueries {
     public static final String PUBLISH_QUESTION = "INSERT INTO schedule_questions VALUES(?, ?, ?, ?, ?)";
     public static final String GET_TODAY_QUESTION = "SELECT title, description FROM Questions, schedule_questions as s WHERE s.publish_date = ? AND s.is_published = 'Y'";
     public static final String GET_TODAY_QUESTION_PUBLISHING_TIME = "SELECT publish_time FROM schedule_questions WHERE publish_date = ?";
+    public static final String FETCH_TITLES = "SELECT title FROM Questions";
+    public static final String UPDATE_QUESTION = "UPDATE Questions SET title = ?, description = ?, modified_at = ? WHERE id = ?";
+    public static final String FETCH_TESTCASE = "SELECT id, input_value, expected_value FROM TestCases WHERE question_id = ?";
+    public static final String UPDATE_TESTCASE = "UPDATE TestCases SET input_value = ?, expected_value = ? WHERE id = ?";
 
     public static final String GET_STREAK = "SELECT count(*) AS cnt FROM "
                                     + "(SELECT activity_date, " 
@@ -31,6 +35,7 @@ public class SQLQueries {
     public static final String GET_TEST_CASES_CHECKER_COUNT = "SELECT count(*) FROM (" + GET_TEST_CASES_CHECKER + ") AS t";
 
     public static final String SELECT_USERNAME_PS = "SELECT * FROM Users WHERE username = ?;";
+    public static final String DELETE_QUESTION = "DELETE FROM Questions WHERE id = ?";
 
     public static final String SELECT_VERIFY_CODE = "SELECT code FROM VerifyCodes WHERE email = ?";
     public static final String CREATE_VERIFY_CODE = "INSERT INTO VerifyCodes VALUES (?, ?, ?);";

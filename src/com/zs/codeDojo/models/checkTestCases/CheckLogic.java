@@ -96,8 +96,8 @@ public class CheckLogic {
         }
     }
 
-    public String getResult() {
-        return Arrays.toString(res);
+    public byte[] getResult() {
+        return res;
     }
 
     public boolean isMatched() {

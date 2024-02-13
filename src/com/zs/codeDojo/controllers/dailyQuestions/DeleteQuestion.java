@@ -1,4 +1,4 @@
-package com.zs.codeDojo.controllers.admin;
+package com.zs.codeDojo.controllers.dailyQuestions;
 
 import java.io.IOException;
 
@@ -8,37 +8,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
-import com.zs.codeDojo.models.DAO.Question;
 
-
-public class FetchQD extends HttpServlet {
-    @Override
+public class DeleteQuestion extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int level = Integer.parseInt(request.getParameter("level"));
         ServletContext context = getServletContext();
         response.setContentType("application/json");
+        
+        int questionId = Integer.valueOf(request.getParameter("id"));
 
-        Question question = null;
         DBModule dbModule = (DBModule) context.getAttribute("db");
-
-        question = dbModule.readQuestionFromDatabase(level);
-
+        
+        boolean message = dbModule.deleteQuestion(questionId);
+        
         JsonResponse jsonResponse = null;
-        if (question == null) {
-            jsonResponse = new JsonResponse(false, "Can't fetch questions", null);
+        if (message) {
+            jsonResponse = new JsonResponse(false, "can't delete question", null);
         }
         else {
-            JSONObject json = new JSONObject();
-            json.put("description", question.getTitle());
-            json.put("code", question.getDescription());
-
-            jsonResponse = new JsonResponse(true, "successfully Fetched", json);
+            jsonResponse = new JsonResponse(true, "deleted successfully", null);
         }
-
+        
         response.getWriter().print(jsonResponse);
     }
 }
