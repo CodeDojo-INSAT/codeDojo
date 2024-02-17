@@ -18,6 +18,16 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjunarjun0x1c@gmail.comvimalarjun
+883553
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -38,55 +48,17 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: SQL String cannot be NULL
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:98)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:90)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:64)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:74)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:85)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:218)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:192)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.getInstance(ClientPreparedStatement.java:133)
-	at com.mysql.cj.jdbc.ConnectionImpl.clientPrepareStatement(ConnectionImpl.java:657)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1606)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1524)
-	at com.zs.codeDojo.models.DAO.DBModule.fetchAllTitles(DBModule.java:314)
-	at com.zs.codeDojo.controllers.dailyQuestions.FetchAllTitles.doGet(FetchAllTitles.java:21)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.WrongArgumentException: SQL String cannot be NULL
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:85)
-	at com.mysql.cj.ClientPreparedQuery.checkNullOrEmptyQuery(ClientPreparedQuery.java:152)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:214)
-	... 31 more
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjunarjun0x1c@gmail.comvimalarjun
+883553
+matched false
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -107,6 +79,20 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjunarjun0x1c@gmail.comvimalarjun
+883553 user 853553
+matched false
+arjunarjun0x1c@gmail.comvimalarjun
+883553 user 883553
+matched true
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -127,6 +113,20 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjun
+password@1
+arjun
+password@1
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -147,114 +147,17 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.startup.HostConfig.reload(HostConfig.java:1404)
-	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1368)
-	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1603)
-	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:304)
-	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)
-	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1159)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1353)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET description = 'updated description' WHERE id = 1' at line 1
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
-	at com.zs.codeDojo.models.DAO.DBModule.updateQuestion(DBModule.java:340)
-	at com.zs.codeDojo.controllers.dailyQuestions.UpdateQuestion.doPost(UpdateQuestion.java:28)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SET description = 'updated description' WHERE id = 1' at line 1
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
-	at com.zs.codeDojo.models.DAO.DBModule.updateQuestion(DBModule.java:340)
-	at com.zs.codeDojo.controllers.dailyQuestions.UpdateQuestion.doPost(UpdateQuestion.java:28)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjunarjun0x1c@gmail.comvimalarjun
+883553 user 883553
+matched true
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -275,6 +178,17 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjunarjun0x1c@gmail.comvimalarjun
+883553 user 883553
+matched true
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -295,6 +209,12 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -315,55 +235,16 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: SQL String cannot be NULL
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:98)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:90)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:64)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:74)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:85)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:218)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:192)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.getInstance(ClientPreparedStatement.java:133)
-	at com.mysql.cj.jdbc.ConnectionImpl.clientPrepareStatement(ConnectionImpl.java:657)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1606)
-	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1524)
-	at com.zs.codeDojo.models.DAO.DBModule.fetchTestCase(DBModule.java:385)
-	at com.zs.codeDojo.controllers.dailyQuestions.FetchTestCase.doGet(FetchTestCase.java:23)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: com.mysql.cj.exceptions.WrongArgumentException: SQL String cannot be NULL
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:85)
-	at com.mysql.cj.ClientPreparedQuery.checkNullOrEmptyQuery(ClientPreparedQuery.java:152)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.<init>(ClientPreparedStatement.java:214)
-	... 31 more
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -384,6 +265,22 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+passwordl@1
+arjun
+password@1
+arjun
+password@1
+arjun
+password@1
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -404,6 +301,26 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1\
+arjun
+password@1\
+arjun
+password@1\
+arjun
+password@1\
+arjun
+password@1\
+arjun
+password@1\
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -424,6 +341,16 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+nishanth
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -444,6 +371,14 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -464,6 +399,14 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -484,6 +427,18 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1
+arjun
+password@1
+nishanth
+password@1
 java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -504,337 +459,11 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:98)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:90)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:64)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1338)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1351)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.setString(ClientPreparedStatement.java:1707)
-	at com.zs.codeDojo.models.DAO.DBModule.updateTestcases(DBModule.java:415)
-	at com.zs.codeDojo.controllers.dailyQuestions.UpdateTestcase.doPost(UpdateTestcase.java:29)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
-	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
-	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
-	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
-	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:74)
-	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:48)
-	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
-	at org.apache.catalina.startup.HostConfig.reload(HostConfig.java:1404)
-	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1368)
-	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1603)
-	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:304)
-	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)
-	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1159)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1385)
-	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1353)
-	at java.base/java.lang.Thread.run(Thread.java:829)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+arjun
+password@1

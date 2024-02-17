@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    padding:0 ;
+    margin: 0;
+}
+.br{
+    border-radius: 8px;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display:flex ;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 40px;
+
+}
+.left-nav{
+    width: 4%;
+    height: 100%;
+    border:2px solid red ;
+}
+.left-sec{
+    width: 55%;
+    height: 100%;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+.right-sec{
+    width:35%;
+    height: 100%;
+    /* border: 2px solid wheat; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+.welcome-box{
+    height: 20%;
+    width: 100%;
+    border: 2px solid white;
+    
+}
+.course-progress-box{
+    height: 10%;
+    width: 100%;
+    border: 2px solid white;
+    
+
+}
+.leader-board{
+    height: 50%;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.profile-box{
+    width: 100%;
+    height: 8%;
+    /* border: 2px solid wheat; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0.5rem; */
+}
+.gap{
+    width: 80%;
+    height: 100%;
+    border: 2px solid wheat;
+    
+}
+.profile-icon{
+    width: 10%;
+    height: 100%;
+    border: 2px solid wheat;
+}
+.progress{
+    width: 100%;
+    height: 25%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+.quiz-progress,.daily-streak{
+    width: 47.7%;
+    height: 100%;
+    border: 2px solid white;
+}
+.announcement{
+    width: 100%;
+    height: 24%;
+    border: 2px solid white;
+
+}
+.daily-tip{
+    width: 100%;
+    height: 20%;
+    border: 2px solid white;
+}

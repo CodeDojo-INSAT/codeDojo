@@ -8,6 +8,28 @@
         <listener-class>com.zs.codeDojo.models.config.Config</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>checkSession</filter-name>
+        <filter-class>com.zs.codeDojo.controllers.filters.CheckSession</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>actionServlet</filter-name>
+        <filter-class>com.zs.codeDojo.controllers.filters.ActionServlet</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>checkSession</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>actionServlet</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
     <!-- dailyQuestions section start -->
     <servlet>
         <servlet-name>getQuestion</servlet-name>

@@ -24,12 +24,20 @@ public class VerifySubmit extends HttpServlet {
 
             String recCode = req.getParameter("vc");
 
-            User user = db.getUser((String) ses.getAttribute("username"));
-            pw.println((String) ses.getAttribute("username"));
+            // User user = db.getUser((String) ses.getAttribute("username"));
+            User user = (User) ses.getAttribute("user");
+            if (user == null) {
+                pw.write("session not available");
+                return;
+            }
+            pw.println(user.getUsername());
 
             System.err.println(user);
             String genCode = db.getVerifyCode(user);
 
+            System.err.println(genCode + " user " + recCode);
+
+            System.err.println("matched "+ genCode.equals(recCode));
             if (recCode.equals(genCode)){
                 db.setVerified(user);
                 pw.println("verified");

@@ -3,5 +3,6 @@
     "java.project.outputPath": "WEB-INF/classes",
     "java.project.referencedLibraries": [
         "WEB-INF/lib/**/*.jar",
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

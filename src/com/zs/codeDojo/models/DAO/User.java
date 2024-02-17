@@ -5,11 +5,12 @@ public class User {
     private final String username;
 
     private String email;
-    private final String password;
+    private String password;
     private String firstName = null;
     private String lastName = null;
 
     private boolean verified;
+    private boolean isLoggedin;
 
     @Override
     public String toString() {
@@ -33,6 +34,14 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.verified = verified;
+    }
+
+    public User(String username, String email, String firstname, String lastname, boolean isLoggedin) {
+        this.username = username;
+        this.email = email;
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.isLoggedin = isLoggedin;
     }
 
     public String getUsername() {

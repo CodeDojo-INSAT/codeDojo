@@ -27,7 +27,7 @@ public class Verify extends HttpServlet{
 
             HttpSession ses = req.getSession(false);
 
-            User user = db.getUser((String) ses.getAttribute("username"));
+            User user = (User) ses.getAttribute("user");
 
             pw.println(user);
 
@@ -41,7 +41,7 @@ public class Verify extends HttpServlet{
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         // RequestDispatcher reqDis = req.getRequestDispatcher("/html/login/verify.jsp");
