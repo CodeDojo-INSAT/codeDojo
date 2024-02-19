@@ -1,53 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
-    <script src="https://kit.fontawesome.com/38d6e9bf1b.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <section class="wrapper">
-        <div class="left-nav">
-            
+<div class="left-sec">
+    <div class="welcome-box br">
+        <h1 class="h1">Hello Buddy, <span id="name"></span></h1>
+        <h4 class="h4">Good to see you again.</h4>
+    </div>
+    <div class="course-progress-box br"></div>
+    <div class="leader-board br"></div>
+</div>
+<div class="right-sec">
+    <div class="profile-box br">
+        <div class="gap br"></div>
+        <div class="profile-icon br"></div>
+    </div>
+    <div class="progress">
+        <div class="quiz-progress br">
+            <div class="prog">
+                <span id="quiz-prog">0%</span>
+                <h4>Quizzes</h4>
+            </div>
         </div>
-        <div class="left-sec">
-            <div class="welcome-box br">
-                <h1 class="h1">Hello Buddy, <span id="name"></span></h1>
-                <h4 class="h4">Good to see you again.</h4>    
+        <div class="daily-streak br">
+            <div class="prog">
+                <span id="daily-streak">0</span>
+                <h4>Daily Streak</h4>
             </div>
-            <div class="course-progress-box br"></div>
-            <div class="leader-board br"></div>
         </div>
-        <div class="right-sec">
-            <div class="profile-box br">
-                <div class="gap br"></div>
-                <div class="profile-icon br"></div>
-            </div>
-            <div class="progress"> 
-                <div class="quiz-progress br">
-                    <div class="prog">
-                        <span id="quiz-prog">0%</span>
-                        <h4>Quizzes</h4>
-                    </div>
-                </div>
-            <div class="daily-streak br">
-                <div class="prog">
-                    <span id="daily-streak">0</span>
-                    <h4>Daily Streak</h4>
-                </div>
-            </div>
-            </div>
-            
-            <div class="announcement br"></div>
-            <div class="daily-tip br"></div>
-        </div>
-    </section>
-    
-</body>
-<script src="js/dashboard.js"></script>
-</html>
+    </div>
+
+    <div class="announcement br"></div>
+    <div class="daily-tip br"></div>
+</div>
+</div>

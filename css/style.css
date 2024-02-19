@@ -11,6 +11,7 @@
 .br{
     border-radius: 8px;
 }
+
 .wrapper{
     width: 100vw;
     height: 100vh;
@@ -19,14 +20,38 @@
     align-items: center;
     /* justify-content: center; */
     gap: 40px;
-
+    color: #fff;
+    
 }
+
 .left-nav{
     width: 4%;
     height: 100%;
     background-color: rgb(49, 49, 49);
     /* border:2px solid red ; */
 }
+
+.content-wrapper {
+    width: 96%;
+    height: 100%;
+}
+
+.left-nav ul {
+    /* background-color: red; */
+    height: 100%;
+}
+
+.left-nav li {
+    /* background-color: green; */
+    padding: 8px;
+    text-align: center;
+}
+
+
+.left-nav img {
+    color: #fff;
+}
+
 .left-sec{
     width: 55%;
     height: 100%;
