@@ -15,6 +15,6 @@ public class LogOut extends HttpServlet {
         if (ses != null)
             ses.invalidate();
 
-        // res.sendRedirect("/newProj/login");
+        res.sendRedirect(req.getContextPath() +  "/auth/login");
     }
 }

@@ -1,12 +1,10 @@
 package com.zs.codeDojo.controllers.filters;
 
 import java.io.IOException;
-import java.net.HttpCookie;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-// import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -26,41 +24,56 @@ public class ActionServlet implements Filter {
                 HttpServletRequest httpRequest = ((HttpServletRequest) request);
                 HttpServletResponse httpResponse = ((HttpServletResponse) response);
 
+
+                System.err.println("Fillter called");
+
                 String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
-                // System.err.println(uri);
+
+                if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png")) {
+                    chain.doFilter(httpRequest, httpResponse);
+                    return;
+                }
+                
+                String cookieName = "reqEndpoint";
+                Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
 
                 if (uri.contains("/u/")) {
-                    Cookie cookie = new Cookie("endPoint", uri);
+                    if (endpointCookie == null) {
+                        endpointCookie = new Cookie(cookieName, uri);
+                        httpResponse.addCookie(endpointCookie);
+                    }
+                    else {
+                        endpointCookie.setValue(uri);
+                        CookieHelp.resetCookie(httpResponse, endpointCookie);
+                    }
                     
-                    httpResponse.addCookie(cookie);
-                    // request.getRequestDispatcher("/dashboard").forward(httpRequest, httpResponse);
                     uri = "/app_frame";
                 }
                 
+                
                 switch (uri) {
                     case "/app_frame":
-                        request.getRequestDispatcher("/WEB-INF/views/sidebar.html").forward(httpRequest, httpResponse);
+                        request.getRequestDispatcher("/WEB-INF/views/sidebar.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/":
+                        httpResponse.sendRedirect("/codeDojo/u/dashboard");
                         break;
                     case "/auth/login":
-                        request.getRequestDispatcher("/WEB-INF/views/login.html").forward(request, response);
+                        request.getRequestDispatcher("/WEB-INF/views/login.html").include(request, response);
                         break;
                     case "/views/dashboard":
-                        // System.err.println("dashboard requested");
-                        request.getRequestDispatcher("/WEB-INF/views/dashboard.html").forward(request, response);
+                        request.getRequestDispatcher("/WEB-INF/views/dashboard.html").include(request, response);
                         break;
                     case "/auth/verify":
-                        request.getRequestDispatcher("/WEB-INF/views/verify.html").forward(httpRequest, response);
+                        request.getRequestDispatcher("/WEB-INF/views/verify.html").include(httpRequest, response);
                         break;
                     case "/views/quiz":
-                        request.getRequestDispatcher("/WEB-INF/views/quiz.html").forward(httpRequest, response);
+                        request.getRequestDispatcher("/WEB-INF/views/quiz.html").include(httpRequest, response);
                         break;
                     default:
-                        chain.doFilter(request, response);
+                        chain.doFilter(httpRequest, httpResponse);
                         break;
-                }
-            
-                
-                // chain.doFilter(request, response);
+                }            
     }
 
     @Override
