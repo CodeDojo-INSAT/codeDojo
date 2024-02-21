@@ -20,7 +20,7 @@ login_form.addEventListener("submit", function(e) {
             // window.location.href = "verify";
         }
         else if (data === "true\n") {
-            window.location.href = "/codeDojo/dashboard";
+            window.location.href = "/codeDojo/u/dashboard";
         }
     });
 })

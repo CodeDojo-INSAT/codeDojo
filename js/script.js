@@ -8,12 +8,12 @@ function _(id) {
     return document.querySelector(id);
 }
 
-function getEndpoint(cookie) {
+function getUri(cookie) {
     let endpoint = cookie.split(";");
     let value;
     endpoint.forEach(element => {
         let pairs = element.split("=");
-        if (pairs[0] === "endPoint") {
+        if (pairs[0] === "reqEndpoint") {
             value = pairs[1];
         }
     });
@@ -23,7 +23,7 @@ function getEndpoint(cookie) {
 const cookies = document.cookie;
 
 if (cookies != "") {
-    const endpoint = getEndpoint(cookies).split("/");
+    const endpoint = getUri(cookies).split("/");
     console.log(endpoint[endpoint.length-1]);
 
     fetch(`/${webapp}/views/${endpoint[endpoint.length-1]}`)
@@ -41,16 +41,27 @@ link_tags.addEventListener("click", function(e) {
     e.preventDefault();
 
     // console.log("Default prevented");
-    window.history.pushState({}, "", "quiz");
-    fetch("/codeDojo/views/quiz")
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        }
-    })
-    .then (html => {
-        // console.log(html);
-        content.innerHTML = html;
-    })
+    let uri = getEndpoint(this.href);
+    console.log(uri);
 
+    if (window.location.pathname !== uri) {
+        window.history.pushState({}, "", uri);
+
+        fetch("/codeDojo/views/quiz")
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            }
+        })
+        .then (html => {
+            // console.log(html);
+            content.innerHTML = html;
+        })
+    }
 })
+
+function getEndpoint(url) {
+    let parsedUrl = new URL(url);
+
+    return parsedUrl.pathname;
+}

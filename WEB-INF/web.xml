@@ -3,10 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
+     
     <listener>
         <listener-class>com.zs.codeDojo.models.config.Config</listener-class>
     </listener>
+
+    <!-- <error-page>
+        <location>/WEB-INF/views/404.html</location>
+    </error-page>      -->
 
     <filter>
         <filter-name>checkSession</filter-name>
@@ -184,7 +188,7 @@
 
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
-        <url-pattern>/services/auth/logout.dojo</url-pattern>
+        <url-pattern>/auth/logout</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -331,7 +335,6 @@
         <servlet-name>getQuiz</servlet-name>
         <url-pattern>/services/quiz/getQuizzes.dojo</url-pattern>
     </servlet-mapping>
-
 
 
 </web-app>
