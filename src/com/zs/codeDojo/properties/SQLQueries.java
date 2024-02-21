@@ -70,6 +70,8 @@ public class SQLQueries {
 
     public static final String CREATE_OPTION = "insert into Options Values (?, ?, ?, ?, ?);";
 
+    // Course query goes here
 
+    
     
 }

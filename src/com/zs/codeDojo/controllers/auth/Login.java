@@ -24,9 +24,11 @@ public class Login extends HttpServlet {
         BufferedReader reader = req.getReader();
         StringBuilder payload = new StringBuilder();
         String line;
+
         while ((line = reader.readLine()) != null){
             payload.append(line);
         }
+
         JSONObject jsonObject = new JSONObject(payload.toString());
         String usrnme = jsonObject.getString("un");
         String password = jsonObject.getString("ps");
