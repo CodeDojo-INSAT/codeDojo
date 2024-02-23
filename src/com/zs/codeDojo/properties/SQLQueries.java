@@ -70,8 +70,12 @@ public class SQLQueries {
 
     public static final String CREATE_OPTION = "insert into Options Values (?, ?, ?, ?, ?);";
 
-    // Course query goes here
+    // Course query goes hereeeeeeeeeeeeeeeeeeee:+{S[;s's:s[]]}
 
-    
-    
-}
+    public static final String GET_CURRENT_LEVEL = "SELECT * from Levels WHERE levelID in (Select levelID from User_Completed_Level where username = ?);";
+    public static final String UPDATE_CURRENT_LEVEL = "UPDATE User_Completed_Level SET levelID = ? WHERE username = ? ;";
+
+    public static final String GET_LEVEL_DETAILS = "SELECT * from Levels where levelID = ?;";
+    public static final String GET_QUESTION = "SELECT * from CourseQuestions WHERE levelID = ?;";
+
+}   

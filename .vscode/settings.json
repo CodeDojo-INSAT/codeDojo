@@ -2,13 +2,7 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "WEB-INF/classes",
     "java.project.referencedLibraries": [
-        "WEB-INF/lib/**/*.jar",
-        // "WEB-INF/lib/activation-1.1.1.jar",
-        // "WEB-INF/lib/javaparser-core-3.25.7.jar",
-        // "WEB-INF/lib/javax.mail.jar",
-        // "WEB-INF/lib/json-20231013.jar",
-        // "WEB-INF/lib/mysql-connector-j-8.2.0.jar",
-        // "WEB-INF/lib/servlet-api.jar"
+        "WEB-INF/lib/**/*.jar"
     ],
     "liveServer.settings.port": 5501
 }

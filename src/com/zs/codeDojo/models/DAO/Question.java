@@ -1,12 +1,16 @@
 package com.zs.codeDojo.models.DAO;
 
 public class Question {
-    private final String title;
-    private final String description;
+    private String title;
+    private String description;
 
     public Question(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public Question(){
+
     }
 
     public String getTitle() {
@@ -16,4 +20,6 @@ public class Question {
     public String getDescription() {
         return description;
     }
+
+
 }

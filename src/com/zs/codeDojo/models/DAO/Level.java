@@ -2,15 +2,13 @@ package com.zs.codeDojo.models.DAO;
 
 public class Level {
     private int levelId;
-    private int levelNumber;
     private String title;
 
     public Level() {
     }
 
-    public Level(int levelId, int levelNumber, String title) {
+    public Level(int levelId,String title) {
         this.levelId = levelId;
-        this.levelNumber = levelNumber;
         this.title = title;
     }
 
@@ -22,28 +20,13 @@ public class Level {
         this.levelId = levelId;
     }
 
-    public int getLevelNumber() {
-        return levelNumber;
-    }
-
-    public void setLevelNumber(int levelNumber) {
-        this.levelNumber = levelNumber;
-    }
-
-    public String gettitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void settitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    @Override
-    public String toString() {
-        return "Level{" +
-                "levelId=" + levelId +
-                ", levelNumber=" + levelNumber +
-                ", title='" + title + '\'' +
-                '}';
-    }
+   
 }

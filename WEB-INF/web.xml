@@ -22,10 +22,10 @@
         <filter-class>com.zs.codeDojo.controllers.filters.ActionServlet</filter-class>
     </filter>
 
-    <filter-mapping>
+    <!-- <filter-mapping>
         <filter-name>checkSession</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
     
     <filter-mapping>
         <filter-name>actionServlet</filter-name>
@@ -140,12 +140,12 @@
 
     <servlet>
         <servlet-name>getQuestionAndDescription</servlet-name>
-        <servlet-class>com.zs.codeDojo.controllers.main.GetQuest</servlet-class>
+        <servlet-class>com.zs.codeDojo.controllers.course.LevelController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>getQuestionAndDescription</servlet-name>
-        <url-pattern>/services/course/get_course_question.dojo</url-pattern>
+        <url-pattern>/services/course/getCourse</url-pattern>
     </servlet-mapping>
 
     <!-- main section end -->

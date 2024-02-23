@@ -40,8 +40,11 @@ public class Status {
 
         authCodeMsgs.put("410", "Quiz Not Found");
 
-         authCodeMsgs.put("800", "Quiz Created Successfully");
-         authCodeMsgs.put("802", "Quiz Deleted Successfully");
+        authCodeMsgs.put("800", "Quiz Created Successfully");
+        authCodeMsgs.put("802", "Quiz Deleted Successfully");
+
+
+        authCodeMsgs.put("100","Level completed Successfully");
 
     }
 

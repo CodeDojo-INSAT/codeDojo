@@ -13,6 +13,7 @@ public class User {
     private boolean isLoggedin;
 
     @Override
+    
     public String toString() {
         return getUsername() + getEmail() + getFirstName() + getLastName();
     }
