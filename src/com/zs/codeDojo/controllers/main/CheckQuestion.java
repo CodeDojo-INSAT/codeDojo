@@ -41,72 +41,69 @@ public class CheckQuestion extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request);
         this.writer = response.getWriter();
-        
+
         setResponseHeader(response);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         String className = findMainClass(javaCodeString);
-        
+
         if (className == null) {
             jsonResponse = new JsonResponse(false, "main class not found", null);
             response.getWriter().print(jsonResponse);
-            return ;
+            return;
         }
-        
+
         ServletContext context = getServletContext();
-        
+
         DBModule dbModule = (DBModule) context.getAttribute("db");
-        
+
         int type = dbModule.getTypeOfQuestion(level);
         jsonObject.clear();
 
         if (type == 0) {
-            // writer.write(jsonObject.put("error", "this question doesn't have any checkers related").toString());
+            // writer.write(jsonObject.put("error", "this question doesn't have any checkers
+            // related").toString());
             jsonResponse = new JsonResponse(false, "Question doesn't have relate to any checker", null);
             writer.print(jsonResponse);
-        }
-        else if (type == 5) {
+        } else if (type == 5) {
             TestCases testCases = dbModule.getTestCases(level);
-            
+
             if (testCases != null) {
                 Loader loader = new Loader(javaCodeString);
                 Class<?> clazz = loader.compileAndLoadClass();
-                
+
                 if (clazz == null) {
                     // jsonObject.put("compilationError", loader.getError());
                     jsonResponse = new JsonResponse(false, "compilation error", loader.getError());
-                }
-                else {
+                } else {
                     CheckLogic checker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
                     // jsonObject.put("res", checker.getResult());
                     if (!checker.isMatched()) {
                         // jsonObject.put("message", checker.getMessage());
                         jsonResponse = new JsonResponse(false, "testcases not matched", checker.getResult());
-                    }
-                    else {
+                    } else {
                         jsonResponse = new JsonResponse(true, "all testcases passed", checker.getResult());
                     }
 
                 }
-            } 
-            else {
+            } else {
                 // jsonObject.put("error", "it doesn't have any testcases");
                 jsonResponse = new JsonResponse(false, "question doesn't have any testcases", null);
             }
             writer.print(jsonResponse);
-        }
-        else {
-            (compiler = new JavaFileCompile(className, javaCodeString, (compilationError = new ErrorList()) )).compileJava();
-            
+        } else {
+            (compiler = new JavaFileCompile(className, javaCodeString, (compilationError = new ErrorList())))
+                    .compileJava();
+
             jsonObject.clear();
             ErrorList error = new ErrorList();
-            
+
             if (compiler.getStatus()) {
                 CompilationUnit compilationUnit = analyzeCode(javaCodeString);
                 String checkerName = dbModule.getClassNameOfType(type);
@@ -116,7 +113,7 @@ public class CheckQuestion extends HttpServlet {
                 handleCompilationError();
             }
         }
-        
+
         writer.close();
     }
 
@@ -151,8 +148,8 @@ public class CheckQuestion extends HttpServlet {
             if (parseResult.isSuccessful()) {
                 compilationUnit = parseResult.getResult().get();
             }
-            //  else {
-            //     handleParseError(parseResult);
+            // else {
+            // handleParseError(parseResult);
             // }
         } else {
             (compilationError = new ErrorList()).add("code should not be empty!!");
@@ -162,17 +159,17 @@ public class CheckQuestion extends HttpServlet {
     }
 
     // private void handleParseError(ParseResult<CompilationUnit> parseResult) {
-    //     pattern = Pattern.compile("line \\d{1,}, column \\d{1,}");
+    // pattern = Pattern.compile("line \\d{1,}, column \\d{1,}");
 
-    //     compilationError = new ErrorList();
-    //     parseResult.getProblems().forEach(problem -> {
-    //         matcher = pattern.matcher(problem.getCause().toString());
+    // compilationError = new ErrorList();
+    // parseResult.getProblems().forEach(problem -> {
+    // matcher = pattern.matcher(problem.getCause().toString());
 
-    //         if (matcher.find())
-    //             compilationError.add(matcher.group());
-    //         else
-    //             compilationError.add("Something went wrong... Check code.");
-    //     });
+    // if (matcher.find())
+    // compilationError.add(matcher.group());
+    // else
+    // compilationError.add("Something went wrong... Check code.");
+    // });
     // }
 
     private void handleCompilationError() {
@@ -184,7 +181,7 @@ public class CheckQuestion extends HttpServlet {
     private void handleCompilationUnit(CompilationUnit compilationUnit, String checkerName, ErrorList error) {
         // LevelHandler handler = levelHandlers.get(level);
         // if (handler != null)
-        //     writeData(handler.handle(compilationUnit, error), error);
+        // writeData(handler.handle(compilationUnit, error), error);
         String checkerPackage = "com.zs.codeDojo.models.checkers.";
         try {
             Class<?> clazz = Class.forName(checkerPackage + checkerName);
@@ -195,11 +192,10 @@ public class CheckQuestion extends HttpServlet {
             Field statusField = clazz.getDeclaredField("status");
 
             boolean status = (boolean) statusField.get(instance);
-            
+
             if (status) {
                 jsonResponse = new JsonResponse(status, "oops checked", null);
-            }
-            else {
+            } else {
                 jsonResponse = new JsonResponse(status, "can't check oops by checker", error.toArray());
             }
             writer.print(jsonResponse);
@@ -209,11 +205,11 @@ public class CheckQuestion extends HttpServlet {
     }
 
     // private void writeData(boolean status, ErrorList errorList) {
-    //     jsonObject.put("status", status);
-    //     if (!status)
-    //         jsonObject.put("error", errorList.toString());
+    // jsonObject.put("status", status);
+    // if (!status)
+    // jsonObject.put("error", errorList.toString());
 
-    //     writer.println(jsonObject.toString());
+    // writer.println(jsonObject.toString());
     // }
 
     private String findMainClass(String code) {

@@ -1,5 +1,6 @@
 // const xhr = new XMLHttpRequest();
 const webapp = "codeDojo";
+const views_endpoint = "/codeDojo/views/"
 const content = document.querySelector(".content-wrapper");
 const link_tags = document.querySelector(".links");
 
@@ -45,23 +46,39 @@ link_tags.addEventListener("click", function(e) {
     console.log(uri);
 
     if (window.location.pathname !== uri) {
-        window.history.pushState({}, "", uri);
+        let spilted_endpoint = uri.split("/");
 
-        fetch("/codeDojo/views/quiz")
+        window.history.pushState({}, "", uri);
+        renderPage(convert_to_views(spilted_endpoint[spilted_endpoint.length-1]))
+    }
+})
+
+function getEndpoint(url) {
+    let parsedUrl = new URL(url);
+    return parsedUrl.pathname;
+}
+
+
+window.addEventListener("popstate", function(event) {
+    renderPage(convert_to_views(event.target.window.location.pathname))
+})
+
+
+function renderPage(url) {
+    fetch(url)
         .then(response => {
             if (response.ok) {
                 return response.text();
             }
         })
         .then (html => {
-            // console.log(html);
             content.innerHTML = html;
         })
-    }
-})
+}
 
-function getEndpoint(url) {
-    let parsedUrl = new URL(url);
+function convert_to_views(url) {
+    let splited_url = url.split("/");
 
-    return parsedUrl.pathname;
+    endpoint = splited_url[splited_url.length-1]
+    return `${views_endpoint}${endpoint}`
 }

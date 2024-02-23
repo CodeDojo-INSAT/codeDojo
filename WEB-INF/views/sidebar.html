@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/codeDojo/css/sidebar.css">
     <link rel="stylesheet" href="/codeDojo/css/style.css">
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
     <script src="https://kit.fontawesome.com/38d6e9bf1b.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <section class="wrapper">
-        <div class="left-nav">
-            <ul class="ul">
-                <li>
-                    <a href="/codeDojo/u/quiz" class="links"><img src="/codeDojo/img/quiz.png" alt="quiz icon" style="width: 40px;"></a>
-                </li>
-            </ul>
-        </div>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
-        <div class="content-wrapper"></div>
-    </section>
+</head>
+
+<body>
+    <!-- <div class="hover-effect"></div> -->
+    <div class="sidebar">
+        <div class="logo_container">
+            <i class='bx bx-home'></i>
+            <span class="logo_name">CODE DOJO</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/codeDojo/u/dashboard">
+                    <i class='bx bxs-dashboard' style="color: #ADE4FF;"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/codeDojo/u/course">
+                    <i class='bx bx-task'></i>
+                    <span class="link_name">Course</span>
+                </a>
+            </li>
+            <li>
+                <a href=/codeDojo/u/daily_question">
+                    <i class='bx bx-spreadsheet' ></i>
+                    <span class="link_name">Daily question</span>
+                </a>
+            </li>
+            <li>
+                <a href="/codeDojo/u/quiz">
+                    <i class='bx bx-time-five' ></i>
+                    <span class="link_name">Quiz</span>
+                </a>
+            </li>
+            <li>
+                <a href="/codeDojo/u/settings">
+                    <i class='bx bx-cog'></i>
+                    <span class="link_name">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="link_name">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-wrapper">
+
+    </div>
 </body>
 <script src="/codeDojo/js/script.js"></script>
+<script src="/codeDojo/js/sidebar.js"></script>
 <script src="/codeDojo/js/dashboard.js"></script>
+
 </html>
