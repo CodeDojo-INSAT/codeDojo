@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
+import java.util.Stack;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -1136,6 +1137,76 @@ public class DBModule {
     return new Status("800");
     }
 
+
+    // Course starts here ..............................................................................................
+
+    public Level getCurrentLevel(User user){
+
+        Level level = null;
+        try {
+            
+            level = new Level();
+            String username = user.getUsername();
+
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_LEVEL);
+            stm.setString(1,username);
+
+            ResultSet res = stm.executeQuery();
+            res.next();
+
+            level.setLevelId(Integer.parseInt(res.getString(1)));
+            level.setTitle(res.getString(2));
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return level;
+        
+    }
+
+    public Status updateCurrentLevel(User user){
+        
+        try {
+            Level level = getCurrentLevel(user);
+            int levelID = level.getLevelId();
+            
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL);
+            stm.setString(1,String.valueOf(levelID+1));
+            stm.setString(2,user.getUsername());
+
+            stm.executeUpdate();
+            
+            return new Status("100");
+            
+        } catch (Exception e) {
+            
+            return new Status("406",e);
+        }
+
+    }
+
+    public CourseQuestion getCourseQuestion(String requestedLevel){
+
+        CourseQuestion question;
+
+        try {
+            
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_QUESTION);
+            stm.setString(1,String.valueOf(requestedLevel));
+            
+            ResultSet result = stm.executeQuery();
+            result.next();
+            
+            return question = new CourseQuestion(result.getString("levelID"),result.getString("title"),result.getString("description"),result.getString("code"));
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+
+            return null;
+        }
+    }
 
     public void close(){
         if (conn != null){

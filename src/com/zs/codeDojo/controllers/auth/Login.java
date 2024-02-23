@@ -24,6 +24,7 @@ public class Login extends HttpServlet {
         BufferedReader reader = req.getReader();
         StringBuilder payload = new StringBuilder();
         String line;
+
         while ((line = reader.readLine()) != null){
             payload.append(line);
         }
