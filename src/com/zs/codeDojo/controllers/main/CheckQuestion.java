@@ -84,11 +84,15 @@ public class CheckQuestion extends HttpServlet {
                     CheckLogic checker = new CheckLogic(clazz, testCases, (IOStreams) context.getAttribute("streams"));
 
                     // jsonObject.put("res", checker.getResult());
+                    JSONObject json = new JSONObject();
+                    json.put("result", checker.getResult());
+                    json.put("sampleTestcase", testCases.getSampleTestCase());
+                    
                     if (!checker.isMatched()) {
                         // jsonObject.put("message", checker.getMessage());
-                        jsonResponse = new JsonResponse(false, "testcases not matched", checker.getResult());
+                        jsonResponse = new JsonResponse(false, "testcases not matched", json);
                     } else {
-                        jsonResponse = new JsonResponse(true, "all testcases passed", checker.getResult());
+                        jsonResponse = new JsonResponse(true, "all testcases passed", json);
                     }
 
                 }

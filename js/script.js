@@ -2,7 +2,7 @@
 const webapp = "codeDojo";
 const views_endpoint = "/codeDojo/views/"
 const content = document.querySelector(".content-wrapper");
-const link_tags = document.querySelector(".links");
+// const link_tags = document.querySelector(".links");
 
 
 function _(id) {
@@ -38,20 +38,20 @@ if (cookies != "") {
     });
 }
 
-link_tags.addEventListener("click", function(e) {
-    e.preventDefault();
+// link_tags.addEventListener("click", function(e) {
+//     e.preventDefault();
 
-    // console.log("Default prevented");
-    let uri = getEndpoint(this.href);
-    console.log(uri);
+//     // console.log("Default prevented");
+//     let uri = getEndpoint(this.href);
+//     console.log(uri);
 
-    if (window.location.pathname !== uri) {
-        let spilted_endpoint = uri.split("/");
+//     if (window.location.pathname !== uri) {
+//         let spilted_endpoint = uri.split("/");
 
-        window.history.pushState({}, "", uri);
-        renderPage(convert_to_views(spilted_endpoint[spilted_endpoint.length-1]))
-    }
-})
+//         window.history.pushState({}, "", uri);
+//         renderPage(convert_to_views(spilted_endpoint[spilted_endpoint.length-1]))
+//     }
+// })
 
 function getEndpoint(url) {
     let parsedUrl = new URL(url);

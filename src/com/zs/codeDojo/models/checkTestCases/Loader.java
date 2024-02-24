@@ -33,7 +33,7 @@ public class Loader {
 
         JavaFileManager fileManager = createFileManager(standardManager, byteObject);
 
-        JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, null, null, null, getCompilationUnit(qualifiedClassName));
+        JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, dc, null, null, getCompilationUnit(qualifiedClassName));
 
         boolean compilationStatus = task.call();
         Class<?> clazz = null;

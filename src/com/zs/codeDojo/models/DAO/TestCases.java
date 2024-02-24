@@ -19,6 +19,10 @@ public class TestCases {
         size = in.length;
     }
 
+    public String[] getSampleTestCase() {
+        return new String[]{input[0], output[0]};
+    }
+
     public String[] getInputs() {
         return input;
     }

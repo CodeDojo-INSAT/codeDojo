@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
-import java.util.Stack;
+// import java.util.Stack;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,6 +19,7 @@ import com.zs.codeDojo.models.auth.AuthStatus;
 import com.zs.codeDojo.properties.SQLQueries;
 
 import com.zs.codeDojo.controllers.quizz.*;
+
 public class DBModule {
     private Connection conn = null;
 
@@ -35,7 +36,7 @@ public class DBModule {
         }
     }
 
-    // daily Question_start 
+    // daily Question_start
     public boolean addQuestion(JSONObject json, boolean withTestCases) {
         JSONObject question = json.getJSONObject("question");
         boolean status = false;
@@ -47,16 +48,15 @@ public class DBModule {
             statement.setString(3, question.getString("description"));
             statement.setDate(4, new java.sql.Date(System.currentTimeMillis()));
             statement.setTime(5, new java.sql.Time(System.currentTimeMillis()));
-    
+
             if (statement.executeUpdate() != 0) {
                 if (withTestCases) {
                     JSONArray tcArray = json.getJSONArray("testCases");
-                    for (int i=0; i<tcArray.length(); i++) {
+                    for (int i = 0; i < tcArray.length(); i++) {
                         JSONObject tcJsonObject = tcArray.getJSONObject(i);
                         addTestCases(questionId, tcJsonObject.getString("input"), tcJsonObject.getString("output"));
                     }
-                }
-                else {
+                } else {
                     status = true;
                 }
 
@@ -64,8 +64,7 @@ public class DBModule {
             }
 
             conn.commit();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             try {
                 conn.rollback();
@@ -74,12 +73,12 @@ public class DBModule {
             }
             if (ex instanceof SQLIntegrityConstraintViolationException) {
                 error = "Already a question added for this day.";
-            } 
+            }
         }
         return status;
     }
 
-    private boolean addTestCases(int questionId, String input, String output) throws SQLException {        
+    private boolean addTestCases(int questionId, String input, String output) throws SQLException {
         PreparedStatement statement1 = conn.prepareStatement(SQLQueries.ADD_TEST_CASES_QUERY);
         statement1.setInt(1, getLastId("TestCases"));
         statement1.setInt(2, questionId);
@@ -101,12 +100,11 @@ public class DBModule {
         if (!publishNow) {
             publishDate = sqlDate(json.getString("publish_date"));
             publishTime = sqlTime(json.getString("publish_time"));
-        }
-        else {
+        } else {
             publishDate = new java.sql.Date(System.currentTimeMillis());
             publishTime = new java.sql.Time(System.currentTimeMillis());
         }
-        
+
         PreparedStatement statement = conn.prepareStatement(SQLQueries.PUBLISH_QUESTION);
         statement.setInt(1, getLastId("schedule_questions"));
         statement.setInt(2, questionId);
@@ -122,7 +120,7 @@ public class DBModule {
         return status;
     }
 
-    private java.sql.Date sqlDate(String date) {    
+    private java.sql.Date sqlDate(String date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         Date jDate = null;
@@ -140,8 +138,7 @@ public class DBModule {
         Date date = null;
         try {
             date = format.parse(time);
-        }
-        catch (ParseException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return new java.sql.Time(date.getTime());
@@ -154,14 +151,13 @@ public class DBModule {
         try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_LAST_ID_QUERY + tableName)) {
             if (statement.execute()) {
                 ResultSet rs = statement.getResultSet();
-                
+
                 while (rs.next()) {
                     lastId = rs.getInt(1);
                 }
                 rs.close();
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -171,7 +167,7 @@ public class DBModule {
     // get question start
     public boolean fetchTodayQuestion() {
         boolean status = false;
-        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION)){
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION)) {
             java.sql.Date current_date = new java.sql.Date(System.currentTimeMillis());
             statement.setString(1, current_date.toString());
 
@@ -179,7 +175,8 @@ public class DBModule {
                 ResultSet rs = statement.getResultSet();
 
                 if (!rs.isBeforeFirst()) {
-                    try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION_PUBLISHING_TIME)) {
+                    try (PreparedStatement statement1 = conn
+                            .prepareStatement(SQLQueries.GET_TODAY_QUESTION_PUBLISHING_TIME)) {
                         statement1.setDate(1, current_date);
 
                         if (statement1.execute()) {
@@ -195,8 +192,7 @@ public class DBModule {
                             }
                         }
                     }
-                }
-                else {
+                } else {
                     while (rs.next()) {
                         String title = rs.getString("title");
                         String description = rs.getString("description");
@@ -208,15 +204,14 @@ public class DBModule {
                     status = true;
                 }
             }
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         }
         return status;
     }
     // get Question end
 
-    //get streak start.
+    // get streak start.
     public int getStreakForUser(int userId) {
         int streak = -1;
         try (PreparedStatement statement = conn.prepareStatement("set @row_number = 0")) {
@@ -224,29 +219,27 @@ public class DBModule {
 
             try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_STREAK)) {
                 statement1.setInt(1, userId);
-    
+
                 if (statement1.execute()) {
                     ResultSet rs = statement1.getResultSet();
-    
+
                     while (rs.next()) {
                         streak = rs.getInt("cnt");
                     }
                     rs.close();
                 }
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
         return streak;
     }
-    //get streak end.
-
+    // get streak end.
 
     public TestCases getTodayQuestionTestCases() {
         TestCases testCases = null;
-        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION_TEST_CASES)){
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.GET_TODAY_QUESTION_TEST_CASES)) {
             java.sql.Date current_date = new java.sql.Date(System.currentTimeMillis());
             statement.setDate(1, current_date);
 
@@ -255,8 +248,7 @@ public class DBModule {
 
                 if (!rs.isBeforeFirst()) {
                     error = "No today question available.";
-                }
-                else {
+                } else {
                     int size = 0;
                     try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_TEST_CASES_COUNT)) {
                         statement1.setDate(1, current_date);
@@ -272,8 +264,8 @@ public class DBModule {
                     }
 
                     String[] input = new String[size], output = new String[size];
-                    
-                    int i=0;
+
+                    int i = 0;
                     while (rs.next()) {
                         input[i] = rs.getString("input_value");
                         output[i++] = rs.getString("expected_value");
@@ -282,8 +274,7 @@ public class DBModule {
                 }
                 rs.close();
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -299,8 +290,7 @@ public class DBModule {
                 status = true;
             }
             conn.commit();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
@@ -325,8 +315,7 @@ public class DBModule {
 
                 res = content.split("#EOL#");
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return res;
@@ -339,14 +328,12 @@ public class DBModule {
             statement.setString(2, question);
             statement.setTime(3, new java.sql.Time(System.currentTimeMillis()));
             statement.setInt(4, id);
-            
 
             if (statement.executeUpdate() != 0) {
                 status = true;
             }
             conn.commit();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
@@ -377,8 +364,7 @@ public class DBModule {
 
                 testCases = new TestCases(input.split("#eof#"), output.split("#eof#"), tcId.split("#eof#"));
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -399,8 +385,7 @@ public class DBModule {
 
             if (commit)
                 conn.commit();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
@@ -412,21 +397,21 @@ public class DBModule {
     }
     // daily question end
 
-    //main
+    // main
     public Question readContentFromDatabase(int level) {
         String description = null;
         String code = null;
         try (PreparedStatement preparedStatement = conn.prepareStatement(SQLQueries.READ_QUERY)) {
             preparedStatement.setInt(1, level);
 
-            if (preparedStatement.execute()){
-                
+            if (preparedStatement.execute()) {
+
                 ResultSet res = preparedStatement.getResultSet();
                 while (res.next()) {
                     description = res.getString(1);
                     code = res.getString(2);
                 }
-    
+
                 res.close();
             } else {
                 System.out.println("Results not found");
@@ -466,13 +451,11 @@ public class DBModule {
 
                 rs.close();
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return type;
     }
-
 
     public String getClassNameOfType(int type) {
         String className = null;
@@ -488,8 +471,7 @@ public class DBModule {
 
                 rs.close();
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -518,7 +500,7 @@ public class DBModule {
                 ResultSet rs = statement.getResultSet();
 
                 String[] input = new String[size], output = new String[size];
-                int i=0;
+                int i = 0;
                 while (rs.next()) {
                     input[i] = rs.getString("input_value");
                     output[i++] = rs.getString("expected_value");
@@ -527,17 +509,16 @@ public class DBModule {
 
                 testCases = new TestCases(input, output);
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return testCases;
-    } 
+    }
 
     // main section end
 
     // auth section start
-    public AuthStatus authenticate(User user){
+    public AuthStatus authenticate(User user) {
         try {
             if (!isExistingUser(user)) {
                 return new AuthStatus("404");
@@ -557,7 +538,7 @@ public class DBModule {
             stmt.close();
 
             return new AuthStatus("400");
-        }catch (SQLException e){
+        } catch (SQLException e) {
             return new AuthStatus("406", e);
         }
     }
@@ -568,7 +549,7 @@ public class DBModule {
 
         ResultSet rs = stmt.executeQuery();
 
-        boolean status =  rs.next();
+        boolean status = rs.next();
         rs.close();
         stmt.close();
 
@@ -581,7 +562,7 @@ public class DBModule {
 
         ResultSet rs = stmt.executeQuery();
 
-        boolean status =  rs.next();
+        boolean status = rs.next();
         rs.close();
         stmt.close();
 
@@ -614,20 +595,19 @@ public class DBModule {
         return status;
     }
 
-    public AuthStatus createUser(User user){
-        try{
-            if (user.isEmpty()){
+    public AuthStatus createUser(User user) {
+        try {
+            if (user.isEmpty()) {
                 return new AuthStatus("405");
             }
 
-            if (isExistingEmail(user)){
+            if (isExistingEmail(user)) {
                 return new AuthStatus("402");
             }
 
             if (isExistingUser(user)) {
                 return new AuthStatus("401");
             }
-
 
             PreparedStatement stmt = conn.prepareStatement(SQLQueries.INSERT_USER_PS);
 
@@ -638,14 +618,13 @@ public class DBModule {
             stmt.setString(5, user.getLastName());
             stmt.setString(6, String.valueOf(user.isVerified()));
 
-
             if (stmt.executeUpdate() != 0) {
                 conn.commit();
             }
 
             stmt.close();
             return new AuthStatus("201");
-        }catch (SQLException e){
+        } catch (SQLException e) {
             try {
                 conn.rollback();
             } catch (SQLException e1) {
@@ -670,8 +649,7 @@ public class DBModule {
                     null,
                     resultSet.getString(3),
                     resultSet.getString(4),
-                    Boolean.parseBoolean(resultSet.getString(5))
-            );
+                    Boolean.parseBoolean(resultSet.getString(5)));
         }
         resultSet.close();
         stmt.close();
@@ -685,7 +663,7 @@ public class DBModule {
             statement.setString(1, user.getEmail());
             ResultSet resultSet = statement.executeQuery();
 
-            if (!resultSet.next()){
+            if (!resultSet.next()) {
                 return new AuthStatus("409");
             }
 
@@ -696,22 +674,21 @@ public class DBModule {
 
             statement.execute();
             conn.commit();
-            return new  AuthStatus("205");
-        }
-        catch (SQLException ex) {
+            return new AuthStatus("205");
+        } catch (SQLException ex) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             ex.printStackTrace();
-        } 
+        }
         return null;
     }
 
     public void createVerifyCode(User user, String code) {
         try {
-            Timestamp instant= Timestamp.from(Instant.now());
+            Timestamp instant = Timestamp.from(Instant.now());
 
             PreparedStatement statement = conn.prepareStatement(SQLQueries.CREATE_VERIFY_CODE);
 
@@ -721,8 +698,7 @@ public class DBModule {
 
             statement.execute();
             conn.commit();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             try {
                 conn.rollback();
             } catch (SQLException e1) {
@@ -744,14 +720,14 @@ public class DBModule {
         statement.setString(1, user.getEmail());
         ResultSet resultSet = statement.executeQuery();
 
-        if(resultSet.next()){
+        if (resultSet.next()) {
             return resultSet.getString(1);
         }
 
         return null;
     }
 
-    public void deleteVerifyCode(User user) throws SQLException{
+    public void deleteVerifyCode(User user) throws SQLException {
         PreparedStatement statement = conn.prepareStatement(SQLQueries.DELETE_VERIFY_CODE);
         statement.setString(1, user.getEmail());
         statement.execute();
@@ -770,8 +746,7 @@ public class DBModule {
             rs.close();
 
             return ret;
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
             return -1;
         }
@@ -787,21 +762,19 @@ public class DBModule {
             if (statement.execute()) {
                 ResultSet rs = statement.getResultSet();
                 rs.next();
-                
+
                 description = rs.getString(1);
                 questionCode = rs.getString(2);
                 rs.close();
                 return new Question(description, questionCode);
-            }   
-            else {
+            } else {
                 return null;
             }
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
             return null;
         }
-    } 
+    }
 
     public boolean updateLevel(String desc, String question, int level) {
         try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPDATE_LEVEL)) {
@@ -810,11 +783,10 @@ public class DBModule {
             statement.setInt(3, level);
 
             boolean status = statement.executeUpdate() == 1;
-            
+
             conn.commit();
             return status;
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
@@ -829,14 +801,14 @@ public class DBModule {
         boolean status = false;
         try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPLOAD_LEVEL)) {
             int currentLevel = fetchLevels();
-            statement.setInt(1, currentLevel+1);
+            statement.setInt(1, currentLevel + 1);
             statement.setString(2, desc);
             statement.setString(3, question);
 
             if (statement.executeUpdate() == 1) {
                 try (PreparedStatement statement2 = conn.prepareStatement(SQLQueries.CHECKER_RELATION)) {
-                    for (int i=0; i<checkers.length; i++) {
-                        statement2.setInt(1, currentLevel+1);
+                    for (int i = 0; i < checkers.length; i++) {
+                        statement2.setInt(1, currentLevel + 1);
                         statement2.setInt(2, checkers[i]);
 
                         if (statement2.executeUpdate() != 1) {
@@ -849,8 +821,7 @@ public class DBModule {
 
             conn.commit();
             return status;
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             try {
                 conn.rollback();
             } catch (SQLException e) {
@@ -873,32 +844,30 @@ public class DBModule {
                 }
                 rs.close();
             }
-        }
-        catch (SQLException sqlEx) {
+        } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         }
         return res.split("#EOL#");
     }
     // admin section end
 
-    // Quiz section start 
+    // Quiz section start
 
-    public JSONObject getQuestions(String quizID){
+    public JSONObject getQuestions(String quizID) {
         JSONObject res = new JSONObject();
         JSONObject info = getQuizInfo(quizID);
 
-        if (info != null && info.isEmpty()){
+        if (info != null && info.isEmpty()) {
             return res;
         }
 
         res.put("quizInfo", info);
 
-        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUESTIONS_MINMAL)){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUESTIONS_MINMAL)) {
             stmt.setString(1, quizID);
             JSONArray questions = new JSONArray();
             if (stmt.execute()) {
                 ResultSet resSet = stmt.getResultSet();
-
 
                 while (resSet.next()) {
                     JSONObject obj = new JSONObject();
@@ -919,21 +888,21 @@ public class DBModule {
                 res.put("questions", questions);
             }
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return res;
     }
 
-    public JSONArray getOptions(String quizID, String questionsID){
+    public JSONArray getOptions(String quizID, String questionsID) {
         JSONArray res = new JSONArray();
-        try(PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_OPTIONS_MINIMAL)) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_OPTIONS_MINIMAL)) {
             stmt.setString(1, quizID);
             stmt.setString(2, questionsID);
             ResultSet resSet = stmt.executeQuery();
 
-            while (resSet.next()){
+            while (resSet.next()) {
                 JSONObject option = new JSONObject();
                 option.put("OptionID", resSet.getString(1));
                 option.put("OptionText", resSet.getString(2));
@@ -941,24 +910,24 @@ public class DBModule {
                 res.put(option);
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return res;
     }
 
-    public Status deleteQuiz(String quizID){
+    public Status deleteQuiz(String quizID) {
         Status status = null;
-        try(PreparedStatement stmt = conn.prepareStatement(SQLQueries.DELETE_QUIZ)) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.DELETE_QUIZ)) {
             stmt.setString(1, quizID);
-            if (stmt.executeUpdate() == 1){
-                status =  new Status("802");
-            }else {
-                status =  new Status("410");
+            if (stmt.executeUpdate() == 1) {
+                status = new Status("802");
+            } else {
+                status = new Status("410");
             }
             conn.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             try {
 
                 conn.rollback();
@@ -971,8 +940,9 @@ public class DBModule {
         }
         return status;
     }
-    public JSONObject getQuizInfo(String quizID){
-        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZ)){
+
+    public JSONObject getQuizInfo(String quizID) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZ)) {
 
             stmt.setString(1, quizID);
 
@@ -995,19 +965,19 @@ public class DBModule {
         return null;
     }
 
-    public JSONArray getQuizzes(){
+    public JSONArray getQuizzes() {
         try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZZES)) {
 
             JSONArray arr = new JSONArray();
             ResultSet res = stmt.executeQuery();
-            while (res.next()){
+            while (res.next()) {
                 String quizID = res.getString(1);
                 String quizName = res.getString(2);
                 String quizType = res.getString(3);
                 int numQuestions = res.getInt(4);
                 String createdOn = res.getString(5);
                 String lastUpdated = res.getString(6);
-                arr.put(new QuizObject(quizID, quizName, quizType, createdOn,lastUpdated , numQuestions).toJSON()) ;
+                arr.put(new QuizObject(quizID, quizName, quizType, createdOn, lastUpdated, numQuestions).toJSON());
             }
             stmt.close();
             return arr;
@@ -1019,59 +989,61 @@ public class DBModule {
     }
 
     // private String getAnswerOption(String quizID, String questionID){
-    //     try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)){
-    //         stmt.setString(1, quizID);
-    //         stmt.setString(2, questionID);
-    //         if (stmt.execute()){
-    //             ResultSet resultSet = stmt.getResultSet();
-    //             return resultSet.getString(1);
-    //         }
-    //     }catch (SQLException e){
-    //         e.printStackTrace();
-    //     }
-
-    //     return null;
+    // try (PreparedStatement stmt =
+    // conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)){
+    // stmt.setString(1, quizID);
+    // stmt.setString(2, questionID);
+    // if (stmt.execute()){
+    // ResultSet resultSet = stmt.getResultSet();
+    // return resultSet.getString(1);
+    // }
+    // }catch (SQLException e){
+    // e.printStackTrace();
     // }
 
-    private String getAnswerText(String quizID, String questionID){
-        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)){
+    // return null;
+    // }
+
+    private String getAnswerText(String quizID, String questionID) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_CORRECT_ANSWER_TEXT)) {
             stmt.setString(1, quizID);
             stmt.setString(2, questionID);
 
-            if (stmt.execute()){
+            if (stmt.execute()) {
                 ResultSet resultSet = stmt.getResultSet();
                 resultSet.next();
                 return resultSet.getString(1);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return null;
     }
-    public boolean isCorrectAnswer(String quizID, String questionID, String response){
+
+    public boolean isCorrectAnswer(String quizID, String questionID, String response) {
         String answer;
 
         answer = getAnswerText(quizID, questionID);
         System.out.println(answer);
 
-
-        return  answer != null && answer.equals(response) ;
+        return answer != null && answer.equals(response);
     }
-    public Status createQuiz(QuizExternObject obj){
+
+    public Status createQuiz(QuizExternObject obj) {
         String quizID = obj.getQuizID();
         String quizName = obj.getQuizName();
         String quizType = obj.getQuizType();
         JSONArray questions = obj.getQuestions();
-        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_QUIZ)){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_QUIZ)) {
 
             stmt.setString(1, quizID);
             stmt.setString(2, quizName);
             stmt.setString(3, quizType);
             stmt.setInt(4, questions.length());
             Timestamp createTime = new Timestamp(new java.util.Date().getTime());
-            stmt.setTimestamp(5,createTime);
-            stmt.setTimestamp(6,  createTime);
+            stmt.setTimestamp(5, createTime);
+            stmt.setTimestamp(6, createTime);
 
             stmt.execute();
 
@@ -1079,11 +1051,11 @@ public class DBModule {
 
         } catch (SQLException e) {
             try {
-                
+
                 conn.rollback();
 
             } catch (Exception ei) {
-                
+
                 ei.printStackTrace();
             }
 
@@ -1095,24 +1067,24 @@ public class DBModule {
                 JSONObject questionObj = questions.getJSONObject(i);
                 PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_QUESTION);
                 stmt.setString(1, quizID);
-                stmt.setString(2, "q"+(i+1));
+                stmt.setString(2, "q" + (i + 1));
                 stmt.setString(3, questionObj.getString("question"));
                 stmt.setString(4, "o" + questionObj.getInt("answer"));
 
                 stmt.execute();
                 stmt.close();
-                if (quizType.equals("MCQ")){
+                if (quizType.equals("MCQ")) {
                     JSONArray optionsObj = questionObj.getJSONArray("options");
                     for (int j = 0; j < optionsObj.length(); j++) {
                         PreparedStatement optionStmt = conn.prepareStatement(SQLQueries.CREATE_OPTION);
                         optionStmt.setString(1, quizID);
-                        optionStmt.setString(2, "q"+(i+1));
-                        optionStmt.setString(3, "o"+(j+1));
+                        optionStmt.setString(2, "q" + (i + 1));
+                        optionStmt.setString(3, "o" + (j + 1));
 
                         optionStmt.setString(4, optionsObj.getString(j));
-                        if (("o"+(j+1)).equals("o" + questionObj.getInt("answer"))) {
+                        if (("o" + (j + 1)).equals("o" + questionObj.getInt("answer"))) {
                             optionStmt.setString(5, "true");
-                        }else {
+                        } else {
                             optionStmt.setString(5, "false");
                         }
 
@@ -1134,22 +1106,22 @@ public class DBModule {
             }
             return new Status("406", e);
         }
-    return new Status("800");
+        return new Status("800");
     }
 
+    // Course starts here
+    // ..............................................................................................
 
-    // Course starts here ..............................................................................................
-
-    public Level getCurrentLevel(User user){
+    public Level getCurrentLevel(User user) {
 
         Level level = null;
         try {
-            
+
             level = new Level();
             String username = user.getUsername();
 
             PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_LEVEL);
-            stm.setString(1,username);
+            stm.setString(1, username);
 
             ResultSet res = stm.executeQuery();
             res.next();
@@ -1157,59 +1129,75 @@ public class DBModule {
             level.setLevelId(Integer.parseInt(res.getString(1)));
             level.setTitle(res.getString(2));
 
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return level;
-        
+
     }
 
-    public Status updateCurrentLevel(User user){
-        
+    public Status updateCurrentLevel(User user) {
+
         try {
             Level level = getCurrentLevel(user);
             int levelID = level.getLevelId();
-            
+
             PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL);
-            stm.setString(1,String.valueOf(levelID+1));
-            stm.setString(2,user.getUsername());
+            stm.setString(1, String.valueOf(levelID + 1));
+            stm.setString(2, user.getUsername());
 
             stm.executeUpdate();
-            
+
             return new Status("100");
-            
+
         } catch (Exception e) {
-            
-            return new Status("406",e);
+
+            return new Status("406", e);
         }
 
     }
 
-    public CourseQuestion getCourseQuestion(String requestedLevel){
+    public CourseQuestion getCourseQuestion(String requestedLevel) {
 
-        CourseQuestion question;
+        // CourseQuestion question;
 
         try {
-            
+
             PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_QUESTION);
-            stm.setString(1,String.valueOf(requestedLevel));
-            
+            stm.setString(1, String.valueOf(requestedLevel));
+
             ResultSet result = stm.executeQuery();
             result.next();
-            
-            return question = new CourseQuestion(result.getString("levelID"),result.getString("title"),result.getString("description"),result.getString("code"));
+
+            return new CourseQuestion(result.getString("levelID"), result.getString("title"),
+                    result.getString("description"), result.getString("code"));
 
         } catch (Exception e) {
-            
+
             e.printStackTrace();
 
             return null;
         }
     }
 
-    public void close(){
-        if (conn != null){
+    public Status createAnnouncement(AnnouncementObject obj) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_ANNOUNCEMENT)) {
+            stmt.setString(1, obj.getAnnouncementTitle());
+            stmt.setString(2, obj.getAnnouncementContent());
+            Timestamp createTime = new Timestamp(new java.util.Date().getTime());
+            stmt.setTimestamp(3, createTime);
+            stmt.setTimestamp(4, createTime);
+            stmt.execute();
+
+            return new Status("600");
+
+        } catch (SQLException e) {
+            return new Status("406");
+        }
+    }
+
+    public void close() {
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {
@@ -1217,7 +1205,6 @@ public class DBModule {
             }
         }
     }
-
 
     public String getError() {
         return error;
