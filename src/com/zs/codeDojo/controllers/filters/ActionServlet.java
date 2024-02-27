@@ -24,16 +24,17 @@ public class ActionServlet implements Filter {
                 HttpServletRequest httpRequest = ((HttpServletRequest) request);
                 HttpServletResponse httpResponse = ((HttpServletResponse) response);
 
-
                 System.err.println("Fillter called");
 
                 String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
 
                 if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png")) {
+
                     chain.doFilter(httpRequest, httpResponse);
                     return;
                 }
                 
+                httpResponse.setContentType("text/html");
                 String cookieName = "reqEndpoint";
                 Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
 
@@ -73,6 +74,7 @@ public class ActionServlet implements Filter {
                     case "/views/course":
                         request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
                         break;
+
                     default:
                         chain.doFilter(httpRequest, httpResponse);
                         break;

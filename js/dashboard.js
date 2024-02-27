@@ -1,4 +1,4 @@
-const welcome_name_span = document.getElementById("name");
+constants.WELCOME_NAME_SPAN = document.getElementById("name");
 // const content = document.querySelector(".content-wrapper");
 
 
@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     })
     .then(data => {
-        welcome_name_span.textContent = data;
+        constants.WELCOME_NAME_SPAN.textContent = data;
     })
 })
