@@ -31,7 +31,17 @@ public class LevelController extends HttpServlet {
         // System.out.println(requestedLevel);
 
         DBModule db = (DBModule)con.getAttribute("db");
-    
+
+        String url = request.getRequestURL().toString();
+
+        User user = (User)request.getSession(false).getAttribute("user");
+        int currentLevel = db.getCurrentLevel(user);
+
+        if (requestedLevel == null || Integer.parseInt(requestedLevel)>currentLevel) {
+            response.sendRedirect(url+"?level="+currentLevel);
+            return;
+        }
+
         CourseQuestion question = db.getCourseQuestion(requestedLevel);
 
         String questionJson = JsonUtils.toJson(question);

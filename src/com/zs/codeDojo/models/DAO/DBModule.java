@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import com.zs.codeDojo.models.auth.AuthStatus;
 import com.zs.codeDojo.properties.SQLQueries;
-
+import com.google.gson.JsonArray;
 import com.zs.codeDojo.controllers.quizz.*;
 
 public class DBModule {
@@ -1112,38 +1112,35 @@ public class DBModule {
     // Course starts here
     // ..............................................................................................
 
-    public Level getCurrentLevel(User user) {
+    public int getCurrentLevel(User user) {
 
-        Level level = null;
         try {
 
-            level = new Level();
             String username = user.getUsername();
 
             PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_LEVEL);
             stm.setString(1, username);
 
+            System.out.println(stm.toString());
             ResultSet res = stm.executeQuery();
             res.next();
 
-            level.setLevelId(Integer.parseInt(res.getString(1)));
-            level.setTitle(res.getString(2));
+            return res.getInt(1);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return level;
+        return 1;
 
     }
 
     public Status updateCurrentLevel(User user) {
 
         try {
-            Level level = getCurrentLevel(user);
-            int levelID = level.getLevelId();
+            int level = getCurrentLevel(user);
 
             PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL);
-            stm.setString(1, String.valueOf(levelID + 1));
+            stm.setString(1, String.valueOf(level + 1));
             stm.setString(2, user.getUsername());
 
             stm.executeUpdate();
@@ -1179,6 +1176,72 @@ public class DBModule {
             return null;
         }
     }
+
+    public JSONArray getCourseMetaData(){
+        
+        JSONArray json = new JSONArray();
+        try {
+            
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_LEVELS_METADATA);
+            ResultSet result = stm.executeQuery();
+
+            while (result.next()) {
+                JSONObject jobj = new JSONObject();
+
+                jobj.put("Title", result.getString("title"));
+                jobj.put("LevelID",result.getString("levelID"));
+
+                json.put(jobj);
+    
+                
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return json;
+
+    }
+
+    public Status addSubmission(String user,int level,String code ){
+
+        
+        try {
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_SUBMISSION);
+
+            stm.setInt(1,level);
+            stm.setString(2,user);
+            stm.setString(3,code);
+            stm.executeUpdate();
+            return new Status("102");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+           return new Status("406");
+        }
+
+    } 
+
+    public Status updateSubmission(String user,int level,String code ){
+
+        
+        try {
+            PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_SUBMISSION);
+
+            stm.setString(1,code);
+            stm.setString(2,user);
+            stm.setInt(3,level);
+            stm.executeUpdate();
+            return new Status("102");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+           return new Status("406");
+        }
+
+    } 
+
+    // Announcement modules..............
 
     public Status createAnnouncement(AnnouncementObject obj) {
         try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.CREATE_ANNOUNCEMENT)) {

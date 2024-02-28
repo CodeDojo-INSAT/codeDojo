@@ -41,13 +41,13 @@ function init() {
 
     getAjaxCallG("http://arjun:9090/codeDojo/services/course/getCourse?level=1");
 }
-
+console.log("ISN")
 init();
 
 function submit() {
     showElement(result_area);
     if (window.editor) {
-        // console.log(window.editor);
+        console.log(window.editor);
         let data = { "code": editor.getValue(), "level": user_level };
         getAjaxCall("http://arjun:9090/codeDojo/services/course/check_answer.dojo", data);
     }

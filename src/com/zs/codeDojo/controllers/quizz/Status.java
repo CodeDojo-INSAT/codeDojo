@@ -45,6 +45,8 @@ public class Status {
 
 
         authCodeMsgs.put("100","Level completed Successfully");
+        authCodeMsgs.put("102","Code submission successfull");
+
 
     }
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            height:100%;
+            width: 100%;
+          }
+          #draggable {
+            background: #eee;
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            position: fixed;
+            left:0;top: 0;
+            width: 200px;
+            height:200px;
+            font-size:2rem;
+          }
+          
+          .no-select {
+            user-select: none;
+          }
+    </style>
+</head>
+
+<body>
+    <div  id="draggable" class="no-select">
+        <div id="mydivheader">
+            <textarea name="termk" id="" cols="30" rows="10">
+                
+            </textarea>
+        </div>
+
+    </div>
+
+    <script>
+        var isMouseDown, initX, initY, height = draggable.offsetHeight, width = draggable.offsetWidth;
+
+        draggable.addEventListener('mousedown', function (e) {
+            isMouseDown = true;
+            document.body.classList.add('no-select');
+            initX = e.offsetX;
+            initY = e.offsetY;
+        })
+
+        document.addEventListener('mousemove', function (e) {
+            if (isMouseDown) {
+                var cx = e.clientX - initX,
+                    cy = e.clientY - initY;
+                if (cx < 0) {
+                    cx = 0;
+                }
+                if (cy < 0) {
+                    cy = 0;
+                }
+                if (window.innerWidth - e.clientX + initX < width) {
+                    cx = window.innerWidth - width;
+                }
+                if (e.clientY > window.innerHeight - height + initY) {
+                    cy = window.innerHeight - height;
+                }
+                draggable.style.left = cx + 'px';
+                draggable.style.top = cy + 'px';
+            }
+        })
+
+        draggable.addEventListener('mouseup', function () {
+            isMouseDown = false;
+            document.body.classList.remove('no-select');
+        })
+    </script>
+</body>
+
+</html>
