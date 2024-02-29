@@ -130,7 +130,6 @@
     </servlet-mapping>
     <!-- dailyQuestions section end  -->
 
-
     <!-- main section start -->
     <servlet>
         <servlet-name>checkAnswerWithChecker</servlet-name>
@@ -191,8 +190,10 @@
     </servlet>
 
     <servlet-mapping>
+
         <servlet-name>loginSubmit</servlet-name>
         <url-pattern>/services/auth/login.dojo</url-pattern>
+        
     </servlet-mapping>
 
     <servlet>

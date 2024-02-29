@@ -67,11 +67,14 @@ public class CheckQuestion extends HttpServlet {
         jsonObject.clear();
 
         if (type == 0) {
+
             // writer.write(jsonObject.put("error", "this question doesn't have any checkers
             // related").toString());
+            
             jsonResponse = new JsonResponse(false, "Question doesn't have relate to any checker", null);
             writer.print(jsonResponse);
         } else if (type == 5) {
+
             TestCases testCases = dbModule.getTestCases(level);
 
             if (testCases != null) {
@@ -213,8 +216,11 @@ public class CheckQuestion extends HttpServlet {
             boolean status = (boolean) statusField.get(instance);
 
             if (status) {
+
                 jsonResponse = new JsonResponse(status, "oops checked", null);
+
             } else {
+
                 jsonResponse = new JsonResponse(status, "can't check oops by checker", error.toArray());
             }
             writer.print(jsonResponse);
