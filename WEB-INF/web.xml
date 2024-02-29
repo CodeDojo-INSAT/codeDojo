@@ -8,9 +8,9 @@
         <listener-class>com.zs.codeDojo.models.config.Config</listener-class>
     </listener>
 
-    <error-page>
+    <!-- <error-page>
         <location>/WEB-INF/views/404.html</location>
-    </error-page>     
+    </error-page> -->
 
     <filter>
         <filter-name>checkSession</filter-name>

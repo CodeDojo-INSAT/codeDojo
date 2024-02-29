@@ -88,6 +88,8 @@ public class CheckQuestion extends HttpServlet {
                     JSONObject json = new JSONObject();
                     json.put("result", checker.getResult());
                     json.put("sampleTestcase", testCases.getSampleTestCase());
+                    if (checker.hasMessage())
+                        json.put("user_output", checker.getMessage());
                     
                     if (!checker.isMatched()) {
                         // jsonObject.put("message", checker.getMessage());
