@@ -1,8 +1,12 @@
+body {
+    overflow: hidden;
+}
+
 .top-nav {
     width: 100%;
     position: fixed;
     background-color: #000;
-    height: 5%;
+    height: 47px;
     display: flex;
     padding-left: 1%;
     align-items: center;
@@ -10,6 +14,7 @@
 
 .course-section {
     position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
     top: 5%;
     background: #262626;
     height: calc(100vh - 5%);
@@ -38,9 +43,11 @@
 .course-section .editor {
     background: #222;
     width: 59%;
-    height: 100%;
+    height: 100vh;
     /* border-radius: 8px; */
-    overflow: scroll;
+    /* overflow: scroll; */
+    display: flex;
+    flex-direction: column;
 }
 
 .monaco-editor {
@@ -60,26 +67,82 @@
 
 .course-section .editor #editor-container {
     width: 100%;
-    height: 95%;
+    height: calc(100% - (32px + 5% + 27px + 270px)); /*100 - (top panel + top nav + terminal top panel = 4% + 5% + 27px) */
     border-radius: 8px;
 }
 
+.terminal-hided {
+    height: calc(100% - (32px + 5% + 27px)) !important;
+}
+
 .course-section .editor .top-panel {
-    background-color: red;
+    background-color: #161616;
     width: 100%;
-    height: 4%;
+    height: 32px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .course-section .editor .top-panel .filename {
-    margin-left: 1.5%;
+    margin: 0 1.5%;
 }
 
 .course-section .editor .top-panel .upload-file {
     margin-right: 4%;
     padding: 4px 8px;
+}
+
+.course-section .editor .terminal {
+    background-color: green;
+    height: 270px; /**/
+    /* display: none; */
+    width: 100%;
+    /* overflow: hidden; */
+}
+
+.course-section .editor .terminal-top-panel {
+    background-color: #555;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-section .editor .terminal-top-panel .panel-name {
+    padding: 4px;
+    color: #fff;
+    margin: auto;
+}
+
+.course-section .editor .terminal-top-panel .action-btns {
+    color: #fff;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.course-section .editor .terminal-top-panel .action-btns span {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.course-section .editor .terminal-top-panel .action-btns .minimize {
+    background-color: #ebdb02;
+}
+
+.course-section .editor .terminal-top-panel .action-btns .maximize {
+    background-color: #00db07;
 }
 
 .course-section .editor .submit-area {
@@ -216,6 +279,11 @@
 .hide {
     display: none !important;
 }
-.course-section .editor::-webkit-scrollbar {
+.course-section::-webkit-scrollbar {
     display: none;
-  }
+}
+
+.terminal::-webkit-scrollbar {
+    width: 5px;
+}
+

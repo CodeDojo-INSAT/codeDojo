@@ -6,11 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -41,11 +44,12 @@ public class Config implements ServletContextListener {
         context.setAttribute("streams", streams);
 
         try {
-            System.setErr(new PrintStream(new FileOutputStream(Properties.logPath, true))); 
+            System.setErr(new LogWithTime(new FileOutputStream(Properties.logPath, true))); 
 
             deleteOldEventsAndProcedures(conn);
             createProcedure(conn);
             createEvent(conn);
+            System.err.println("All configs checked");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -112,5 +116,19 @@ public class Config implements ServletContextListener {
             ex.printStackTrace();
         }
         return status;
+    }
+
+    private class LogWithTime extends PrintStream {
+        private PrintStream originalPrintStream = null;
+        public LogWithTime(OutputStream out) {
+            super(out);
+            originalPrintStream = new PrintStream(out);
+        }
+
+        @Override
+        public void println(String x) {
+            SimpleDateFormat current_time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            originalPrintStream.println(current_time.format(new Date(System.currentTimeMillis())) + "  "+ x);
+        }
     }
 }
