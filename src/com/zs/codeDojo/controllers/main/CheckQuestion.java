@@ -95,8 +95,8 @@ public class CheckQuestion extends HttpServlet {
                     } else {
                         jsonResponse = new JsonResponse(true, "all testcases passed", json);
 
-                        User user = (User)request.getSession().getAttribute("User");
-                        int currentLevelofUser = (dbModule.getCurrentLevel(null));
+                        User user = (User)request.getSession().getAttribute("user");
+                        int currentLevelofUser = (dbModule.getCurrentLevel(user));
 
                         if (currentLevelofUser == level) {
 

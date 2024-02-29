@@ -75,7 +75,7 @@ public class SQLQueries {
     // Course query goes hereeeeeeeeeeeeeeeeeeee:+{S[;s's:s[]]}
 
     public static final String GET_CURRENT_LEVEL = "Select level from UserCurrentLevel where username = ?;";
-    public static final String UPDATE_CURRENT_LEVEL = "UPDATE UserCurrentLevel level = ? WHERE username = ? ;";
+    public static final String UPDATE_CURRENT_LEVEL = "UPDATE UserCurrentLevel SET level = ? WHERE username = ? ;";
     public static final String GET_LEVELS_METADATA = "SELECT levelID, title FROM CourseQuestions;";
 
 
@@ -83,7 +83,7 @@ public class SQLQueries {
     public static final String GET_QUESTION = "SELECT * from CourseQuestions WHERE levelID = ?;";
 
     public static final String ADD_SUBMISSION = "INSERT INTO UserSubmission (levelId,username,code) VALUES(?,?,?);";
-    public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = '?'  WHERE username = '?' AND levelID = ?;";
+    public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = ?  WHERE username = ? AND levelID = ?;";
 
     // Announcements Queries go Here...
     public static final String CREATE_ANNOUNCEMENT = "insert into announcements (announcementTitle, announcementContent, createdDate, updatedDate) Values (?, ?, ?, ?)";
