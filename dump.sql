@@ -1,7 +1,7 @@
 -- MySQL dump 10------------------
 -- Server version	5.7.42
 
-/*!40101 SET @OLD_CHARACTER_SET_.13  Distrib 5.7.42, for Linux (x86_64)
+/*!640101 SET @OLD_CHARACTER_SET_.13  Distrib 5.7.42, for Linux (x86_64)
 --
 -- Host: localhost    Database: course
 -- ------------------------------------CLIENT=@@CHARACTER_SET_CLIENT */;
