@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import com.zs.codeDojo.models.auth.AuthStatus;
 import com.zs.codeDojo.properties.SQLQueries;
-import com.google.gson.JsonArray;
+// import com.google.gson.JsonArray;
 import com.zs.codeDojo.controllers.quizz.*;
 
 public class DBModule {

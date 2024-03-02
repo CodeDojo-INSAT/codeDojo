@@ -1,0 +1,115 @@
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-02 10:38:41  All configs checked
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  uvchan
+2024-03-02 10:39:02  uvchan123
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-02 10:41:51  All configs checked
+2024-03-02 10:41:51  Fillter called
+2024-03-02 10:41:53  Fillter called
+2024-03-02 10:41:53  uvchan
+2024-03-02 10:41:53  uvchan123
+2024-03-02 10:41:53  Fillter called
+2024-03-02 10:41:54  Fillter called
+2024-03-02 10:41:57  Fillter called
