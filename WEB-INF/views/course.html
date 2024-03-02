@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/codeDojo/css/xterm.css">
 <link rel="stylesheet" href="/codeDojo/css/course.css">
 <div class="top-nav">
     <p>Java Course</p>
@@ -5,12 +6,9 @@
 <div class="course-section">
     <div class="description">
         <div class="title">
-            <h2>The title goes here</h2>
+            <h2></h2>
         </div>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, voluptate. Modi ab impedit corporis
-            excepturi repellendus ratione porro, tempora iste quod nulla aperiam hic, nesciunt possimus facere atque
-            molestias numquam!
         </p>
 
         <!-- <zero-md>
@@ -23,10 +21,22 @@
     <div class="editor">
         <div class="top-panel">
             <div class="filename">Main.java</div>
-            <button class="upload-file">Upload file</button>
+            <label for="codeFile">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </label>
+            <input type="file" accept=".java" class="upload-file" value="Upload file" id="codeFile" style="display: none;"/>
         </div>
-        <div id="editor-container">
+        <div id="editor-container"></div>
+
+        <div class="terminal-top-panel">
+            <div class="panel-name">CodeDojo - Terminal</div>
+            <div class="action-btns">
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
         </div>
+
+        <div class="terminal"></div>
         <!-- <div class="submit-area">
             <span id="result" class="hide"><span id="count">2/5</span> Test cases failed :( </span>
             <button id="next" class="hide">next</button>

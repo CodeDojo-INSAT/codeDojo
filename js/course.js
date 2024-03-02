@@ -185,6 +185,7 @@
 
 // submit_btn.addEventListener("click", submit);
 var user_level;
+var autosave = true;
 
 constants.DESCRIPTION_TITLE = document.querySelector(".description .title");
 constants.DESCRIPTION = document.querySelector(".description > p");
@@ -193,9 +194,10 @@ function initEditor() {
     require.config({ paths: { 'vs': '/codeDojo/js/vs' } });
     require(['vs/editor/editor.main'], function () {
         constants.editor = monaco.editor.create(document.querySelector('#editor-container'), {
-            value: `${constants.questionCode !== "" ? constants.questionCode : "public class Main {\n   public static void main(String[] args) {\n      //Your code goes here\n   }\n}"}`,
+            value: `${constants.questionCode !== "" && constants.questionCode !== undefined ? constants.questionCode : "public class Main {\n   public static void main(String[] args) {\n      //Your code goes here\n   }\n}"}`,
             language: 'java',
             theme: 'vs-dark',
+            fontFamily: "Arial, sans-serif",
             fontSize: 18,
             minimap: {
                 enabled: false,
@@ -210,18 +212,33 @@ function initEditor() {
     });
 }
 
+
+function setLoadFromFile(eve) {
+    var file;
+    if ((file = eve.target.files[0])) {
+        document.querySelector(".filename").textContent = file.name;
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+            console.log(event.target.result);
+            constants.model.setValue(event.target.result);
+        }
+        reader.readAsText(file, "UTF-8");
+    }
+}
+
 function fetchData(url) {
     var xhr = new XMLHttpRequest();
-    
-    xhr.onreadystatechange = function() {
+
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status == 200) {
-                var respone = JSON.parse(xhr.responseText);
+                var respone = JSON.parse(x\hr.responseText);
                 render(respone);
             }
         }
     }
-    
+
     xhr.open("GET", url, true);
     xhr.send();
 }
@@ -238,9 +255,143 @@ function render(response) {
 }
 
 function makeBackup() {
-    constants.model.onDidChangeContent(() =>{
-        localStorage.setItem("code", constants.model.getValue());
-    });
+    if (autosave) {
+        constants.model.onDidChangeContent(() => {
+            localStorage.setItem("code", constants.model.getValue());
+        });
+    }
+    else {
+        console.log("Storage Cleared");
+        localStorage.length = 0;
+    }
+}
+
+//Terminal scripts
+
+var username = "arjun";
+var prompt;
+
+constants.colors = {
+    reset: '\x1b[0m',
+    black: '\x1b[0;30m',
+    red: '\x1b[0;31m',
+    green: '\x1b[0;32m',
+    yellow: '\x1b[0;33m',
+    blue: '\x1b[0;34m',
+    magenta: '\x1b[0;35m',
+    cyan: '\x1b[0;36m',
+    white: '\x1b[0;37m',
+    bold: '\x1b[1m'
+};
+
+constants.TERMINAL_CONTAINER = document.querySelector(".terminal");
+
+
+constants.TERMINAL_OPTIONS = {
+    cursorBlink: true,
+    fontFamily: "monospace",
+    fontSize: 16,
+    windowsMode: true,
+    theme: {
+        background: '#000000',
+        foreground: '#00FF00' // Green font color
+    }
+}
+
+constants.TERMINAL = new Terminal(constants.TERMINAL_OPTIONS);
+
+function fitToContainer() {
+    let containerHeight = constants.TERMINAL_CONTAINER.clientHeight;
+    let lineHeight = getLineHeight();
+    let rows = Math.floor(containerHeight / lineHeight);
+    constants.TERMINAL_OPTIONS.rows = rows;
+    constants.TERMINAL.resize(constants.TERMINAL.cols, rows);
+}
+
+function getLineHeight() {
+    var rowDiv = document.querySelector(".xterm-rows > div");
+    var lineHeight = rowDiv.style.lineHeight;
+    return lineHeight.slice(0, -2);
+}
+
+//open a constants.TERMINAL to that given container
+constants.TERMINAL.open(constants.TERMINAL_CONTAINER);
+fitToContainer();
+
+
+//create prompt for constants.TERMINAL
+function createShellPrompt() {
+    constants.TERMINAL.write("\r\n\x1b[1;32m");
+    constants.TERMINAL.write((prompt = `${username}@codeDojo:~$ `));
+    constants.TERMINAL.write("\x1b[0m");
+}
+
+constants.TERMINAL.prompt = createShellPrompt;
+constants.TERMINAL.prompt();
+
+var curr_line = "";
+function handleInputs(e) {
+    const clientX = constants.TERMINAL.buffer.active.cursorX;
+
+    console.log(clientX);
+    if(e.domEvent.keyCode === 8 && clientX > prompt.length) {
+        curr_line = curr_line.slice(0, -1);
+        constants.TERMINAL.write('\b \b');
+    }
+    else if (e.domEvent.keyCode === 13) {
+        if (checkCommand(curr_line)) {
+            constants.TERMINAL.prompt();
+        }
+        curr_line = '';
+    }
+    else if (e.key.length === 1) {
+        if (clientX === prompt.length) {
+            curr_line = "";
+            curr_line += e.key;
+        }
+        curr_line += e.key;
+        constants.TERMINAL.write(e.key);
+    }
+}
+
+constants.TERMINAL.onKey(handleInputs);
+
+document.querySelector(".action-btns").addEventListener("click", function(e) {
+    if (e.target.classList.contains("minimize")) {
+        document.querySelector(".terminal").style.display = "none";
+        document.querySelector("#editor-container").classList.add("terminal-hided");
+    }
+    else if (e.target.classList.contains("maximize")) {
+        document.querySelector(".terminal").style.display = "unset";
+        document.querySelector("#editor-container").classList.remove("terminal-hided");
+
+    }
+})
+
+function checkCommand(command) {
+    var needPrompt = true;
+    command = command.slice(1);
+
+    var term = constants.TERMINAL;
+    var colors = constants.colors;
+
+    // console.log(command);
+    switch (command) {
+        case "clear":
+            term.prompt();
+            term.clear();
+            needPrompt = false;
+            break;
+        case "ls":
+            term.writeln("\n");
+            term.writeln(`\t${colors.red}${colors.bold}[!] Not yet no completions. Nothing to show.${colors.reset}`);
+            break;
+        
+        default:
+            break;
+    }
+
+    return needPrompt;
 }
 
 fetchData("/codeDojo/services/course/getCourse?level=1");
@@ -250,3 +401,4 @@ setTimeout(() => {
     constants.model = constants.editor.getModel();
     makeBackup();
 }, 500);
+document.querySelector(".upload-file").addEventListener("change", setLoadFromFile);
