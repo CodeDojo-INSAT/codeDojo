@@ -140,7 +140,7 @@ const sidebarBtn = document.querySelectorAll(".sidebar a");
 const host = "http://arjun:9090";
 const webapp = "codeDojo";
 const views_endpoint = `/${webapp}/views/`;
-const content = document.querySelector(".content-wrapper");
+const content = document.querySelector(".page-content");
 const link_tags = document.querySelector(".nav-links a");
 const constants = {};
 

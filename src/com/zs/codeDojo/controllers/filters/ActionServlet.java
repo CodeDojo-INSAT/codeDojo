@@ -74,7 +74,9 @@ public class ActionServlet implements Filter {
                     case "/views/course":
                         request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
                         break;
-
+                    case "/views/daily_question":
+                        request.getRequestDispatcher("/WEB-INF/views/daily_question.html").include(httpRequest, httpResponse);
+                        break;
                     default:
                         chain.doFilter(httpRequest, httpResponse);
                         break;
