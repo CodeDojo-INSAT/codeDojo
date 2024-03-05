@@ -4691,3 +4691,4 @@ Caused by: java.net.SocketException: Broken pipe (Write failed)
 	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:52)
 	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:620)
 	... 34 more
+2024-03-05 11:45:23  Fillter called
