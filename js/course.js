@@ -185,7 +185,7 @@
 
 // submit_btn.addEventListener("click", submit);
 var user_level;
-var autosave = false;
+var autosave = true;
 
 constants.DESCRIPTION_TITLE = document.querySelector(".description .title");
 constants.DESCRIPTION = document.querySelector(".description > p");
@@ -268,7 +268,7 @@ function makeBackup() {
 
 //Terminal scripts
 
-var username = "arjun";
+var username = "uvchan";
 var prompt;
 
 constants.colors = {
@@ -386,6 +386,8 @@ function checkCommand(command) {
             term.writeln("\n");
             term.writeln(`\t${colors.red}${colors.bold}[!] Not yet no completions. Nothing to show.${colors.reset}`);
             break;
+        case "cd":
+            window.location.href = "http://localhost:8080/codeDojo/u/dashboard";
         default:
             break;
     }

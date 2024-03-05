@@ -24,6 +24,7 @@ import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.TestCases;
+import com.zs.codeDojo.models.DAO.User;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
 import com.zs.codeDojo.models.main.JavaFileCompile;
@@ -66,11 +67,14 @@ public class CheckQuestion extends HttpServlet {
         jsonObject.clear();
 
         if (type == 0) {
+
             // writer.write(jsonObject.put("error", "this question doesn't have any checkers
             // related").toString());
+            
             jsonResponse = new JsonResponse(false, "Question doesn't have relate to any checker", null);
             writer.print(jsonResponse);
         } else if (type == 5) {
+
             TestCases testCases = dbModule.getTestCases(level);
 
             if (testCases != null) {
@@ -93,12 +97,26 @@ public class CheckQuestion extends HttpServlet {
                         jsonResponse = new JsonResponse(false, "testcases not matched", json);
                     } else {
                         jsonResponse = new JsonResponse(true, "all testcases passed", json);
+
+                        User user = (User)request.getSession().getAttribute("User");
+                        int currentLevelofUser = (dbModule.getCurrentLevel(null));
+
+                        if (currentLevelofUser == level) {
+
+                            dbModule.updateCurrentLevel(user);
+                            dbModule.addSubmission(user.getUsername(),level,javaCodeString);
+                        }
+                        else{
+                            
+                            dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
+                        }
                     }
 
                 }
             } else {
                 // jsonObject.put("error", "it doesn't have any testcases");
                 jsonResponse = new JsonResponse(false, "question doesn't have any testcases", null);
+
             }
             writer.print(jsonResponse);
         } else {
@@ -198,8 +216,11 @@ public class CheckQuestion extends HttpServlet {
             boolean status = (boolean) statusField.get(instance);
 
             if (status) {
+
                 jsonResponse = new JsonResponse(status, "oops checked", null);
+
             } else {
+
                 jsonResponse = new JsonResponse(status, "can't check oops by checker", error.toArray());
             }
             writer.print(jsonResponse);

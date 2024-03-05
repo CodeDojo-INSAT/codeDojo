@@ -8,9 +8,9 @@
         <listener-class>com.zs.codeDojo.models.config.Config</listener-class>
     </listener>
 
-    <!-- <error-page>
+    <error-page>
         <location>/WEB-INF/views/404.html</location>
-    </error-page>      -->
+    </error-page>     
 
     <filter>
         <filter-name>checkSession</filter-name>
@@ -22,10 +22,10 @@
         <filter-class>com.zs.codeDojo.controllers.filters.ActionServlet</filter-class>
     </filter>
 
-    <!-- <filter-mapping>
+    <filter-mapping>
         <filter-name>checkSession</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping> -->
+    </filter-mapping>
 
     <filter-mapping>
         <filter-name>actionServlet</filter-name>
@@ -130,7 +130,6 @@
     </servlet-mapping>
     <!-- dailyQuestions section end  -->
 
-
     <!-- main section start -->
     <servlet>
         <servlet-name>checkAnswerWithChecker</servlet-name>
@@ -150,6 +149,16 @@
     <servlet-mapping>
         <servlet-name>getQuestionAndDescription</servlet-name>
         <url-pattern>/services/course/getCourse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getQuestionAndDescriptionMetaData</servlet-name>
+        <servlet-class>com.zs.codeDojo.controllers.course.GetLevelsMetaData</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getQuestionAndDescriptionMetaData</servlet-name>
+        <url-pattern>/services/course/getCourseMetaData</url-pattern>
     </servlet-mapping>
 
     <!-- main section end -->
@@ -181,8 +190,10 @@
     </servlet>
 
     <servlet-mapping>
+
         <servlet-name>loginSubmit</servlet-name>
         <url-pattern>/services/auth/login.dojo</url-pattern>
+        
     </servlet-mapping>
 
     <servlet>

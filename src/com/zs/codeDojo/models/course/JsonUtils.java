@@ -7,6 +7,8 @@ public class JsonUtils {
 
     // Method to convert an object to JSON string
     public static String toJson(Object obj) {
+        
         return gson.toJson(obj);
     }
+
 }

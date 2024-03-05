@@ -1,9 +1,11 @@
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:77)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -18,21 +20,14 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-java.text.SimpleDateFormat@59bf79a0All configs checked
-java.text.SimpleDateFormat@59bf79a0SLF4J: No SLF4J providers were found.
-java.text.SimpleDateFormat@59bf79a0SLF4J: Defaulting to no-operation (NOP) logger implementation
-java.text.SimpleDateFormat@59bf79a0SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-java.text.SimpleDateFormat@59bf79a0SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-java.text.SimpleDateFormat@59bf79a0SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-java.text.SimpleDateFormat@59bf79a0SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-java.text.SimpleDateFormat@59bf79a0Fillter called
-java.text.SimpleDateFormat@59bf79a0Fillter called
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:78)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -47,19 +42,55 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2024-25-29 10:02:28All configs checked
-2024-25-29 10:02:31SLF4J: No SLF4J providers were found.
-2024-25-29 10:02:31SLF4J: Defaulting to no-operation (NOP) logger implementation
-2024-25-29 10:02:31SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-2024-25-29 10:02:31SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-2024-25-29 10:02:31SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-2024-25-29 10:02:31SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:78)
+2024-03-02 10:38:41  All configs checked
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:00  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  uvchan
+2024-03-02 10:39:02  uvchan123
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:02  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:03  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+2024-03-02 10:39:06  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -74,21 +105,44 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2024-26-29 10:02:45  All configs checked
-2024-26-29 10:02:48  SLF4J: No SLF4J providers were found.
-2024-26-29 10:02:48  SLF4J: Defaulting to no-operation (NOP) logger implementation
-2024-26-29 10:02:48  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-2024-26-29 10:02:48  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-2024-26-29 10:02:48  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-2024-26-29 10:02:48  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-2024-26-29 10:02:48  Fillter called
-2024-26-29 10:02:49  Fillter called
-java.sql.SQLException: Event 'schedule_publish_event' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
-	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:78)
+2024-03-02 10:41:51  All configs checked
+2024-03-02 10:41:51  Fillter called
+2024-03-02 10:41:53  Fillter called
+2024-03-02 10:41:53  uvchan
+2024-03-02 10:41:53  uvchan123
+2024-03-02 10:41:53  Fillter called
+2024-03-02 10:41:54  Fillter called
+2024-03-02 10:41:57  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -103,6 +157,49 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+<<<<<<< HEAD
+2024-03-02 10:47:04  All configs checked
+2024-03-02 10:47:39  Fillter called
+2024-03-02 10:47:40  Fillter called
+2024-03-02 10:47:40  uvchan
+2024-03-02 10:47:40  uvchan123
+2024-03-02 10:47:40  Fillter called
+2024-03-02 10:47:41  Fillter called
+2024-03-02 10:47:44  Fillter called
+2024-03-02 10:47:45  Fillter called
+2024-03-02 10:49:26  Fillter called
+2024-03-02 10:49:31  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+=======
 2024-02-29 10:27:22  All configs checked
 2024-02-29 10:27:25  SLF4J: No SLF4J providers were found.
 2024-02-29 10:27:25  SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -3394,6 +3491,7 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
 	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
 	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:78)
+>>>>>>> 89636b934c271ace30852a01abb0ff5a0e19e215
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -3408,6 +3506,152 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+<<<<<<< HEAD
+2024-03-02 10:49:42  All configs checked
+2024-03-02 10:49:42  Fillter called
+2024-03-02 10:49:43  Fillter called
+2024-03-02 10:49:43  uvchan
+2024-03-02 10:49:43  uvchan123
+2024-03-02 10:49:43  Fillter called
+2024-03-02 10:49:44  Fillter called
+2024-03-02 10:49:47  Fillter called
+2024-03-02 10:50:37  Fillter called
+2024-03-02 10:50:37  Fillter called
+2024-03-02 10:50:38  Fillter called
+2024-03-02 10:50:38  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  uvchan
+2024-03-02 10:51:01  uvchan123
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:39  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:57:00  Fillter called
+2024-03-02 10:57:00  Fillter called
+2024-03-02 10:57:03  Fillter called
+2024-03-02 10:58:04  Fillter called
+2024-03-02 10:58:04  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  uvchan
+2024-03-02 10:58:22  uvchan123
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+=======
 2024-03-01 11:43:09  All configs checked
 2024-03-01 11:43:12  SLF4J: No SLF4J providers were found.
 2024-03-01 11:43:12  SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -3681,6 +3925,7 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:767)
 	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:652)
 	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:78)
+>>>>>>> 89636b934c271ace30852a01abb0ff5a0e19e215
 	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
 	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
@@ -3695,6 +3940,39 @@ java.sql.SQLException: Event 'schedule_publish_event' already exists
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+<<<<<<< HEAD
+2024-03-03 05:40:54  All configs checked
+2024-03-03 05:40:58  Fillter called
+2024-03-03 05:40:59  Fillter called
+2024-03-03 05:40:59  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  uvchan
+2024-03-03 05:41:00  uvchan123
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  uvchan
+2024-03-03 05:41:50  uvchan123
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:55  Fillter called
+2024-03-03 05:41:55  Fillter called
+=======
 2024-03-03 12:01:30  All configs checked
 2024-03-03 12:01:32  SLF4J: No SLF4J providers were found.
 2024-03-03 12:01:32  SLF4J: Defaulting to no-operation (NOP) logger implementation
@@ -4691,4 +4969,5 @@ Caused by: java.net.SocketException: Broken pipe (Write failed)
 	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:52)
 	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:620)
 	... 34 more
+>>>>>>> 89636b934c271ace30852a01abb0ff5a0e19e215
 2024-03-05 11:45:23  Fillter called
