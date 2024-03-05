@@ -233,7 +233,7 @@ function fetchData(url) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status == 200) {
-                var respone = JSON.parse(x\hr.responseText);
+                var respone = JSON.parse(xhr.responseText);
                 render(respone);
             }
         }
@@ -268,7 +268,7 @@ function makeBackup() {
 
 //Terminal scripts
 
-var username = "arjun";
+var username = "uvchan";
 var prompt;
 
 constants.colors = {
@@ -386,7 +386,8 @@ function checkCommand(command) {
             term.writeln("\n");
             term.writeln(`\t${colors.red}${colors.bold}[!] Not yet no completions. Nothing to show.${colors.reset}`);
             break;
-        
+        case "cd":
+            window.location.href = "http://localhost:8080/codeDojo/u/dashboard";
         default:
             break;
     }

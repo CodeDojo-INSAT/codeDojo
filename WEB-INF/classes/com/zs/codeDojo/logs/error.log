@@ -113,3 +113,291 @@ java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/
 2024-03-02 10:41:53  Fillter called
 2024-03-02 10:41:54  Fillter called
 2024-03-02 10:41:57  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-02 10:47:04  All configs checked
+2024-03-02 10:47:39  Fillter called
+2024-03-02 10:47:40  Fillter called
+2024-03-02 10:47:40  uvchan
+2024-03-02 10:47:40  uvchan123
+2024-03-02 10:47:40  Fillter called
+2024-03-02 10:47:41  Fillter called
+2024-03-02 10:47:44  Fillter called
+2024-03-02 10:47:45  Fillter called
+2024-03-02 10:49:26  Fillter called
+2024-03-02 10:49:31  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-02 10:49:42  All configs checked
+2024-03-02 10:49:42  Fillter called
+2024-03-02 10:49:43  Fillter called
+2024-03-02 10:49:43  uvchan
+2024-03-02 10:49:43  uvchan123
+2024-03-02 10:49:43  Fillter called
+2024-03-02 10:49:44  Fillter called
+2024-03-02 10:49:47  Fillter called
+2024-03-02 10:50:37  Fillter called
+2024-03-02 10:50:37  Fillter called
+2024-03-02 10:50:38  Fillter called
+2024-03-02 10:50:38  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:50:55  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  uvchan
+2024-03-02 10:51:01  uvchan123
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:01  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:02  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:51:05  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:52:09  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:15  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:37  Fillter called
+2024-03-02 10:56:39  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:56:40  Fillter called
+2024-03-02 10:57:00  Fillter called
+2024-03-02 10:57:00  Fillter called
+2024-03-02 10:57:03  Fillter called
+2024-03-02 10:58:04  Fillter called
+2024-03-02 10:58:04  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:21  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  uvchan
+2024-03-02 10:58:22  uvchan123
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:22  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:23  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:58:25  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:12  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:13  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 10:59:22  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+2024-03-02 11:00:44  Fillter called
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: /opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-03 05:40:54  All configs checked
+2024-03-03 05:40:58  Fillter called
+2024-03-03 05:40:59  Fillter called
+2024-03-03 05:40:59  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  uvchan
+2024-03-03 05:41:00  uvchan123
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:00  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:01  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:42  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  uvchan
+2024-03-03 05:41:50  uvchan123
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:50  Fillter called
+2024-03-03 05:41:55  Fillter called
+2024-03-03 05:41:55  Fillter called
