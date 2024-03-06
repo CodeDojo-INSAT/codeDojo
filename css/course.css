@@ -56,7 +56,7 @@ body {
 .editor .top-panel {
     background-color:brown;
     display: flex;
-    /* height: 45px; */
+    height: 45px;
     align-items: center;
 }
 
