@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/38d6e9bf1b.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <script src="/codeDojo/js/lib/xterm.js"></script>
+    <!-- <script src="/codeDojo/js/lib/xterm.js"></script> -->
     <script src="/codeDojo/js/lib/loader.js"></script>
     <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -78,8 +78,24 @@
         </div>
         <div class="page-content"></div>
     </div>
+
+    <div class="terminal bot">
+        <div class="title-bar">
+            <span class="title">CodeDojo-Terminal</span>
+            <button class="minimize"></button>
+            <button class="close"></button>
+        </div>
+        <div class="content">
+            <div class="output"></div>
+            <div class="input">
+                <span class="prompt">uvchan@codeDojo $</span>
+                <input type="text" caret-shape="underscore" spellcheck="false" class="user-input">
+            </div>
+        </div>
+    </div>
 </body>
 <!-- <script src="/codeDojo/js/script.js"></script> -->
+<script src="/codeDojo/js/terminal.js"></script>
 <script src="/codeDojo/js/script.js"></script>
 <!-- <script src="/codeDojo/js/dashboard.js"></script> -->
 <!-- <script src="/codeDojo/js/course.js"></script> -->

@@ -103,7 +103,7 @@ body {
     /* border: 2px solid wheat; */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 40px;
     align-items: center;
     padding: 1rem;

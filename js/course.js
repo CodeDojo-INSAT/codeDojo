@@ -268,132 +268,132 @@ function makeBackup() {
 
 //Terminal scripts
 
-var username = "uvchan";
-var prompt;
+// var username = "uvchan";
+// var prompt;
 
-constants.colors = {
-    reset: '\x1b[0m',
-    black: '\x1b[0;30m',
-    red: '\x1b[0;31m',
-    green: '\x1b[0;32m',
-    yellow: '\x1b[0;33m',
-    blue: '\x1b[0;34m',
-    magenta: '\x1b[0;35m',
-    cyan: '\x1b[0;36m',
-    white: '\x1b[0;37m',
-    bold: '\x1b[1m'
-};
+// constants.colors = {
+//     reset: '\x1b[0m',
+//     black: '\x1b[0;30m',
+//     red: '\x1b[0;31m',
+//     green: '\x1b[0;32m',
+//     yellow: '\x1b[0;33m',
+//     blue: '\x1b[0;34m',
+//     magenta: '\x1b[0;35m',
+//     cyan: '\x1b[0;36m',
+//     white: '\x1b[0;37m',
+//     bold: '\x1b[1m'
+// };
 
-constants.TERMINAL_CONTAINER = document.querySelector(".terminal");
-
-
-constants.TERMINAL_OPTIONS = {
-    cursorBlink: true,
-    fontFamily: "monospace",
-    fontSize: 16,
-    windowsMode: true,
-    theme: {
-        background: '#000000',
-        foreground: '#00FF00' // Green font color
-    }
-}
-
-constants.TERMINAL = new Terminal(constants.TERMINAL_OPTIONS);
-
-function fitToContainer() {
-    let containerHeight = constants.TERMINAL_CONTAINER.clientHeight;
-    let lineHeight = getLineHeight();
-    let rows = Math.floor(containerHeight / lineHeight);
-    constants.TERMINAL_OPTIONS.rows = rows;
-    constants.TERMINAL.resize(constants.TERMINAL.cols, rows);
-}
-
-function getLineHeight() {
-    var rowDiv = document.querySelector(".xterm-rows > div");
-    var lineHeight = rowDiv.style.lineHeight;
-    return lineHeight.slice(0, -2);
-}
-
-//open a constants.TERMINAL to that given container
-constants.TERMINAL.open(constants.TERMINAL_CONTAINER);
-fitToContainer();
+// constants.TERMINAL_CONTAINER = document.querySelector(".terminal");
 
 
-//create prompt for constants.TERMINAL
-function createShellPrompt() {
-    constants.TERMINAL.write("\r\n\x1b[1;32m");
-    constants.TERMINAL.write((prompt = `${username}@codeDojo:~$ `));
-    constants.TERMINAL.write("\x1b[0m");
-}
+// constants.TERMINAL_OPTIONS = {
+//     cursorBlink: true,
+//     fontFamily: "monospace",
+//     fontSize: 16,
+//     windowsMode: true,
+//     theme: {
+//         background: '#000000',
+//         foreground: '#00FF00' // Green font color
+//     }
+// }
 
-constants.TERMINAL.prompt = createShellPrompt;
-constants.TERMINAL.prompt();
+// constants.TERMINAL = new Terminal(constants.TERMINAL_OPTIONS);
 
-var curr_line = "";
-function handleInputs(e) {
-    const clientX = constants.TERMINAL.buffer.active.cursorX;
+// function fitToContainer() {
+//     let containerHeight = constants.TERMINAL_CONTAINER.clientHeight;
+//     let lineHeight = getLineHeight();
+//     let rows = Math.floor(containerHeight / lineHeight);
+//     constants.TERMINAL_OPTIONS.rows = rows;
+//     constants.TERMINAL.resize(constants.TERMINAL.cols, rows);
+// }
 
-    console.log(clientX);
-    if(e.domEvent.keyCode === 8 && clientX > prompt.length) {
-        curr_line = curr_line.slice(0, -1);
-        constants.TERMINAL.write('\b \b');
-    }
-    else if (e.domEvent.keyCode === 13) {
-        if (checkCommand(curr_line)) {
-            constants.TERMINAL.prompt();
-        }
-        curr_line = '';
-    }
-    else if (e.key.length === 1) {
-        if (clientX === prompt.length) {
-            curr_line = "";
-            curr_line += e.key;
-        }
-        curr_line += e.key;
-        constants.TERMINAL.write(e.key);
-    }
-}
+// function getLineHeight() {
+//     var rowDiv = document.querySelector(".xterm-rows > div");
+//     var lineHeight = rowDiv.style.lineHeight;
+//     return lineHeight.slice(0, -2);
+// }
 
-constants.TERMINAL.onKey(handleInputs);
+// //open a constants.TERMINAL to that given container
+// constants.TERMINAL.open(constants.TERMINAL_CONTAINER);
+// fitToContainer();
 
-document.querySelector(".action-btns").addEventListener("click", function(e) {
-    if (e.target.classList.contains("minimize")) {
-        document.querySelector(".terminal").style.display = "none";
-        document.querySelector("#editor-container").classList.add("terminal-hided");
-    }
-    else if (e.target.classList.contains("maximize")) {
-        document.querySelector(".terminal").style.display = "unset";
-        document.querySelector("#editor-container").classList.remove("terminal-hided");
 
-    }
-})
+// //create prompt for constants.TERMINAL
+// function createShellPrompt() {
+//     constants.TERMINAL.write("\r\n\x1b[1;32m");
+//     constants.TERMINAL.write((prompt = `${username}@codeDojo:~$ `));
+//     constants.TERMINAL.write("\x1b[0m");
+// }
 
-function checkCommand(command) {
-    var needPrompt = true;
-    command = command.slice(1);
+// constants.TERMINAL.prompt = createShellPrompt;
+// constants.TERMINAL.prompt();
 
-    var term = constants.TERMINAL;
-    var colors = constants.colors;
+// var curr_line = "";
+// function handleInputs(e) {
+//     const clientX = constants.TERMINAL.buffer.active.cursorX;
 
-    // console.log(command);
-    switch (command) {
-        case "clear":
-            term.prompt();
-            term.clear();
-            needPrompt = false;
-            break;
-        case "ls":
-            term.writeln("\n");
-            term.writeln(`\t${colors.red}${colors.bold}[!] Not yet no completions. Nothing to show.${colors.reset}`);
-            break;
-        case "cd":
-            window.location.href = "http://localhost:8080/codeDojo/u/dashboard";
-        default:
-            break;
-    }
+//     console.log(clientX);
+//     if(e.domEvent.keyCode === 8 && clientX > prompt.length) {
+//         curr_line = curr_line.slice(0, -1);
+//         constants.TERMINAL.write('\b \b');
+//     }
+//     else if (e.domEvent.keyCode === 13) {
+//         if (checkCommand(curr_line)) {
+//             constants.TERMINAL.prompt();
+//         }
+//         curr_line = '';
+//     }
+//     else if (e.key.length === 1) {
+//         if (clientX === prompt.length) {
+//             curr_line = "";
+//             curr_line += e.key;
+//         }
+//         curr_line += e.key;
+//         constants.TERMINAL.write(e.key);
+//     }
+// }
 
-    return needPrompt;
-}
+// constants.TERMINAL.onKey(handleInputs);
+
+// document.querySelector(".action-btns").addEventListener("click", function(e) {
+//     if (e.target.classList.contains("minimize")) {
+//         document.querySelector(".terminal").style.display = "none";
+//         document.querySelector("#editor-container").classList.add("terminal-hided");
+//     }
+//     else if (e.target.classList.contains("maximize")) {
+//         document.querySelector(".terminal").style.display = "unset";
+//         document.querySelector("#editor-container").classList.remove("terminal-hided");
+
+//     }
+// })
+
+// function checkCommand(command) {
+//     var needPrompt = true;
+//     command = command.slice(1);
+
+//     var term = constants.TERMINAL;
+//     var colors = constants.colors;
+
+//     // console.log(command);
+//     switch (command) {
+//         case "clear":
+//             term.prompt();
+//             term.clear();
+//             needPrompt = false;
+//             break;
+//         case "ls":
+//             term.writeln("\n");
+//             term.writeln(`\t${colors.red}${colors.bold}[!] Not yet no completions. Nothing to show.${colors.reset}`);
+//             break;
+//         case "cd":
+//             window.location.href = "http://localhost:8080/codeDojo/u/dashboard";
+//         default:
+//             break;
+//     }
+
+//     return needPrompt;
+// }
 
 fetchData("/codeDojo/services/course/getCourse?level=1");
 initEditor();
@@ -403,3 +403,23 @@ setTimeout(() => {
     makeBackup();
 }, 500);
 document.querySelector(".upload-file").addEventListener("change", setLoadFromFile);
+
+
+
+// If user submit
+const submit_btn = document.querySelector("#submit");
+const result_area = document.querySelector(".result-area");
+
+submit_btn.addEventListener("click", function(e) {
+    showElement(result_area);
+})
+
+function showElement(element) {
+    console.log(element);
+    let classLists = element.classList;
+    console.log(classLists);
+    if (classLists.contains("hide")) {
+        classLists.remove("hide");
+    }
+    console.log(classLists);
+}

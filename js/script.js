@@ -143,6 +143,7 @@ const views_endpoint = `/${webapp}/views/`;
 const content = document.querySelector(".page-content");
 const link_tags = document.querySelector(".nav-links a");
 const constants = {};
+const page_name = document.querySelector(".current-page-name");
 
 
 sidebarBtn.onclick = () => {
@@ -200,7 +201,6 @@ function removeDynamicScripts() {
 }
 
 function removeDynamicScriptsAndCss() {
-
     if (dynamicStyles.length > 0) {
         dynamicStyles.forEach(function(style) {
             document.removeChild(style);
@@ -226,12 +226,13 @@ function getUri(cookie) {
 const cookies = document.cookie;
 
 if (cookies != "") {
-    const endpoint = getUri(cookies).split("/");
-    console.log(endpoint[endpoint.length - 1]);
+    const endpoint = getUri(cookies).split("/").slice(2).join("/");
+    setPageName(endpoint);
 
-    loadPage(`${views_endpoint}${endpoint[endpoint.length - 1]}`, function () {
+    loadPage(`${views_endpoint}${endpoint}`, function () {
         console.log("Page loaded succesfully");
     });
+
 }
 
 //add listener to all sidebar url's
@@ -265,8 +266,20 @@ function getEndpoint(url) {
 function convert_to_views(url) {
     let splited_url = url.split("/");
 
-    endpoint = splited_url[splited_url.length - 1]
+    endpoint = splited_url[splited_url.length - 1];
     return `${views_endpoint}${endpoint}`;
+}
+
+function setPageName(endpoint) {
+    var pageName;
+    if (endpoint.includes("/")) {
+        pageName = endpoint.split("/")[-1];
+    }
+    else {
+        pageName = endpoint;
+    }
+
+    page_name.textContent = pageName;
 }
 
 function loadCss(filename) {
@@ -301,6 +314,10 @@ function isAlreadyInitiated(script) {
         i++;
     });
     return isLoaded, index;
+}
+
+function _(selector) {
+    return document.querySelector(selector);
 }
 
 addEventListenerToElements(".nav-links a", "click", listener);

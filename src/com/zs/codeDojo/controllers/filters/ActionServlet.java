@@ -24,9 +24,9 @@ public class ActionServlet implements Filter {
                 HttpServletRequest httpRequest = ((HttpServletRequest) request);
                 HttpServletResponse httpResponse = ((HttpServletResponse) response);
 
-                System.err.println("Fillter called");
 
                 String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+                System.out.println("uri: " + uri);
 
                 if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png")) {
 
@@ -72,10 +72,13 @@ public class ActionServlet implements Filter {
                         request.getRequestDispatcher("/WEB-INF/views/quiz.html").include(httpRequest, response);
                         break;
                     case "/views/course":
-                        request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
+                        request.getRequestDispatcher("/WEB-INF/views/course_list.html").include(httpRequest, httpResponse);
                         break;
                     case "/views/daily_question":
                         request.getRequestDispatcher("/WEB-INF/views/daily_question.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/views/course/editor":
+                        request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
                         break;
                     default:
                         chain.doFilter(httpRequest, httpResponse);
