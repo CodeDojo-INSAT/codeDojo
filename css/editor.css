@@ -1,0 +1,235 @@
+body {
+    overflow: hidden;
+}
+
+/* .top-nav {
+    width: 100%;
+    position: fixed;
+    background-color: #000;
+    height: 47px;
+    display: flex;
+    padding-left: 1%;
+    align-items: center;
+} */
+
+.content-wrapper {
+    width: 100%;
+    left: 0;
+}
+
+.sidebar {
+    display: none;
+}
+
+.course-section {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #16171b;
+    height: calc(100vh - 5%);
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.course-section .description {
+    width: 40%;
+    height: 100%;
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.course-section .description .title {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.editor {
+    /* background-color: #fff; */
+    width: 59%;
+    height: 100vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+.editor .top-panel {
+    background-color:#16171b;
+    border-bottom: 1px solid #333;
+    display: flex;
+    height: 45px;
+    align-items: center;
+}
+
+.editor .top-panel .settings {
+    margin-left: auto;
+    margin-right: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.editor .top-panel .settings .settings-drop-down {
+    height: 400px;
+    width: 400px;
+    background-color: #000;
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    /* margin-top: 1rem; */
+}
+
+.editor .top-panel .settings .settings-drop-down .settings-name {
+    font-size: 1.1rem;
+    padding: 1rem;
+    /* border: 1px solid green; */
+    border-bottom: 1px solid #333;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.editor .top-panel .settings .settings-drop-down .settings-name .setting-value {
+    border: 1px solid green;
+    padding: .2rem;
+    margin-left: auto;
+    margin-right: 5rem;
+}
+
+
+.editor .top-panel .filename {
+    margin: 0 1rem;
+}
+
+#editor-container {
+    height: calc(89% - 45px);
+    background-color: #fff;
+}
+
+.submit-area {
+    /* padding: 1rem; */
+    height: 54px;
+    display: flex;
+    align-items: center;
+    background-color: #111;
+    justify-content: flex-end;
+    border-bottom: 1px solid #333;
+}
+
+.submit-area #result {
+    margin-right: auto;
+    margin-left: 1rem;
+    font-size: 18px;
+}
+
+.submit-area #next, .submit-area #submit {
+    padding: .5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 4px;
+    border: none;
+}
+
+.result-area {
+    height: 60%;
+    display: flex;
+    background-color: #111;
+    position: relative;
+}
+
+.result-area .left {
+    width: 25%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.result-area .left h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.result-area .left .testcase-container {
+    /* border: 1px solid red; */
+    margin: 2rem 0;
+    padding: 1rem 0;
+    max-height: 80%;
+    overflow-y: scroll;
+}
+
+.result-area .left .testcase-container .testcase {
+    font-size: 20px;
+    font-weight:lighter;
+    margin: 1rem 0;
+}
+
+.result-area .left .testcase-container .testcase h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.result-area .right {
+    width: 75%;
+    padding: 2rem;
+    border-left: 1px solid #333;
+}
+
+.result-area .right fieldset {
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #777;
+    /* font-size: 16px; */
+    /* color: aqua; */
+}
+
+.result-area .right fieldset legend {
+    padding: 0 4px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.result-area .right .content {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 26px;
+    font-size: 20px;
+    height: 100%;
+}
+
+.result-area .right .input,  .result-area .right .expected-output {
+    max-height: 33%;
+    overflow-y: scroll;
+}
+
+.hide {
+    display: none !important;
+}
+
+.result-area .right .input::-webkit-scrollbar {
+    width: 5px;
+}
+
+.top-nav .back-icon i::before {
+    display: flex;
+}
+
+.result-area .loader-page {
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.testcase-container .testcase i::before {
+    height: fit-content;
+    display: flex;
+}
+
+

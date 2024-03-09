@@ -34,7 +34,7 @@ public class ActionServlet implements Filter {
                     return;
                 }
                 
-                httpResponse.setContentType("text/html");
+                httpResponse.setContentType("text");
                 String cookieName = "reqEndpoint";
                 Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
 
@@ -79,6 +79,12 @@ public class ActionServlet implements Filter {
                         break;
                     case "/views/course/editor":
                         request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/views/settings":
+                        request.getRequestDispatcher("/WEB-INF/views/settings.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/views/editor":
+                        request.getRequestDispatcher("/WEB-INF/views/editor.html").include(httpRequest, httpResponse);
                         break;
                     default:
                         chain.doFilter(httpRequest, httpResponse);

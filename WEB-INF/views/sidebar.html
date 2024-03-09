@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/codeDojo/css/style.css"> 
+    <link rel="stylesheet" href="/codeDojo/css/style.css">
     <!-- <link rel="stylesheet" href="/codeDojo/css/sidebar.css"> -->
     <!-- <link rel="stylesheet" href="/codeDojo/css/style.css"> -->
     <!-- <link rel="stylesheet" href="/codeDojo/css/course.css"> -->
@@ -14,6 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
     <script src="https://kit.fontawesome.com/38d6e9bf1b.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href='/codeDojo/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="/codeDojo/css/uicons-regular-straight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
 
     <!-- <script src="/codeDojo/js/lib/xterm.js"></script> -->
     <script src="/codeDojo/js/lib/loader.js"></script>
@@ -26,31 +34,37 @@
     <!-- <div class="hover-effect"></div> -->
     <div class="sidebar">
         <div class="logo_container">
-            <i class='bx bx-home'></i>
+            <!-- <i class='bx bx-home'></i> -->
+            <i><img src="/codeDojo/img/logo.png" alt="logo"></i>
             <span class="logo_name">CODE DOJO</span>
         </div>
         <ul class="nav-links">
             <li>
                 <a href="/codeDojo/u/dashboard">
-                    <i class='bx bxs-dashboard' style="color: #ADE4FF;"></i>
+                    <!-- <i class='bx bxs-dashboard'></i> -->
+                    <i><img src="/codeDojo/img/dashboard_1.png" alt="dashboard"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="/codeDojo/u/course">
-                    <i class='bx bx-task'></i>
+                    <!-- <i class='bx bx-task'></i> -->
+                    <i class="fi fi-rs-e-learning"></i>
                     <span class="link_name">Course</span>
                 </a>
             </li>
             <li>
                 <a href="/codeDojo/u/daily_question">
-                    <i class='bx bx-spreadsheet' ></i>
+                    <!-- <i class='bx bx-spreadsheet' ></i> -->
+                    <!-- <i class="fi fi-rs-daily-calendar"></i> -->
+                    <i><img src="/codeDojo/img/daily_question_1.png" alt="daily_question"></i>
                     <span class="link_name">Daily question</span>
                 </a>
             </li>
             <li>
                 <a href="/codeDojo/u/quiz">
-                    <i class='bx bx-time-five' ></i>
+                    <!-- <i class='bx bx-time-five' ></i> -->
+                    <i class="fi fi-rs-quiz-alt"></i>
                     <span class="link_name">Quiz</span>
                 </a>
             </li>
@@ -70,22 +84,26 @@
     </div>
 
     <div class="content-wrapper">
-        <div class="top-nav">
-            <div class="current-page-name">Dashboard</div>
-            <div class="icons">
-                <div class="profile"></div>
+        <div class="top-nav-animation">
+            <div class="top-nav-realanimation"></div>
+            <div class="top-nav">
+                <div class="back-icon"><i class="fi fi-rr-arrow-small-left"></i></div>
+                <div class="current-page-name">Dashboard</div>
+                <div class="icons">
+                    <img src="/codeDojo/img/profile.png" alt="profile" class="profile">
+                </div>
             </div>
         </div>
         <div class="page-content"></div>
     </div>
 
-    <div class="terminal bot">
+    <div class="terminali bot">
         <div class="title-bar">
             <span class="title">CodeDojo-Terminal</span>
             <button class="minimize"></button>
             <button class="close"></button>
         </div>
-        <div class="content">
+        <div class="terminal-content">
             <div class="output"></div>
             <div class="input">
                 <span class="prompt">uvchan@codeDojo $</span>

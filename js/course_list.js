@@ -112,3 +112,15 @@ class CourseCard extends HTMLElement {
 }
 
 customElements.define("course-card", CourseCard);
+
+// _(".course-button").addEventListener("mouseover", function() {
+//     if (_(".course-button a").textContent === "Completed") {
+//         _(".course-button a").textContent = "View";
+//     }
+// })
+
+// _(".course-button").addEventListener("mouseout", function() {
+//     if (_(".course-button a").textContent === "View") {
+//         _(".course-button a").textContent = "Completed";
+//     }
+// })

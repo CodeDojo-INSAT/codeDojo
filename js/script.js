@@ -97,9 +97,7 @@
 // }
 
 
-// window.addEventListener("popstate", function (event) {
-//     renderPage(convert_to_views(event.target.window.location.pathname))
-// })
+
 
 
 // function renderPage(url) {
@@ -150,20 +148,42 @@ sidebarBtn.onclick = () => {
     sidebarBtn.classList.toggle("active");
 };
 
+function showTopNavLoader() {
+    _(".top-nav-realanimation").style.display = "unset";
+}
+
+function hideTopNavLoader() {
+    setTimeout(()=>{
+        _(".top-nav-realanimation").style.display = "none";
+    }, 1000);
+}
 //it loads the page from ajax and initiate the scripts that contains
-function loadPage(url, callback) {
+function loadPage(url, callback, withParam, pageName) {
+    showTopNavLoader();
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
+            hideTopNavLoader();
             if (xhr.status == 200) {
                 var container = content;
                 container.innerHTML = xhr.responseText;
 
                 executeScripts(container);
-
+                
+                if (pageName) {
+                    setPageName(pageName);
+                }
+                else {
+                    setPageName(url);
+                }
                 if (typeof callback === 'function') {
-                    callback();
+                    if (withParam) {
+                        callback(withParam);
+                    }
+                    else {
+                        callback();
+                    }
                 }
             }
             else {
@@ -193,7 +213,7 @@ function executeScripts(container) {
 //remove script before load script dynamically so it won't conflict other page scripts.
 function removeDynamicScripts() {
     if (dynamicScripts.length > 0) {
-        dynamicScripts.forEach(function(script) {
+        dynamicScripts.forEach(function (script) {
             document.removeChild(script);
         });
         dynamicScripts.length = 0;
@@ -202,7 +222,7 @@ function removeDynamicScripts() {
 
 function removeDynamicScriptsAndCss() {
     if (dynamicStyles.length > 0) {
-        dynamicStyles.forEach(function(style) {
+        dynamicStyles.forEach(function (style) {
             document.removeChild(style);
         });
         dynamicStyles.length = 0;
@@ -212,11 +232,10 @@ function removeDynamicScriptsAndCss() {
 
 //handle url if user enter directly in url bar.
 function getUri(cookie) {
-    let endpoint = cookie.split(";");
-    let value;
-    endpoint.forEach(element => {
-        let pairs = element.split("=");
-        if (pairs[0] === "reqEndpoint") {
+    var value;
+    cookie.split(";").forEach(c => {
+        let pairs = c.split("=");
+        if (pairs[0].includes("reqEndpoint")) {
             value = pairs[1];
         }
     });
@@ -227,7 +246,6 @@ const cookies = document.cookie;
 
 if (cookies != "") {
     const endpoint = getUri(cookies).split("/").slice(2).join("/");
-    setPageName(endpoint);
 
     loadPage(`${views_endpoint}${endpoint}`, function () {
         console.log("Page loaded succesfully");
@@ -240,7 +258,7 @@ function listener(e) {
     e.preventDefault();
 
     let uri = getEndpoint(this.href);
-    console.log(uri);
+    // console.log(uri);
 
     if (window.location.pathname !== uri) {
         let spilted_endpoint = uri.split("/");
@@ -272,14 +290,17 @@ function convert_to_views(url) {
 
 function setPageName(endpoint) {
     var pageName;
+    // console.log(endpoint);
     if (endpoint.includes("/")) {
-        pageName = endpoint.split("/")[-1];
+        pageName = endpoint.split("/").at(-1);
+        pageName = pageName.split(/[-,_!^&]+/).join(" ");
     }
     else {
         pageName = endpoint;
     }
 
     page_name.textContent = pageName;
+    return pageName;
 }
 
 function loadCss(filename) {
@@ -321,3 +342,6 @@ function _(selector) {
 }
 
 addEventListenerToElements(".nav-links a", "click", listener);
+window.addEventListener("popstate", function (event) {
+    loadPage(convert_to_views(event.target.window.location.pathname));
+})

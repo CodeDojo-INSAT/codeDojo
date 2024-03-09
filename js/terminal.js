@@ -33,7 +33,7 @@ const terminalAfter = () => {
         document.querySelector('.title-bar').style.visibility = 'visible';
         document.querySelector('.content').style.visibility = 'visible';
     }
-        , 300);
+        , 1000);
 }
 
 document.querySelector(".bot").addEventListener('click', (event) => {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log(e.clientY)
         console.log(terminal.offsetLeft)
         console.log(terminal.offsetTop)
-        this.style.cursor = 'grabbing';
+        document.querySelector('.bot').style.cursor = 'grabbing';
     });
 
     document.addEventListener('mousemove', (e) => {

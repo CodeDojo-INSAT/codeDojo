@@ -89,26 +89,30 @@ public class CheckQuestion extends HttpServlet {
 
                     // jsonObject.put("res", checker.getResult());
                     JSONObject json = new JSONObject();
-                    json.put("result", checker.getResult());
-                    json.put("sampleTestcase", testCases.getSampleTestCase());
-                    
-                    if (!checker.isMatched()) {
-                        // jsonObject.put("message", checker.getMessage());
-                        jsonResponse = new JsonResponse(false, "testcases not matched", json);
-                    } else {
-                        jsonResponse = new JsonResponse(true, "all testcases passed", json);
-
-                        User user = (User)request.getSession().getAttribute("User");
-                        int currentLevelofUser = (dbModule.getCurrentLevel(null));
-
-                        if (currentLevelofUser == level) {
-
-                            dbModule.updateCurrentLevel(user);
-                            dbModule.addSubmission(user.getUsername(),level,javaCodeString);
-                        }
-                        else{
-                            
-                            dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
+                    if (checker.hasError()) {
+                        json.put("error", checker.getError());
+                        jsonResponse = new JsonResponse(false, "execution time out", json);
+                    }
+                    else {   
+                        json.put("result", checker.getResult());
+                        json.put("sampleTestcase", testCases.getSampleTestCase());
+                        
+                        if (!checker.isMatched()) {
+                            json.put("user_output", checker.getMessage());
+                            jsonResponse = new JsonResponse(false, "testcases not matched", json);
+                        } else {
+                            jsonResponse = new JsonResponse(true, "all testcases passed", json);
+    
+                            // User user = (User)request.getSession().getAttribute("User");
+                            // int currentLevelofUser = (dbModule.getCurrentLevel(null));
+    
+                            // if (currentLevelofUser == level) {
+                            //     dbModule.updateCurrentLevel(user);
+                            //     dbModule.addSubmission(user.getUsername(),level,javaCodeString);
+                            // }
+                            // else{
+                            //     dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
+                            // }
                         }
                     }
 
