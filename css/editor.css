@@ -48,7 +48,7 @@ body {
 }
 
 .editor {
-    /* background-color: #fff; */
+    background-color: #1e1e1e;
     width: 59%;
     height: 100vh;
     overflow: scroll;
@@ -56,11 +56,13 @@ body {
 }
 
 .editor .top-panel {
-    background-color:#16171b;
+    background-color:#1e1e1e;
     border-bottom: 1px solid #333;
     display: flex;
     height: 45px;
     align-items: center;
+    margin-bottom: 8px;
+
 }
 
 .editor .top-panel .settings {
@@ -103,7 +105,7 @@ body {
 }
 
 #editor-container {
-    height: calc(89% - 45px);
+    height: calc(88% - 45px);
     background-color: #fff;
 }
 
@@ -112,7 +114,8 @@ body {
     height: 54px;
     display: flex;
     align-items: center;
-    background-color: #111;
+    background-color: #1e1e1e;
+    border-top: 1px solid #444;
     justify-content: flex-end;
     border-bottom: 1px solid #333;
 }
@@ -232,4 +235,10 @@ body {
     display: flex;
 }
 
+.wrong-answer {
+    color: #ea2831;
+}
 
+.correct-answer {
+    color: #39e079;
+}

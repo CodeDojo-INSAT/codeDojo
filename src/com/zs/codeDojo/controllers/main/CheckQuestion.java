@@ -103,16 +103,16 @@ public class CheckQuestion extends HttpServlet {
                         } else {
                             jsonResponse = new JsonResponse(true, "all testcases passed", json);
     
-                            // User user = (User)request.getSession().getAttribute("User");
-                            // int currentLevelofUser = (dbModule.getCurrentLevel(null));
+                            User user = (User)request.getSession().getAttribute("user");
+                            int currentLevelofUser = (dbModule.getCurrentLevel(null));
     
-                            // if (currentLevelofUser == level) {
-                            //     dbModule.updateCurrentLevel(user);
-                            //     dbModule.addSubmission(user.getUsername(),level,javaCodeString);
-                            // }
-                            // else{
-                            //     dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
-                            // }
+                            if (currentLevelofUser == level) {
+                                dbModule.updateCurrentLevel(user);
+                                dbModule.addSubmission(user.getUsername(),level,javaCodeString);
+                            }
+                            else{
+                                dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
+                            }
                         }
                     }
 

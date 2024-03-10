@@ -6,7 +6,9 @@ function getTodayQuestion() {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status == 200) {
                 data = JSON.parse(this.responseText);
-                loadPage("/codeDojo/views/editor", renderDT, data, "Daily Question Editor");
+                if (data.status !== "failed") {
+                    loadPage("/codeDojo/views/editor", renderDT, data, "Daily Question Editor");
+                }
             }
         }
     }

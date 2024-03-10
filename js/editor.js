@@ -60,7 +60,7 @@ initEditor();
 
 setTimeout(() => {
     constants.model = constants.editor.getModel();
-    if (constants.model == null) {
+    if (!constants.model) {
         window.location.reload();
     }
     makeBackup();
@@ -136,7 +136,7 @@ function renderResponse(response) {
             });
             _(".right .input .content").innerHTML = html;
         }
-        else if (response.message.includes("time out")) {
+        else if (response.message.includes("time out") || response.message.includes("Timeout")) {
             setOutputForExecutionTimeout();
         }
         else {
@@ -178,7 +178,7 @@ function renderTestcases(arr, sampleTc) {
     setOutputForTestcases();
     var success = `<i class="fi fi-rs-check"></i>`;
     var wrong = `<i class="fi fi-rs-cross-small"></i>`;
-    var template = `<div class="testcase">
+    var template = `<div class="testcase #status#">
     <h4>Test Case #id#<span>#icon#</span></h4>
 </div>`;
 
@@ -189,7 +189,8 @@ function renderTestcases(arr, sampleTc) {
     let i=0;
     arr.forEach(t => {
         html += template.replace("#id#", i)
-                        .replace("#icon#", t == 1 ? success : wrong);
+                        .replace("#icon#", t == 1 ? success : wrong)
+                        .replace("#status#", t == 1 ? "correct-answer" : "wrong-answer");
         if (t===1) {
             completed++;
         }
