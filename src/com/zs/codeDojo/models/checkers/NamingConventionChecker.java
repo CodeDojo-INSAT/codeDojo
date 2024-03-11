@@ -4,6 +4,7 @@ package com.zs.codeDojo.models.checkers;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +21,7 @@ public class NamingConventionChecker extends VoidVisitorAdapter<Void> {
     public boolean status;
     private List<String> errorList;
 
-    public NamingConventionChecker(List<String> errorList) {
+    public NamingConventionChecker(ArrayList<String> errorList) {
         this.errorList = errorList;
     }
 

@@ -24,11 +24,12 @@ public final class CookieHelp {
     }
 
     public static HttpServletResponse resetCookie(HttpServletResponse res, Cookie cookie){
-        Cookie dummyCookie = (Cookie) cookie.clone();
-        dummyCookie.setMaxAge(0);
-        dummyCookie.setValue(null);
-        res.addCookie(dummyCookie);
+        Cookie oldCookie = new Cookie(cookie.getName(), null);
+        oldCookie.setMaxAge(0);
+        res.addCookie(oldCookie);
+        cookie.setPath("/codeDojo");
         res.addCookie(cookie);
+
 
         return res;
     }

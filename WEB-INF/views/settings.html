@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/codeDojo/css/settings.css">
+<div class="settings-wrapper">
+    <div class="settings-sidebar">
+        <nav class="setting-menu">
+            <ul>
+                <li class="acc"><a>Account</a></li>
+                <li class="passwd"><a>Password</a></li>
+                <li class="notify"><a>Notification</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="settings-content">
+        <div class="account ">
+            <span class="page-name">Settings ><span class="specific"> Account</span></span>
+            <div class="field">
+                <span class="field-name">Profile</span>
+                <div class="field-value">
+                    <span class="icon"></span>
+                    <span class="remove-button">remove</span>
+                    <span class="upload-button">upload</span>
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">First name</span>
+                <div class="field-value">
+                    <input type="text" name="fname" id="fname" placeholder="First name" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Last name</span>
+                <div class="field-value">
+                    <input type="text" name="lname" id="lname" placeholder="Last name" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">username</span>
+                <div class="field-value">
+                    <input type="text" name="username" id="uname" placeholder="Username" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Email</span>
+                <div class="field-value">
+                    <input type="email" name="email" id="email" placeholder="Email" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="password showTop">
+            <span class="page-name">Settings ><span class="specific"> Password</span></span>
+            <div class="field">
+                <span class="field-name">Current Password</span>
+                <div class="field-value">
+                    <input type="text" name="cpasswd" id="cpasswd" placeholder="Current Password" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">New Password</span>
+                <div class="field-value">
+                    <input type="text" name="npasswd" id="npasswd" placeholder="New Password" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Confirm Password</span>
+                <div class="field-value">
+                    <input type="text" name="cnpasswd" id="cnpasswd" placeholder="Confirm password" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    loadScript("settings.js");
+</script>

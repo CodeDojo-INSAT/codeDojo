@@ -4,13 +4,14 @@ package com.zs.codeDojo.models.checkers;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InheritanceChecker extends VoidVisitorAdapter<Void> {
    public boolean status = true;
    private List<String> errorList;
 
-   public InheritanceChecker(List<String> erroList) {
+   public InheritanceChecker(ArrayList<String> erroList) {
       this.errorList = erroList;
    }
 

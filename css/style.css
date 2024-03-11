@@ -5,9 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
-    /* font-family: "Poppins", sans-serif;
-    font-weight: 500; */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -17,7 +16,8 @@ body {
     background-color: #262626;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-}
+    overflow: hidden;
+} 
 
 
 /* .sidebar:hover {
@@ -47,12 +47,15 @@ body {
 
 }
 
-.sidebar .logo_container i {
-    font-size: 28px;
-    font-weight: 500;
-    min-width: 60px;
+.sidebar .logo_container img {
+    /* font-size: 28px; */
+    /* font-weight: 500; */
+    width: 40px;
+    height: 40px;
     text-align: center;
     color: #FFF;
+    border-radius: 50%;
+    margin-left: 1rem;
 }
 
 .sidebar .logo_container .logo_name {
@@ -127,8 +130,36 @@ body {
     height: calc(100vh - 45px);
 }
 
-.top-nav {
+.top-nav-animation{
     height: 65px;
+    width: 100%;
+    position: relative;
+}
+
+.top-nav-realanimation{
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    background: rgb(11,6,99);
+background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, rgba(158,194,233,1) 100%);
+    z-index: -2;
+    /* background-image: linear-gradient(rgba(0,0,0,0), #1976ed, rgba(0,0,0,0) 120%); */
+    animation: rotate 1s linear infinite;
+    filter: blur(1);
+}
+/* Animation */
+@keyframes rotate {
+    0%{
+        left: 0;
+    }
+	100% {
+		left: 100%;
+	}
+}
+
+
+.top-nav {
+    height: 64px;
     width: 100%;
     background-color: #16171b;
     border-bottom: 1px solid #444;
@@ -137,8 +168,16 @@ body {
     justify-content: space-between;
 }
 
+.top-nav .back-icon i::before {
+    font-size: 1.5rem;
+    align-items: center;
+    margin-left: .5rem;
+    display: none;
+}
+
 .top-nav .current-page-name {
-    margin-left: 2rem;
+    margin-right: auto;
+    margin-left: .8rem;
     text-transform: capitalize;
     font-size: 1.4rem;
 }
@@ -155,12 +194,12 @@ body {
 }
 
 .top-nav .icons .profile {
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     margin-right: 1rem;
-    padding: 8px;
+    /* padding: 8px; */
 }
 
 /* 
@@ -250,6 +289,11 @@ body {
     border: 1px solid #23c944;
 }
 
+.terminal-content {
+    height: calc(100% - 30px);
+    padding: 10px;
+    overflow-y: auto;
+}
 
 .input {
     display: flex;
@@ -292,21 +336,9 @@ body {
     background-repeat: no-repeat;
     /* border-radius: 50%; */
     position: absolute;
-    top: 89%;
-    left: 10.5%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    /* box-shadow: 0 0 40px 10px #48abe0 */
-}
 
-.terminal-content {
-    padding: 0.8rem;
-    height: calc(100% - 30px);
-    line-break: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    visibility: hidden;
-
+::-webkit-scrollbar {
+    width: 0;
 }
 
 /* WebKit Scrollbar */
