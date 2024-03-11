@@ -84,6 +84,7 @@ body {
 
 .sidebar .nav-links li a:hover {
     background-color:#e50914;
+    /* border-radius: 32px; */
 }
 
 .sidebar .nav-links li a {
@@ -95,6 +96,7 @@ body {
     text-decoration: none;
     transition: 0.1 all ease;
     white-space: nowrap;
+    /* border-radius: 32px; */
 }
 
 .sidebar .nav-links li a i {

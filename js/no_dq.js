@@ -1,0 +1,1 @@
+setPageName("Daily question");

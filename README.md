@@ -15,7 +15,7 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
 
 - Daily questions Api's
     - /services/dq/submit_answer.dojo `[POST]`
-    - /services/dq/get_userstreak.dojo `[GET]`
+    - /services/dq/get_user_streak.dojo `[GET]`
     - /services/dq/get_question.dojo `[GET]`
 
 - Course api's

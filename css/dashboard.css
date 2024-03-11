@@ -422,12 +422,11 @@ canvas { display: block; background: var(--div-background-color); }
     align-items: center;
     height: fit-content;
     padding: .5rem 1.2rem;
-    margin: 0 2rem;
-    margin-top: 0.5rem;
+    margin: 0rem 2rem;
+    /* margin-top: 0.5rem; */
     border-radius: 8px;
     /* border: 1px solid #404040; */
     /* background-color: #1f1717; */
-
 }
 
 .lb-name{
@@ -514,4 +513,71 @@ canvas { display: block; background: var(--div-background-color); }
 
 #flameCanvas {
     border-radius: var(--border-radius);
+}
+
+.announcement .anoun-title {
+    padding: 0 16px;
+    /* border: 1px solid red; */
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.announcement .anoun-title i {
+    margin-left: 1.5%;
+}
+
+.announcement .announcement-card {
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,  
+              100%, 0.075),
+              /* shadow ring 👇 */
+              0 0 0 1px hsla(0, 0%, 7%, 0.05),
+              /* multiple soft shadows 👇 */
+              0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+              0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+              0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
+    /* max-height: 34%; */
+    /* overflow: hidden; */
+    margin: 5%;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.announcement .announcement-card .message {
+    /* height: 50%; */
+    /* height: 32px; */
+    margin-bottom: 3%;
+}
+
+.announcement .announcement-card .message p {
+    font-size: 15px;
+    text-align: left;
+    /* border: 1px solid red; */
+}
+.announcement .announcement-card .user {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.announcement .announcement-card .user .profile {
+    width: 6%;
+}
+
+.announcement .announcement-card .user .profile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}   
+
+.announcement .announcement-card .user .name {
+    /* margin-right: auto; */
+    margin-left: 2%;
+    font-size: 18px;
+    color: #ccc;
 }

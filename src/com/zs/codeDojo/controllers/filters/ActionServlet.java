@@ -34,10 +34,9 @@ public class ActionServlet implements Filter {
                     return;
                 }
                 
-                httpResponse.setContentType("text");
                 String cookieName = "reqEndpoint";
                 Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
-
+                
                 if (uri.contains("/u/")) {
                     if (endpointCookie == null) {
                         endpointCookie = new Cookie(cookieName, uri);
@@ -51,6 +50,9 @@ public class ActionServlet implements Filter {
                     uri = "/app_frame";
                 }
                 
+                if (!uri.equals("/app_frame")) {
+                    // httpResponse.setContentType("text/plain");
+                }
                 
                 switch (uri) {
                     case "/app_frame":
@@ -85,6 +87,12 @@ public class ActionServlet implements Filter {
                         break;
                     case "/views/editor":
                         request.getRequestDispatcher("/WEB-INF/views/editor.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/views/show_today_question":
+                        request.getRequestDispatcher("/WEB-INF/views/dq.html").include(httpRequest, httpResponse);
+                        break;
+                    case "/views/no_dq_ques":
+                        request.getRequestDispatcher("/WEB-INF/views/dq_no_ques.html").include(httpRequest, httpResponse);
                         break;
                     default:
                         chain.doFilter(httpRequest, httpResponse);

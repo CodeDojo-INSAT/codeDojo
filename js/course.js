@@ -4,7 +4,11 @@ _(".top-nav .back-icon").addEventListener("click", function() {
 });
 
 function submitCode() {
-    let data = { "code": constants.model.getValue(), "level": user_level };
+    var value = constants.model.getValue();
+    if (!value) {
+        window.location.reload();
+    }
+    let data = { "code": value, "level": user_level };
     doAjax("/codeDojo/services/course/check_answer.dojo", data);
 }
 
@@ -12,7 +16,7 @@ _(".top-nav .back-icon").addEventListener("click", function() {
     window.location.href = "/codeDojo/u/course";
 });
 
-fetchData("/codeDojo/services/course/getCourse?level=1");
+fetchData("/codeDojo/services/course/getCourse");
 
 function fetchData(url) {
     var xhr = new XMLHttpRequest();

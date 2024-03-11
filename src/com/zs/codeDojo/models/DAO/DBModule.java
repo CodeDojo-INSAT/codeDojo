@@ -212,13 +212,13 @@ public class DBModule {
     // get Question end
 
     // get streak start.
-    public int getStreakForUser(int userId) {
+    public int getStreakForUser(String username) {
         int streak = -1;
         try (PreparedStatement statement = conn.prepareStatement("set @row_number = 0")) {
             statement.execute();
 
             try (PreparedStatement statement1 = conn.prepareStatement(SQLQueries.GET_STREAK)) {
-                statement1.setInt(1, userId);
+                statement1.setString(1, username);
 
                 if (statement1.execute()) {
                     ResultSet rs = statement1.getResultSet();

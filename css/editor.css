@@ -19,6 +19,7 @@ body {
 
 .sidebar {
     display: none;
+    transition: none;
 }
 
 .course-section {
@@ -62,7 +63,6 @@ body {
     height: 45px;
     align-items: center;
     margin-bottom: 8px;
-
 }
 
 .editor .top-panel .settings {
@@ -106,7 +106,7 @@ body {
 
 #editor-container {
     height: calc(88% - 45px);
-    background-color: #fff;
+    background-color: #16171b;
 }
 
 .submit-area {

@@ -21,7 +21,8 @@ public class CheckSession implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) res;
 
         String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
-
+        
+        res.setContentType("text/html");
         if (uri.contains("/auth/") || uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png") || uri.endsWith(".jpg")) {
             if (uri.equals("/auth/login") && isLoggedIn(httpRequest)) {
                 httpResponse.sendRedirect(httpRequest.getContextPath() +  "/u/dashboard");
