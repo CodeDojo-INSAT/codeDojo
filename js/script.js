@@ -237,8 +237,11 @@ function getUri(cookie) {
         let pairs = c.split("=");
         if (pairs[0].includes("reqEndpoint")) {
             value = pairs[1];
+            console.log("value"+value)
+
         }
     });
+
     return value;
 }
 

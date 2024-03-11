@@ -80,6 +80,11 @@ public class SQLQueries {
         public static final String ADD_SUBMISSION = "INSERT INTO UserSubmission (levelId,username,code) VALUES(?,?,?);";
         public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = '?'  WHERE username = '?' AND levelID = ?;";
 
-        // Announcements Queries go Here...
-        public static final String CREATE_ANNOUNCEMENT = "insert into announcements (announcementTitle, announcementContent, createdDate, updatedDate) Values (?, ?, ?, ?)";
+    // Announcements Queries go Here...
+    public static final String CREATE_ANNOUNCEMENT = "insert into announcements (announcementTitle, announcementContent, createdDate, updatedDate) Values (?, ?, ?, ?)";
+
+    //Tournament api starts here.........
+    public static final String ADD_STREAKS = "UPDATE UserStreaks SET streak = ? WHERE username = ?;";
+    public static final String GET_CURRENT_STREAKS = "SELECT streak from UserStreaks WHERE username = ?;";
+
 }

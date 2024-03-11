@@ -1160,7 +1160,8 @@ public class DBModule {
 
         try {
 
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_QUESTION);
+            PreparedStatement
+             stm = conn.prepareStatement(SQLQueries.GET_QUESTION);
             stm.setString(1, String.valueOf(requestedLevel));
 
             ResultSet result = stm.executeQuery();
@@ -1258,6 +1259,40 @@ public class DBModule {
             return new Status("406");
         }
     }
+
+    // Tournament starts here......
+
+    public int getCurrentStreak(User user){
+        int streak =0;
+        try (PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_STREAKS)){
+
+            stm.setString(1,user.getUsername());
+            ResultSet result = stm.executeQuery();
+            result.next();
+            streak = result.getInt("streak");
+            return streak;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public Status addStreaks(User user , int streak){
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_STREAKS)) {
+
+            int currentStreak = getCurrentStreak(user);
+            stm.setInt(1,currentStreak + streak);
+            stm.setString(2, user.getUsername());
+            stm.executeUpdate();
+            return new Status("111");
+
+        } catch (Exception e) {
+            return new Status("406");
+        }
+    }
+    
+    //Tournament ends here
 
     public void close() {
         if (conn != null) {
