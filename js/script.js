@@ -212,14 +212,22 @@ function removeDynamicScriptsAndCss() {
 
 //handle url if user enter directly in url bar.
 function getUri(cookie) {
-    let endpoint = cookie.split(";");
+    console.log("suma"+cookie)
+    console.log(document.cookie)
+    let endpoint = document.cookie.split(";");
+    console.log("endpont "+endpoint)
     let value;
     endpoint.forEach(element => {
         let pairs = element.split("=");
-        if (pairs[0] === "reqEndpoint") {
+        console.log("pairs "+pairs)
+        let i = pairs[0]
+        if (i.includes("reqEndpoint")) {
             value = pairs[1];
+            console.log("value"+value)
+
         }
     });
+
     return value;
 }
 

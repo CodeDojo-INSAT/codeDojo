@@ -1,13 +1,16 @@
+let username = "magesh";
+let promptUser = document.querySelector(".prompt").innerHTML = username + "@codeDojo $ ";
 const output = document.querySelector('.output');
 const startTime = performance.now();
 console.log(startTime);
+
 document.querySelector('.user-input').addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
         const userInput = document.querySelector('.user-input');
         const inputText = userInput.value.trim();
 
         if (inputText !== '') {
-            output.innerHTML += `<div class="out-prompt"><span class="prompt">uvchan@codeDojo $</span> ${inputText}</div>`;
+            output.innerHTML += `<div class="out-prompt"><span class="prompt">${promptUser}</span> ${inputText}</div>`;
             this.userPrompt(inputText);
             userInput.value = '';
         }
@@ -18,57 +21,61 @@ let isMinimized = false;
 
 const terminalBefore = () => {
     document.querySelector('.title-bar').style.visibility = 'hidden';
-    document.querySelector('.content').style.visibility = 'hidden';
+    document.querySelector('.terminal-content').style.visibility = 'hidden';
     document.querySelector('.bot').classList.add('terminali');
+    document.querySelector('.bot').classList.remove('terminal');
     document.querySelector('.bot').style.transition = '0.5s';
-    setTimeout(() => document.querySelector('.bot').style.transition = '0s', 500);
+    setTimeout(() => {
+        document.querySelector('.bot').style.transition = '0s';
+        // document.querySelector('.terminali').style.left = '10.5%    ';
+        // document.querySelector('.terminali').style.top = '89%';
+    }, 300);
 }
 
 const terminalAfter = () => {
     console.log("its asdasd");
+    document.querySelector('.bot').classList.add('terminal');
     document.querySelector('.bot').classList.remove('terminali');
     document.querySelector('.bot').style.transition = '0.5s';
     setTimeout(() => {
         document.querySelector('.bot').style.transition = '0s';
         document.querySelector('.title-bar').style.visibility = 'visible';
-        document.querySelector('.content').style.visibility = 'visible';
-    }
-        , 300);
+        document.querySelector('.terminal-content').style.visibility = 'visible';
+    }, 400);
 }
 
 document.querySelector(".bot").addEventListener('click', (event) => {
+
     console.log(event.target.classList)
     if ((event.target.classList.contains('minimize'))) {
+
         terminalBefore();
         isMinimized = true;
+
     } else {
-        if (startTime + performance.now() >= 1000) {
 
-            terminalAfter();
-            isMinimized = false;
+        terminalAfter();
+        isMinimized = false;
 
-        }
     }
 });
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const terminal = document.querySelector('.bot');
-
     let isDragging = false;
     let dragOffsetX, dragOffsetY;
 
     document.querySelector('.bot').addEventListener('mousedown', e => {
+
         isDragging = true;
         dragOffsetX = e.clientX - terminal.offsetLeft;
         dragOffsetY = e.clientY - terminal.offsetTop;
-        console.log(e.clientX)
-        console.log(e.clientY)
-        console.log(terminal.offsetLeft)
-        console.log(terminal.offsetTop)
-        this.style.cursor = 'grabbing';
+        document.querySelector('.bot').style.cursor = 'grabbing';
+
     });
 
     document.addEventListener('mousemove', (e) => {
+
         if (!isDragging) return;
         e.preventDefault();
 
@@ -79,11 +86,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             }
         });
+
     });
 
     document.addEventListener('mouseup', e => {
         isDragging = false;
-        terminal.style.cursor = 'default';
+        terminal.style.cursor = 'grab';
+        terminalBefore();
     });
 });
 
@@ -112,9 +121,9 @@ function userPrompt(prompt) {
 
         case "cd":
             if (parts.length == 2) {
-                loadPage("/codeDojo/views/"+parts[1])
-                window.history.pushState({},"","/codeDojo/u/"+parts[1])
-                
+                loadPage("/codeDojo/views/" + parts[1])
+                window.history.pushState({}, "", "/codeDojo/u/" + parts[1])
+
             }
             break;
 

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     /* font-family: "Poppins", sans-serif;
     font-weight: 500; */
     font-style: normal;
@@ -15,7 +17,7 @@ body {
     background-color: #262626;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-} 
+}
 
 
 /* .sidebar:hover {
@@ -73,13 +75,17 @@ body {
     list-style: none;
 }
 
-.sidebar .nav-links li:last-child {
+.terminal-ninja{
+    height: 200px;
+    width: 100%;
+    /* border: 1px solid rgb(255, 252, 252); */
     position: absolute;
-    bottom: 0;
+    bottom: calc(5%);  
 }
 
+
 .sidebar .nav-links li a:hover {
-    background-color:#e50914;
+    background-color: #e50914;
 }
 
 .sidebar .nav-links li a {
@@ -96,7 +102,7 @@ body {
 .sidebar .nav-links li a i {
     /* background-color: red; */
     text-align: center;
-    min-width:60px;
+    min-width: 60px;
     font-size: 24px;
     color: #FFF;
 }
@@ -156,6 +162,7 @@ body {
     margin-right: 1rem;
     padding: 8px;
 }
+
 /* 
 .sidebar.active ~ .home-section {
     left: 60px;
@@ -180,6 +187,11 @@ body {
 
 
 /* terminal css ....:) */
+
+:root {
+    --username: "magesh";
+}
+
 .main-body {
     position: relative;
 }
@@ -193,7 +205,7 @@ body {
     height: 400px;
     background-color: #243238;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .title-bar {
@@ -201,8 +213,8 @@ body {
     color: #000;
     padding: 5px;
     text-align: center;
-    cursor: move;
     display: flex;
+    visibility: hidden;
 
     /* Align items horizontally */
 }
@@ -238,12 +250,6 @@ body {
     border: 1px solid #23c944;
 }
 
-.content {
-    height: calc(100% - 30px);
-    padding: 10px;
-    overflow-y: auto;
-
-}
 
 .input {
     display: flex;
@@ -262,7 +268,8 @@ body {
 }
 
 .out-prompt {
-    color: #deaa1e;
+    color: #01a252;
+    overflow-wrap: break-word;
 }
 
 .user-input {
@@ -277,11 +284,68 @@ body {
 }
 
 .terminali {
-    height: 30px;
-    width: 30px;
-    border: 1px solid black;
-    background-color: #e82b2b;
-    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background-image: url("test.gif");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border-radius: 50%; */
     position: absolute;
+    top: 89%;
+    left: 10.5%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    /* box-shadow: 0 0 40px 10px #48abe0 */
+}
 
+.terminal-content {
+    padding: 0.8rem;
+    height: calc(100% - 30px);
+    line-break: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    visibility: hidden;
+
+}
+
+/* WebKit Scrollbar */
+.bot::-webkit-scrollbar {
+    width: 0px;
+    /* Width of the scrollbar */
+}
+
+.terminal-content::-webkit-scrollbar {
+    width: 4px;
+    /* Width of the scrollbar */
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: #243238;
+    /* Track color */
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: #01a252;
+    /* Thumb color */
+}
+
+/* Firefox Scrollbar */
+.terminal-content {
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+}
+.terminal-content {
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+}
+
+.bot::-moz-scrollbar-track {
+    background: #f1f1f1;
+    /* Track color */
+}
+
+.bot::-moz-scrollbar-thumb {
+    background: #888;
+    /* Thumb color */
 }
