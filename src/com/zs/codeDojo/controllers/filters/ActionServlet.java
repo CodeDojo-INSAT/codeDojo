@@ -27,6 +27,10 @@ public class ActionServlet implements Filter {
         httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         httpResponse.setHeader("Pragma", "no-cache");
         httpResponse.setHeader("Expires", "0");
+        httpResponse.setHeader("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
+        httpResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Allow specified HTTP methods
+        httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Allow specified headers
+        
 
         String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
         System.out.println("uri: " + uri);

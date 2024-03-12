@@ -273,3 +273,33 @@ function doPost(url, params, callback, showLoader, hideLoader) {
         console.error("Error: " + error);
     });
 }
+
+
+let MONTHS_SHORT = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+]
+
+function reformat_datestr(str){
+    let dtstr = str.split(" ").join("T")
+    let date = new Date(dtstr)
+    let newDateStr = `${MONTHS_SHORT[date.getMonth()]} ${date.getDate()}`
+    if (date.getFullYear() != new Date().getFullYear()){
+        newDateStr += ` ${date.getFullYear()}`
+    }
+
+    return newDateStr
+    
+}
+    
+addEventListenerToElements(".nav-links a", "click", listener);

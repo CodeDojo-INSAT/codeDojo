@@ -2,6 +2,8 @@ package com.zs.codeDojo.controllers.quizz;
 
 import org.json.JSONObject;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,12 +45,11 @@ public class Status {
         authCodeMsgs.put("800", "Quiz Created Successfully");
         authCodeMsgs.put("802", "Quiz Deleted Successfully");
 
+        authCodeMsgs.put("803", "Quiz Submitted Successfully");
+
+
 
         authCodeMsgs.put("100","Level completed Successfully");
-        authCodeMsgs.put("102","Code submission successfull");
-
-        authCodeMsgs.put("111", "Streaks added successfully");
-
 
     }
 
@@ -72,6 +73,17 @@ public class Status {
          JSONObject jsonObj = new JSONObject();
          jsonObj.put("status", getStatusCode());
          jsonObj.put("msg", getStatusMsg());
+
+
+         if (this.returnedException != null) {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            this.returnedException.printStackTrace(pw);
+            String sStackTrace = sw.toString(); // stack trace as a string
+            // System.out.println(sStackTrace);
+
+            jsonObj.put("errormsg", sStackTrace);
+         }
          return jsonObj.toString();
     }
 

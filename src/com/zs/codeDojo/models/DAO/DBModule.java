@@ -1005,19 +1005,58 @@ public class DBModule {
         return null;
     }
 
-    public JSONArray getQuizzes() {
+    public JSONObject getUserQuizSubmissionStatus(String username, String quizID){
+        
+        JSONObject response = new JSONObject();
+
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_LATEST_PASSED_SUBMISSION)){
+            stmt.setString(1, username);
+            stmt.setString(2, quizID);
+
+            ResultSet resultSet = stmt.executeQuery();
+            if(resultSet.next()){
+                response.put("submissionStatus", "COMPLETED");
+                response.put("submissionDate", resultSet.getString(6));
+                return response;
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_LATEST_QUIZ_SUBMISSION)){
+            stmt.setString(1, username);
+            stmt.setString(2, quizID);
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            if (resultSet.next()) {
+                response.put("submissionStatus", "FAILED");
+                response.put("submissionDate", resultSet.getString(6));
+            }else {
+                response.put("submissionStatus", "YET TO START");
+            }
+            return response;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public JSONArray getQuizzes(User user) {
         try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_QUIZZES)) {
 
             JSONArray arr = new JSONArray();
             ResultSet res = stmt.executeQuery();
             while (res.next()) {
                 String quizID = res.getString(1);
+                JSONObject submissionInfo = getUserQuizSubmissionStatus(user.getUsername(), quizID);
                 String quizName = res.getString(2);
                 String quizType = res.getString(3);
                 int numQuestions = res.getInt(4);
                 String createdOn = res.getString(5);
                 String lastUpdated = res.getString(6);
-                arr.put(new QuizObject(quizID, quizName, quizType, createdOn, lastUpdated, numQuestions).toJSON());
+                arr.put(new QuizObject(quizID, quizName, quizType, createdOn, lastUpdated, numQuestions, submissionInfo).toJSON());
             }
             stmt.close();
             return arr;
@@ -1070,6 +1109,56 @@ public class DBModule {
         return answer != null && answer.equals(response);
     }
 
+    public JSONObject checkAndSubmitAnswers(String username, String quizID, JSONArray answers){
+        StringBuilder correctSequence = new StringBuilder();
+        int correctCount = 0;
+        for (int i = 0; i < answers.length(); i++) {
+            JSONObject answer = answers.getJSONObject(i);
+            boolean isCorrect = isCorrectAnswer(quizID, 
+                answer.getString("questionID"), 
+                answer.getString("optionID")
+                );
+            int token = isCorrect ? 1 : 0;
+            correctCount += token;
+            correctSequence.append(token);
+        }
+        
+        JSONObject resp = new JSONObject();
+
+        resp.put("quizID", quizID);
+        resp.put("checkSequence", correctSequence.toString());
+        resp.put("correctCount", correctCount);
+
+        String submissionStatus = correctSequence.toString().contains("0") ? "FAIL" : "PASS";
+        resp.put("status", 
+            new JSONObject(addQuizSubmission(username, quizID, correctSequence.toString(), correctCount, submissionStatus).toJSON()));
+        return resp;
+    }
+
+    public Status addQuizSubmission(String username, String quizID, String submissionSequence, int correctCount, String completionStatus){
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.ADD_QUIZ_SUBMISSION)){
+            stmt.setString(1, username);
+            stmt.setString(2, quizID);
+            stmt.setString(3, submissionSequence);
+            stmt.setInt(4, correctCount);
+            stmt.setString(5, completionStatus);
+            Timestamp submitTime = new Timestamp(new java.util.Date().getTime());
+            stmt.setTimestamp(6, submitTime);
+
+            stmt.execute();
+            
+            conn.commit();
+
+            return new Status("803");
+        }catch (SQLException e){
+            try{
+                conn.rollback();
+            }catch(Exception e_fatal){
+                e_fatal.printStackTrace();
+            }
+            return new Status("406", e);
+        }
+    }
     public Status createQuiz(QuizExternObject obj) {
         String quizID = obj.getQuizID();
         String quizName = obj.getQuizName();
@@ -1086,7 +1175,7 @@ public class DBModule {
             stmt.setTimestamp(6, createTime);
 
             stmt.execute();
-
+            
             conn.commit();
 
         } catch (SQLException e) {
@@ -1148,6 +1237,7 @@ public class DBModule {
         }
         return new Status("800");
     }
+
 
     // Course starts here
     // ..............................................................................................
