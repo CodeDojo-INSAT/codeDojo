@@ -121,12 +121,12 @@ function userPrompt(prompt) {
 
         case "cd":
             if (parts.length == 2) {
-                loadPage("/codeDojo/views/" + parts[1])
-                window.history.pushState({}, "", "/codeDojo/u/" + parts[1])
-
+                let url = "/codeDojo/views/" + parts[1];
+                // loadPage("/codeDojo/views/" + parts[1])
+                doGet(url, onLoadPage, {pageName: url}, showTopNavLoader, hideTopNavLoader);
+                window.history.pushState({}, "", "/codeDojo/u/" + parts[1]);
             }
             break;
-
         default:
             output.innerHTML += `<div class="out-prompt">Command not found you can prompt --help</div>`;
             break;

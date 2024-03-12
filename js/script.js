@@ -1,139 +1,3 @@
-// // const xhr = new XMLHttpRequest();
-// const webapp = "codeDojo";
-// const views_endpoint = "/codeDojo/views/"
-// const content = document.querySelector(".content-wrapper");
-// // const link_tags = document.querySelector(".links");
-
-
-// function _(id) {
-//     return document.querySelector(id);
-// }
-
-// function getUri(cookie) {
-//     let endpoint = cookie.split(";");
-//     let value;
-//     endpoint.forEach(element => {
-//         let pairs = element.split("=");
-//         if (pairs[0] === "reqEndpoint") {
-//             value = pairs[1];
-//         }
-//     });
-//     return value;
-// }
-
-// const cookies = document.cookie;
-
-// if (cookies != "") {
-//     const endpoint = getUri(cookies).split("/");
-//     console.log(endpoint[endpoint.length - 1]);
-
-//     loadPage(`/${webapp}/views/${endpoint[endpoint.length - 1]}`, function() {
-//         console.log("Page loaded succesfully");
-//     })
-//     // fetch(`/${webapp}/views/${endpoint[endpoint.length - 1]}`)
-//     //     .then(response => {
-//     //         if (response.ok) {
-//     //             return response.text();
-//     //         }
-//     //     })
-//     //     .then(html => {
-//     //         content.innerHTML = html;
-//     //     });
-// }
-
-// // link_tags.addEventListener("click", function(e) {
-// //     e.preventDefault();
-
-// //     // console.log("Default prevented");
-// //     let uri = getEndpoint(this.href);
-// //     console.log(uri);
-
-// //     if (window.location.pathname !== uri) {
-// //         let spilted_endpoint = uri.split("/");
-
-// //         window.history.pushState({}, "", uri);
-// //         renderPage(convert_to_views(spilted_endpoint[spilted_endpoint.length-1]))
-// //     }
-// // })
-
-// function loadPage(url, callback) {
-//     var xhr = new XMLHttpRequest();
-
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === XMLHttpRequest.DONE) {
-//             if (xhr.status == 200) {
-//                 var container = content;
-//                 container.innerHTML = xhr.responseText;
-
-//                 executeScripts(container);
-
-//                 if (typeof callback === 'function') {
-//                     callback();
-//                 }
-//             }
-//             else {
-//                 console.error("Error loading page " + xhr.status);
-//             }
-//         }
-//     };
-//     xhr.open("GET", url, true);
-//     xhr.send();
-// }
-
-// function executeScripts(container) {
-//     var scripts = container.querySelectorAll("script");
-
-//     scripts.forEach(function (script) {
-//         var newScript = document.createElement('script');
-
-//         newScript.textContent = script.textContent;
-//         container.appendChild(newScript);
-//     })
-// }
-
-// function getEndpoint(url) {
-//     let parsedUrl = new URL(url);
-//     return parsedUrl.pathname;
-// }
-
-
-
-
-
-// function renderPage(url) {
-//     fetch(url)
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.text();
-//             }
-//         })
-//         .then(html => {
-//             content.innerHTML = html;
-//         })
-// }
-
-// function convert_to_views(url) {
-//     let splited_url = url.split("/");
-
-//     endpoint = splited_url[splited_url.length - 1]
-//     return `${views_endpoint}${endpoint}`
-// }
-
-// function loadCss(filename) {
-//     var link = document.createElement('link');
-//     link.rel = 'stylesheet';
-//     link.type = 'text/css';
-//     link.href = `/codeDojo/css/${filename}`;
-//     document.head.appendChild(link);
-// }
-
-// function loadScript(filename) {
-//     var script = document.createElement('script');
-//     script.src = `/codeDojo/js/${filename}`;
-//     document.head.appendChild(script);
-// }
-
-
 const sidebarBtn = document.querySelectorAll(".sidebar a");
 const host = "http://arjun:9090";
 const webapp = "codeDojo";
@@ -153,46 +17,28 @@ function showTopNavLoader() {
 }
 
 function hideTopNavLoader() {
-    setTimeout(()=>{
+    setTimeout(() => {
         _(".top-nav-realanimation").style.display = "none";
     }, 1000);
 }
-//it loads the page from ajax and initiate the scripts that contains
-function loadPage(url, callback, withParam, pageName) {
-    showTopNavLoader();
-    var xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            hideTopNavLoader();
-            if (xhr.status == 200) {
-                var container = content;
-                container.innerHTML = xhr.responseText;
+function onLoadPage(response, options) {
+    var container = content;
+    container.innerHTML = response;
 
-                executeScripts(container);
-                
-                if (pageName) {
-                    setPageName(pageName);
-                }
-                else {
-                    setPageName(url);
-                }
-                if (typeof callback === 'function') {
-                    if (withParam) {
-                        callback(withParam);
-                    }
-                    else {
-                        callback();
-                    }
-                }
-            }
-            else {
-                console.error("Error loading page " + xhr.status);
-            }
+    executeScripts(container);
+
+    if (options.pageName) {
+        setPageName(options.pageName);
+    }
+    if (typeof options.func === "function") {
+        if (options.param) {
+            options.func(options.param);
         }
-    };
-    xhr.open("GET", url, true);
-    xhr.send();
+        else {
+            options.func();
+        }
+    }
 }
 
 var dynamicScripts = [];
@@ -237,7 +83,7 @@ function getUri(cookie) {
         let pairs = c.split("=");
         if (pairs[0].includes("reqEndpoint")) {
             value = pairs[1];
-            console.log("value"+value)
+            console.log("value" + value)
 
         }
     });
@@ -250,9 +96,11 @@ const cookies = document.cookie;
 if (cookies != "") {
     const endpoint = getUri(cookies).split("/").slice(2).join("/");
 
-    loadPage(`${views_endpoint}${endpoint}`, function () {
-        console.log("Page loaded succesfully");
-    });
+    let url = `${views_endpoint}${endpoint}`;
+    // loadPage(, function () {
+    //     console.log("Page loaded succesfully");
+    // });
+    doGet(url, onLoadPage, {pageName: url}, showTopNavLoader, hideTopNavLoader);
 
 }
 
@@ -267,7 +115,9 @@ function listener(e) {
         let spilted_endpoint = uri.split("/");
 
         window.history.pushState({}, "", uri);
-        loadPage(convert_to_views(spilted_endpoint[spilted_endpoint.length - 1]));
+        // loadPage(convert_to_views(spilted_endpoint[spilted_endpoint.length - 1]));
+        let url = convert_to_views(spilted_endpoint[spilted_endpoint.length - 1]);
+        doGet(url, onLoadPage, {pageName: url}, showTopNavLoader, hideTopNavLoader);
     }
 }
 
@@ -346,5 +196,80 @@ function _(selector) {
 
 addEventListenerToElements(".nav-links a", "click", listener);
 window.addEventListener("popstate", function (event) {
-    loadPage(convert_to_views(event.target.window.location.pathname));
+    let url = convert_to_views(event.target.window.location.pathname);
+    doGet(url, onLoadPage, {pageName: url}, showTopNavLoader, hideTopNavLoader);
 })
+
+function doGet(url, callback, param, showLoader, hideLoader) {
+    if (typeof showLoader === "function") {
+        showLoader();
+    }
+
+    fetch(url)
+    .then(response => {
+        if (response.url.match(/\/codeDojo\/auth\/login/)) {
+            window.location.reload();
+        }
+        else if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        else {
+            return response.text();
+        }
+    })
+    .then(data => {
+        if (typeof hideLoader === "function") {
+            hideLoader();
+        }
+        if (typeof callback === "function") {
+            if (param) {
+                callback(data, param);
+            } else {
+                callback(data);
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function doPost(url, params, callback, showLoader, hideLoader) {
+    if (params && typeof params !== "object") {
+        console.log("Params not valid, must be an object. From doPost");
+        return;
+    }
+
+    if (typeof showLoader === "function") {
+        showLoader();
+    }
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            contentType: "application/json",
+        },
+        body: params ? JSON.stringify(params) : ""
+    })
+    .then (response => {
+        if (!response.ok) {
+            throw new Error("Network response not ok");
+        }
+        else {
+            return response.text();
+        }
+    })
+    .then(data => {
+        if (typeof hideLoader === "function") {
+            hideLoader();
+        }
+
+        if (typeof callback === "function") {
+            callback(data);
+        }
+
+    })
+    .catch(error => {
+        console.error("Error: " + error);
+    });
+}

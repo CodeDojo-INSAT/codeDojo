@@ -1,40 +1,36 @@
 constants.WELCOME_NAME_SPAN = _("#name");
 // const content = document.querySelector(".content-wrapper");
 
-
-function doXhr(url, func) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.onload = function() {
-        if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status == 200) {
-                console.log(this.response);
-                if (typeof func === "function") {
-                  func(this.response);
-                }
-            }
-        }
-    };
-
-    xhr.open("GET", url ,true);
-    xhr.send();
-}
-
-
 function setName(name) {
     constants.WELCOME_NAME_SPAN.textContent = name;
 }
 
-function setDailyStreak(respone) {
-  respone = JSON.parse(respone);
+function setDailyStreak(response) {
+  response = JSON.parse(response);
 
-  if (respone.status === "success") {
-    _(".prog #daily-streak").textContent = respone.data.streak;
+  if (response.status) {
+    _(".prog #daily-streak").textContent = response.data.streak;
   }
 }
 
-doXhr("/codeDojo/services/auth/get_name.dojo", setName);
-doXhr("/codeDojo/services/dq/get_user_streak.dojo", setDailyStreak);
+function setCourseTitle(response) {
+  response = JSON.parse(response);
+
+  if (response.title) {
+    _(".progress .title h3").textContent = response.title;
+  }
+}
+
+doGet("/codeDojo/services/auth/get_name.dojo", setName);
+doGet("/codeDojo/services/dq/get_user_streak.dojo", setDailyStreak);
+doGet("/codeDojo/services/course/getCourse", setCourseTitle);
+
+
+_(".course-progress-box button").addEventListener("click", function() {
+  console.log("button clicked");
+  window.location.href = "/codeDojo/u/course/editor";
+})
+
 
 
 // const canvas = document.getElementById('flameCanvas');

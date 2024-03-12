@@ -235,6 +235,46 @@ public class DBModule {
 
         return streak;
     }
+
+    public int updateStreak(String username) {
+        int status = -1;
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.UPDATE_STREAK)) {
+            statement.setString(1, username);
+            statement.setDate(2, new java.sql.Date(System.currentTimeMillis()));
+
+            status = statement.executeUpdate();
+            conn.commit();
+        }
+        catch (SQLException ex) {
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ex.printStackTrace();
+        }
+
+        return status;
+    }
+
+    public boolean isCompleted(String username) {
+        boolean flag = false;
+
+        try (PreparedStatement statement = conn.prepareStatement(SQLQueries.IS_COMPLETED)) {
+            statement.setString(1, username);
+
+            if (statement.execute()) {
+                ResultSet rs = statement.getResultSet();
+
+                flag = rs.next();
+                rs.close();
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return flag;
+    }
     // get streak end.
 
     public TestCases getTodayQuestionTestCases() {

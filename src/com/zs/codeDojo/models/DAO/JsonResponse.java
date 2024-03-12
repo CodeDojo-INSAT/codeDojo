@@ -16,7 +16,7 @@ public class JsonResponse {
     @Override
     public String toString() {
         JSONObject json = new JSONObject();
-        json.put("status", status ? "success":"failed");
+        json.put("status", status);
         json.put("message", message);
         json.put("data", data);
 

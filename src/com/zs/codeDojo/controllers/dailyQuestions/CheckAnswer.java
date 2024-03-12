@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 
@@ -15,6 +16,7 @@ import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.TestCases;
+import com.zs.codeDojo.models.DAO.User;
 import com.zs.codeDojo.models.checkTestCases.CheckLogic;
 import com.zs.codeDojo.models.checkTestCases.Loader;
 
@@ -25,6 +27,7 @@ public class CheckAnswer extends HttpServlet {
         response.setContentType("application/json");
 
         String javaCode = json.getString("code");
+        HttpSession session = request.getSession(false);
 
         json.clear();
 
@@ -53,8 +56,13 @@ public class CheckAnswer extends HttpServlet {
                     if (!logicChecker.isMatched()) {
                         jsonResponse = new JsonResponse(false, "testcases not matched", json);
                     } else {
+                        User user = null;
+                        int status = 0;
+                        if ((user = (User) session.getAttribute("user")) != null) {
+                            status = dbModule.updateStreak(user.getUsername());
+                        }
+                        json.put("streak_update", status == 1);
                         jsonResponse = new JsonResponse(true, "All test cases matched", json);
-                        
                     }
                 }
             }

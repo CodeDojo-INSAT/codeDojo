@@ -54,7 +54,10 @@ public class CheckQuestion extends HttpServlet {
         String className = findMainClass(javaCodeString);
 
         if (className == null) {
-            jsonResponse = new JsonResponse(false, "main class not found", null);
+            JSONObject json = new JSONObject();
+            json.put("error","Class name Must be Capital case");
+            json.put("type", "oops");
+            jsonResponse = new JsonResponse(false, "main class not found", json);
             response.getWriter().print(jsonResponse);
             return;
         }
@@ -199,7 +202,8 @@ public class CheckQuestion extends HttpServlet {
     // }
 
     private void handleCompilationError() {
-        jsonObject.put("compilationError", compilationError.toString());
+        jsonObject.put("data", compilationError.toString());
+        jsonObject.put("message", "compilation error");
         jsonObject.put("status", false);
         writer.println(jsonObject.toString());
     }
@@ -219,13 +223,14 @@ public class CheckQuestion extends HttpServlet {
 
             boolean status = (boolean) statusField.get(instance);
 
+            JSONObject json = new JSONObject();
+            json.put("type", "oops");
+
             if (status) {
-
-                jsonResponse = new JsonResponse(status, "oops checked", null);
-
+                jsonResponse = new JsonResponse(status, "oops checked", json);
             } else {
-
-                jsonResponse = new JsonResponse(status, "can't check oops by checker", error.toArray());
+                json.put("error", error.toArray());
+                jsonResponse = new JsonResponse(status, "can't check oops by checker", json);
             }
             writer.print(jsonResponse);
         } catch (Exception e) {
@@ -262,14 +267,14 @@ class ErrorList extends ArrayList<String> {
 
     @Override
     public String toString() {
-        String res = "[";
+        String res = "";
         for (int i = 0; i < this.size(); i++) {
             if (i == this.size() - 1)
-                res += "\"" + this.get(i) + "\"";
+                res += "" + this.get(i) + "";
             else
-                res += "\"" + this.get(i) + "\",";
+                res += "" + this.get(i) + ",";
         }
-        res += "]";
+        res += "";
         return res;
     }
 }

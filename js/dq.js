@@ -1,13 +1,14 @@
 setPageName("Daily Question");
-// console.log(constants.data);
 _(".container .button").addEventListener("click", function() {
-    loadPage("/codeDojo/views/editor", renderDT, JSON.parse(localStorage.getItem("dqData")), "DQ Editor");
+    let url = "/codeDojo/views/editor";
+    doGet(url, onLoadPage, {func: renderDT, param: JSON.parse(localStorage.getItem("dqData")), pageName: "DQ Editor"}, showTopNavLoader, hideTopNavLoader);
     window.history.pushState({}, "", "daily_question?editor=show");
 })
 
 function renderDT(obj) {
-    _(".description .title h2").textContent = obj.data['title'];
+    _(".description .title h2").textContent = obj.data['title'];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     _(".description > p").textContent = obj.data['description'];
+
     if (localStorage.getItem("code")) {
         constants.questionCode = localStorage.getItem("code");
     }
@@ -15,5 +16,5 @@ function renderDT(obj) {
 
 function submitCode() {
     let data = { "code": constants.model.getValue(), "level": user_level };
-    doAjax("/codeDojo/services/dq/submit_answer.dojo", data);
+    doPost("/codeDojo/services/dq/submit_answer.dojo", data, renderResponse, showLoader, hideLoader);
 }

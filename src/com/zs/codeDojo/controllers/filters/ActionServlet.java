@@ -21,87 +21,89 @@ public class ActionServlet implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-                HttpServletRequest httpRequest = ((HttpServletRequest) request);
-                HttpServletResponse httpResponse = ((HttpServletResponse) response);
+        HttpServletRequest httpRequest = ((HttpServletRequest) request);
+        HttpServletResponse httpResponse = ((HttpServletResponse) response);
 
+        httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        httpResponse.setHeader("Pragma", "no-cache");
+        httpResponse.setHeader("Expires", "0");
 
-                String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
-                System.out.println("uri: " + uri);
+        String uri = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
+        System.out.println("uri: " + uri);
 
-                if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png")) {
+        if (uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".png")) {
 
-                    chain.doFilter(httpRequest, httpResponse);
-                    return;
-                }
-                
-                String cookieName = "reqEndpoint";
-                Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
-                
-                if (uri.contains("/u/")) {
-                    if (endpointCookie == null) {
-                        endpointCookie = new Cookie(cookieName, uri);
-                        httpResponse.addCookie(endpointCookie);
-                    }
-                    else {
-                        endpointCookie.setValue(uri);
-                        CookieHelp.resetCookie(httpResponse, endpointCookie);
-                    }
-                    
-                    uri = "/app_frame";
-                }
-                
-                if (!uri.equals("/app_frame")) {
-                    // httpResponse.setContentType("text/plain");
-                }
-                
-                switch (uri) {
-                    case "/app_frame":
-                        request.getRequestDispatcher("/WEB-INF/views/sidebar.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/":
-                        httpResponse.sendRedirect("/codeDojo/u/dashboard");
-                        break;
-                    case "/auth/login":
-                        request.getRequestDispatcher("/WEB-INF/views/login.html").include(request, response);
-                        break;
-                    case "/views/dashboard":
-                        request.getRequestDispatcher("/WEB-INF/views/dashboard.html").include(request, response);
-                        break;
-                    case "/auth/verify":
-                        request.getRequestDispatcher("/WEB-INF/views/verify.html").include(httpRequest, response);
-                        break;
-                    case "/views/quiz":
-                        request.getRequestDispatcher("/WEB-INF/views/quiz.html").include(httpRequest, response);
-                        break;
-                    case "/views/course":
-                        request.getRequestDispatcher("/WEB-INF/views/course_list.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/daily_question":
-                        request.getRequestDispatcher("/WEB-INF/views/daily_question.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/course/editor":
-                        request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/settings":
-                        request.getRequestDispatcher("/WEB-INF/views/settings.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/editor":
-                        request.getRequestDispatcher("/WEB-INF/views/editor.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/show_today_question":
-                        request.getRequestDispatcher("/WEB-INF/views/dq.html").include(httpRequest, httpResponse);
-                        break;
-                    case "/views/no_dq_ques":
-                        request.getRequestDispatcher("/WEB-INF/views/dq_no_ques.html").include(httpRequest, httpResponse);
-                        break;
-                    default:
-                        chain.doFilter(httpRequest, httpResponse);
-                        break;
-                }            
+            chain.doFilter(httpRequest, httpResponse);
+            return;
+        }
+
+        String cookieName = "reqEndpoint";
+        Cookie endpointCookie = CookieHelp.getCookie(httpRequest, cookieName);
+
+        if (uri.contains("/u/")) {
+            if (endpointCookie == null) {
+                endpointCookie = new Cookie(cookieName, uri);
+                httpResponse.addCookie(endpointCookie);
+            } else {
+                endpointCookie.setValue(uri);
+                CookieHelp.resetCookie(httpResponse, endpointCookie);
+            }
+
+            uri = "/app_frame";
+        }
+
+        if (!uri.equals("/app_frame")) {
+            // httpResponse.setContentType("text/plain");
+        }
+
+        switch (uri) {
+            case "/app_frame":
+                request.getRequestDispatcher("/WEB-INF/views/sidebar.html").include(httpRequest, httpResponse);
+                break;
+            case "/":
+                httpResponse.sendRedirect("/codeDojo/u/dashboard");
+                break;
+            case "/auth/login":
+                request.getRequestDispatcher("/WEB-INF/views/login.html").include(request, response);
+                break;
+            case "/views/dashboard":
+                request.getRequestDispatcher("/WEB-INF/views/dashboard.html").include(request, response);
+                break;
+            case "/auth/verify":
+                request.getRequestDispatcher("/WEB-INF/views/verify.html").include(httpRequest, response);
+                break;
+            case "/views/quiz":
+                request.getRequestDispatcher("/WEB-INF/views/quiz.html").include(httpRequest, response);
+                break;
+            case "/views/course":
+                request.getRequestDispatcher("/WEB-INF/views/course_list.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/daily_question":
+                request.getRequestDispatcher("/WEB-INF/views/daily_question.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/course/editor":
+                request.getRequestDispatcher("/WEB-INF/views/course.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/settings":
+                request.getRequestDispatcher("/WEB-INF/views/settings.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/editor":
+                request.getRequestDispatcher("/WEB-INF/views/editor.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/show_today_question":
+                request.getRequestDispatcher("/WEB-INF/views/dq.html").include(httpRequest, httpResponse);
+                break;
+            case "/views/no_dq_ques":
+                request.getRequestDispatcher("/WEB-INF/views/dq_no_ques.html").include(httpRequest, httpResponse);
+                break;
+            default:
+                chain.doFilter(httpRequest, httpResponse);
+                break;
+        }
     }
 
     @Override
     public void destroy() {
     }
-    
+
 }

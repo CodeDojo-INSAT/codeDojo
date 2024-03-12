@@ -1,9 +1,6 @@
 var user_level = 1;
 var autosave = true;
 
-// constants.DESCRIPTION_TITLE = document.querySelector(".description .title");
-// constants.DESCRIPTION = document.querySelector(".description > p");
-
 function initEditor() {
     require.config({ paths: { 'vs': '/codeDojo/js/vs' } });
     require(['vs/editor/editor.main'], function () {
@@ -73,7 +70,7 @@ document.querySelector(".upload-file").addEventListener("change", setLoadFromFil
 const submit_btn = document.querySelector("#submit");
 const result_area = document.querySelector(".result-area");
 
-submit_btn.addEventListener("click", function(e) {
+submit_btn.addEventListener("click", function (e) {
     showElement(result_area);
 })
 
@@ -94,23 +91,6 @@ function hideElement(element) {
     }
 }
 
-function doAjax(url, params) {
-    var xhr = new XMLHttpRequest();
-
-    showLoader();
-    xhr.onload = function() {
-        if (this.readyState === XMLHttpRequest.DONE) {
-            hideLoader();
-            if (this.status == 200) {
-                renderResponse(JSON.parse(this.responseText));
-            }
-        }   
-    }
-    xhr.open("POST", url, true);
-    xhr.send(JSON.stringify(params));
-}
-
-
 function showLoader() {
     _(".result-area .loader-page").style.display = "flex";
 }
@@ -119,13 +99,11 @@ function hideLoader() {
     _(".result-area .loader-page").style.display = "none";
 }
 
-// function submitCode() {
-//     let data = {"code": constants.model.getValue(), "level": user_level};
-//     doAjax("", data);
-// }
-
 function renderResponse(response) {
-    if (response.status === "failed") {
+    response = JSON.parse(response);
+    console.log(response);
+    if (response["status"] === false) {
+        // console.log("response failed" + response);
         if (response.message.includes("compilation")) {
             setOutputForCompilationError();
             let res = response.data.split("\n");
@@ -140,11 +118,55 @@ function renderResponse(response) {
             setOutputForExecutionTimeout();
         }
         else {
-            renderTestcases(response.data.result, response.data.sampleTestcase);
+            if (response.data.type && response.data.type === "oops") {
+                renderOops(response);
+            }
+            else {
+                renderTestcases(response.data.result, response.data.sampleTestcase);
+            }
         }
     }
     else {
-        renderTestcases(response.data.result, response.data.sampleTestcase);
+        // console.log("Response" + response);
+        if (response.data.type && response.data.type === "oops") {
+            renderOops(response);
+        }
+        else {
+            renderTestcases(response.data.result, response.data.sampleTestcase);
+        }
+    }
+}
+
+function renderOops(response) {
+    console.log(response);
+    setOutputForOops();
+
+    // console.log("status " + response["status"]);
+    if (response.status) {
+        _(".compiler-message .content").textContent = "Success";
+        _("#result").innerText = "completed :)";
+    }
+    else {
+        // console.log("status failed");
+        _(".compiler-message .content").textContent = "Wrong answer";
+        _("#result").innerText = "Failed :(";
+    }
+    _(".expected-output .content").textContent = response.status ? 0 : 1;
+    if (response.data.error) {
+        let error = response.data["error"];
+        let html = "";
+        if (typeof error === "string") {
+            html = `<span>${error}</span>`;
+        }
+        else {
+            error.forEach(e => {
+                html += `<span>${e}</span>`;
+            });
+        }
+        _(".right .input .content").innerHTML = html;
+    }
+    else {
+        _(".right .input .content").innerHTML = `<span>${response["message"]}</span>`;
     }
 }
 
@@ -155,17 +177,32 @@ function setOutputForExecutionTimeout() {
 }
 
 function setOutputForCompilationError() {
+    hideElement(_(".compiler-message"));
     showElement(_(".input"));
-    hideElement(_(".expected-output"));
+    showElement(_(".expected-output"));
     _(".input legend").textContent = "Compilation Error";
     _("#result").innerText = "Compilation Failed....";
     _(".result-area .left").style.display = "none";
     _(".result-area .right").style.width = "100%";
     _("#result").classList.remove("hide");
-    _(".compiler-message .content").innerHTML = `<span>Compilation failed</span>`;
+    // _(".compiler-message .content").innerHTML = `<span>Compilation failed</span>`;
+    _(".expected-output legend").textContent = "Exit status";
+    _(".expected-output .content").textContent = '1';
+}
+
+function setOutputForOops() {
+    showElement(_(".compiler-message"));
+    showElement(_(".input"));
+    showElement(_(".expected-output"));
+    _(".result-area .left").style.display = "none";
+    _(".result-area .right").style.width = "100%";
+    _("#result").classList.remove("hide");
+    _(".input legend").textContent = "Compiler";
+    _(".expected-output legend").textContent = "Exit status";
 }
 
 function setOutputForTestcases() {
+    showElement(_(".compiler-message"));
     showElement(_(".input"));
     showElement(_(".expected-output"));
     _(".input legend").textContent = "Input";
@@ -186,12 +223,12 @@ function renderTestcases(arr, sampleTc) {
 
     var html = "";
     let completed = 0;
-    let i=0;
+    let i = 0;
     arr.forEach(t => {
         html += template.replace("#id#", i)
-                        .replace("#icon#", t == 1 ? success : wrong)
-                        .replace("#status#", t == 1 ? "correct-answer" : "wrong-answer");
-        if (t===1) {
+            .replace("#icon#", t == 1 ? success : wrong)
+            .replace("#status#", t == 1 ? "correct-answer" : "wrong-answer");
+        if (t === 1) {
             completed++;
         }
         i++;
@@ -218,10 +255,10 @@ function renderTestcases(arr, sampleTc) {
         let in_html = "";
         let out_html = "";
 
-        for (let i=0; i<input.length; i++) {
+        for (let i = 0; i < input.length; i++) {
             in_html += `<span>${input[i]}</span>`;
         }
-        for (let j=0; j<output.length; j++) {
+        for (let j = 0; j < output.length; j++) {
             out_html += `<span>${output[j]}</span>`;
         }
 
@@ -231,9 +268,9 @@ function renderTestcases(arr, sampleTc) {
 }
 
 function showResult() {
-   _(".result-area").classList.remove("hide");
-   submitCode();
-   _(".editor").scrollTop = _(".editor").scrollHeight;
+    _(".result-area").classList.remove("hide");
+    submitCode();
+    _(".editor").scrollTop = _(".editor").scrollHeight;
 }
 
 _("#submit").addEventListener("click", showResult);
