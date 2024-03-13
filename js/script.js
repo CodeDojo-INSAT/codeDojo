@@ -175,6 +175,13 @@ function loadScript(filename, bool) {
     dynamicScripts.push(script);
 }
 
+function loadScriptFromWeb(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.body.appendChild(script);
+    dynamicScripts.push(script);
+}
+
 function isAlreadyInitiated(script) {
     var isLoaded = false;
     var index = 0;
@@ -201,6 +208,9 @@ window.addEventListener("popstate", function (event) {
 })
 
 function doGet(url, callback, param, showLoader, hideLoader) {
+    if (url.includes("editor") && callback === "onLoadPage"){
+        _("body .sidebar").style.display = "none";
+    }
     if (typeof showLoader === "function") {
         showLoader();
     }

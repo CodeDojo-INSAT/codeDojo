@@ -4,12 +4,12 @@ var autosave = true;
 function initEditor() {
     require.config({ paths: { 'vs': '/codeDojo/js/vs' } });
     require(['vs/editor/editor.main'], function () {
-        constants.editor = monaco.editor.create(document.querySelector('#editor-container'), {
+        monaco.editor = monaco.editor.create(document.querySelector('#editor-container'), {
             value: `${constants.questionCode !== "" && constants.questionCode !== undefined ? constants.questionCode : "public class Main {\n   public static void main(String[] args) {\n      //Your code goes here\n   }\n}"}`,
             language: 'java',
             theme: 'vs-dark',
             fontFamily: "'Roboto', sans-serif",
-            fontSize: 18,
+            fontSize: 20,
             minimap: {
                 enabled: false,
             },
@@ -38,10 +38,6 @@ function setLoadFromFile(eve) {
     }
 }
 
-
-
-
-
 function makeBackup() {
     if (autosave) {
         constants.model.onDidChangeContent(() => {
@@ -56,7 +52,7 @@ function makeBackup() {
 initEditor();
 
 setTimeout(() => {
-    constants.model = constants.editor.getModel();
+    constants.model = monaco.editor.getModel();
     if (!constants.model) {
         window.location.reload();
     }

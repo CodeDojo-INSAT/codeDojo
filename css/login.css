@@ -12,6 +12,7 @@
 }
 .z-index{
     z-index: -3;
+    visibility: hidden;
 }
 
 .login-wrapper {

@@ -1270,16 +1270,24 @@ public class DBModule {
             int level = getCurrentLevel(user);
 
             PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL);
-            stm.setString(1, String.valueOf(level + 1));
+            stm.setInt(1, level + 1);
             stm.setString(2, user.getUsername());
 
             stm.executeUpdate();
 
+            conn.commit();
             return new Status("100");
 
         } catch (Exception e) {
-
+            e.printStackTrace();
+            try {
+                return new Status("406", e);
+            } catch (Exception e1) {
+                // TODO: handle exception
+                e1.printStackTrace();
+            }
             return new Status("406", e);
+
         }
 
     }
@@ -1321,10 +1329,10 @@ public class DBModule {
 
                 jobj.put("Title", result.getString("title"));
                 jobj.put("LevelID",result.getString("levelID"));
+                jobj.put("description", result.getString("description"));
+                jobj.put("isCompleted", result.getString("completed"));
 
                 json.put(jobj);
-    
-                
             }
 
         } catch (Exception e) {

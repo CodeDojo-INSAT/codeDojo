@@ -1,0 +1,15 @@
+.description h2 {
+    margin-bottom: 1%;
+}
+
+.description p {
+    line-height: 24px;
+    /* font-size: 1.2rem; */
+    text-align: justify;
+}
+
+.description code {
+    background-color: #313131;
+    padding: 0 8px;
+    border-radius: 4px;
+}

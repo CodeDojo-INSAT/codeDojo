@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +22,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.visitor.VoidVisitor;
+import com.zs.codeDojo.controllers.quizz.Status;
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.IOStreams;
 import com.zs.codeDojo.models.DAO.JsonResponse;
@@ -107,10 +110,11 @@ public class CheckQuestion extends HttpServlet {
                             jsonResponse = new JsonResponse(true, "all testcases passed", json);
     
                             User user = (User)request.getSession().getAttribute("user");
-                            int currentLevelofUser = (dbModule.getCurrentLevel(null));
+                            int currentLevelofUser = (dbModule.getCurrentLevel(user));
     
                             if (currentLevelofUser == level) {
-                                dbModule.updateCurrentLevel(user);
+                                Status stat = dbModule.updateCurrentLevel(user);
+                                stat.getReturnedException();
                                 dbModule.addSubmission(user.getUsername(),level,javaCodeString);
                             }
                             else{
@@ -215,22 +219,28 @@ public class CheckQuestion extends HttpServlet {
         String checkerPackage = "com.zs.codeDojo.models.checkers.";
         try {
             Class<?> clazz = Class.forName(checkerPackage + checkerName);
-
-            Object instance = clazz.getDeclaredConstructor(ArrayList.class).newInstance(error);
-
-            compilationUnit.accept((VoidVisitor<?>) instance, null);
-            Field statusField = clazz.getDeclaredField("status");
-
-            boolean status = (boolean) statusField.get(instance);
-
-            JSONObject json = new JSONObject();
-            json.put("type", "oops");
-
-            if (status) {
-                jsonResponse = new JsonResponse(status, "oops checked", json);
-            } else {
-                json.put("error", error.toArray());
-                jsonResponse = new JsonResponse(status, "can't check oops by checker", json);
+            if (checkerName.equals("PolymorphismChecker")) {
+                System.err.println(handlePolymorphism(clazz, compilationUnit, error));
+                System.err.println(error.toString());
+            }
+            else {
+                Object instance = clazz.getDeclaredConstructor(ArrayList.class).newInstance(error);
+    
+                compilationUnit.accept((VoidVisitor<?>) instance, null);
+                Field statusField = clazz.getDeclaredField("status");
+    
+                boolean status = (boolean) statusField.get(instance);
+    
+                JSONObject json = new JSONObject();
+                json.put("type", "oops");
+    
+                if (status) {
+                    jsonResponse = new JsonResponse(status, "oops checked", json);
+                } else {
+                    Object[] err = error.toArray();
+                    json.put("error", err);
+                    jsonResponse = new JsonResponse(status, "can't check oops by checker", json);
+                }
             }
             writer.print(jsonResponse);
         } catch (Exception e) {
@@ -257,6 +267,13 @@ public class CheckQuestion extends HttpServlet {
         }
 
         return mainClassName;
+    }
+
+    private boolean handlePolymorphism(Class<?> checker, CompilationUnit cu, ErrorList errList) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+        Object instance = checker.getDeclaredConstructor(CompilationUnit.class, ArrayList.class).newInstance(cu, errList);
+        Method method = instance.getClass().getMethod("getStatus");
+
+        return ((boolean) method.invoke(instance));
     }
 }
 

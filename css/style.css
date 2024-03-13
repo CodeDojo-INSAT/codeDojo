@@ -226,9 +226,6 @@ background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, r
     margin-left: 8px;
 } */
 
-
-/* terminal css ....:) */
-
 :root {
     --username: "magesh";
 }
@@ -247,6 +244,7 @@ background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, r
     background-color: #243238;
     border-radius: 8px;
     overflow: scroll;
+    z-index: 5;
 }
 
 .title-bar {
@@ -295,6 +293,7 @@ background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, r
     height: calc(100% - 30px);
     padding: 10px;
     overflow-y: auto;
+    visibility: hidden;
 }
 
 .input {
@@ -304,18 +303,24 @@ background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, r
 }
 
 .output {
+    font-size: 1rem;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
 }
 
 .prompt {
+    margin-top: 4px;
     margin-right: 8px;
     color: #f7f7f7;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .out-prompt {
     color: #01a252;
     overflow-wrap: break-word;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .user-input {
@@ -336,8 +341,24 @@ background: linear-gradient(197deg, rgba(11,6,99,1) 0%, rgba(18,18,108,1) 59%, r
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* border-radius: 50%; */
     position: absolute;
+    background-color: transparent;
+    left :9.5% ;
+    top :88%;
+    z-index: 10;
+    animation: ani 5s linear infinite ;
+    
+}
+@keyframes ani{
+    0%{
+        top:86% ;
+    }
+    50%{
+        top: 88%;
+    }
+    100%{
+        top: 86%;
+    }
 }
 ::-webkit-scrollbar {
     width: 0;

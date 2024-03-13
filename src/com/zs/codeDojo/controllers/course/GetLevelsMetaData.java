@@ -16,12 +16,7 @@ public class GetLevelsMetaData extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        response.setContentType("application/json");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
+                
         ServletContext con = request.getServletContext();
         DBModule db = (DBModule)con.getAttribute("db");
 

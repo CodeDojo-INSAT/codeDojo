@@ -16,11 +16,11 @@ public class InheritanceChecker extends VoidVisitorAdapter<Void> {
    }
 
    @Override
-   public void visit(ClassOrInterfaceDeclaration cd, Void v) {
-      super.visit(cd, v);
+   public void visit(ClassOrInterfaceDeclaration classDec, Void v) {
+      super.visit(classDec, v);
 
-      if (cd.getExtendedTypes().isEmpty()) {
-         this.errorList.add("Class " + cd.getName() + " does not extend any class.");
+      if (classDec.getExtendedTypes().isEmpty()) {
+         this.errorList.add("Class " + classDec.getName() + " does not extend any class.");
          this.status = false;
       }
    }

@@ -27,8 +27,8 @@ const terminalBefore = () => {
     document.querySelector('.bot').style.transition = '0.5s';
     setTimeout(() => {
         document.querySelector('.bot').style.transition = '0s';
-        // document.querySelector('.terminali').style.left = '10.5%    ';
-        // document.querySelector('.terminali').style.top = '89%';
+        // document.querySelector('.terminali').style.';
+        // document.querySelector('.terminali').style.;
     }, 300);
 }
 
@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.addEventListener('mouseup', e => {
         isDragging = false;
         terminal.style.cursor = 'grab';
-        terminalBefore();
     });
 });
 
@@ -111,7 +110,11 @@ function userPrompt(prompt) {
 
         case "java":
             if (parts.length >= 2) {
-                this.submitAjax("psvm", "1");
+                submitCode();
+                showResult();
+            }
+            else{
+                output.innerHTML+="please choose java file"
             }
             break;
 
@@ -122,11 +125,12 @@ function userPrompt(prompt) {
         case "cd":
             if (parts.length == 2) {
                 let url = "/codeDojo/views/" + parts[1];
-                // loadPage("/codeDojo/views/" + parts[1])
                 doGet(url, onLoadPage, {pageName: url}, showTopNavLoader, hideTopNavLoader);
-                window.history.pushState({}, "", "/codeDojo/u/" + parts[1]);
+                window.history.pushState({}, "", "/codeDojo/u/" + parts[1])
+
             }
             break;
+
         default:
             output.innerHTML += `<div class="out-prompt">Command not found you can prompt --help</div>`;
             break;

@@ -73,8 +73,8 @@ public class SQLQueries {
     // Course query goes hereeeeeeeeeeeeeeeeeeee:+{S[;s's:s[]]}
 
     public static final String GET_CURRENT_LEVEL = "Select level from UserCurrentLevel where username = ?;";
-    public static final String UPDATE_CURRENT_LEVEL = "UPDATE UserCurrentLevel level = ? WHERE username = ? ;";
-    public static final String GET_LEVELS_METADATA = "SELECT levelID, title FROM CourseQuestions;";
+    public static final String UPDATE_CURRENT_LEVEL = "UPDATE UserCurrentLevel set level = ? WHERE username = ? ;";
+    public static final String GET_LEVELS_METADATA = "SELECT CourseQuestions.levelID, CourseQuestions.title, CourseQuestions.description, CASE WHEN UserSubmission.levelId IS NOT NULL THEN 'true' ELSE 'false' END AS completed FROM CourseQuestions LEFT JOIN UserSubmission ON CourseQuestions.levelID = UserSubmission.levelId";
 
     public static final String ADD_QUIZ_SUBMISSION = "insert into QuizSubmissions Values (?, ?, ?, ?, ?, ?);";
     public static final String GET_LATEST_QUIZ_SUBMISSION = "SELECT * FROM QuizSubmissions WHERE Username = ? AND QuizID = ? ORDER BY SubmissionDate DESC LIMIT 1;";
