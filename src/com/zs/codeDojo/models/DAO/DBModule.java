@@ -1244,11 +1244,10 @@ public class DBModule {
 
     public int getCurrentLevel(User user) {
 
-        try {
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_LEVEL)) {
 
             String username = user.getUsername();
 
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_CURRENT_LEVEL);
             stm.setString(1, username);
 
             System.out.println(stm.toString());
@@ -1264,30 +1263,50 @@ public class DBModule {
 
     }
 
+    public String getSubmission(User user,int level){
+
+        String code = null;
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_SUBMITTED_CODE)) {
+            
+            stm.setString(1, user.getUsername());
+            stm.setInt(2, level);
+
+            ResultSet result = stm.executeQuery();
+            if(result.next()){
+              code = result.getString("code");
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        return code;
+    }
+
+
+
     public Status updateCurrentLevel(User user) {
 
-        try {
-            int level = getCurrentLevel(user);
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL)) {
+            int level = getCurrentLevel(user)+1;
 
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_CURRENT_LEVEL);
-            stm.setInt(1, level + 1);
+            stm.setInt(1, level);
             stm.setString(2, user.getUsername());
-
             stm.executeUpdate();
 
             conn.commit();
+
             return new Status("100");
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             try {
-                return new Status("406", e);
+                conn.rollback();
             } catch (Exception e1) {
-                // TODO: handle exception
                 e1.printStackTrace();
             }
             return new Status("406", e);
-
         }
 
     }
@@ -1296,17 +1315,17 @@ public class DBModule {
 
         // CourseQuestion question;
 
-        try {
-
-            PreparedStatement
-             stm = conn.prepareStatement(SQLQueries.GET_QUESTION);
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_QUESTION)) {
+            
             stm.setString(1, String.valueOf(requestedLevel));
 
             ResultSet result = stm.executeQuery();
             result.next();
 
+
             return new CourseQuestion(result.getString("levelID"), result.getString("title"),
                     result.getString("description"), result.getString("code"));
+
 
         } catch (Exception e) {
 
@@ -1319,9 +1338,9 @@ public class DBModule {
     public JSONArray getCourseMetaData(){
         
         JSONArray json = new JSONArray();
-        try {
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_LEVELS_METADATA)) {
             
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_LEVELS_METADATA);
+            
             ResultSet result = stm.executeQuery();
 
             while (result.next()) {
@@ -1334,6 +1353,7 @@ public class DBModule {
 
                 json.put(jobj);
             }
+            result.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -1345,16 +1365,23 @@ public class DBModule {
     public Status addSubmission(String user,int level,String code ){
 
         
-        try {
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_SUBMISSION);
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_SUBMISSION);){
+            
 
             stm.setInt(1,level);
             stm.setString(2,user);
             stm.setString(3,code);
             stm.executeUpdate();
+
+            conn.commit();
             return new Status("102");
 
         } catch (Exception e) {
+            try {
+                conn.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
            return new Status("406");
         }
@@ -1364,19 +1391,28 @@ public class DBModule {
     public Status updateSubmission(String user,int level,String code ){
 
         
-        try {
-            PreparedStatement stm = conn.prepareStatement(SQLQueries.ADD_SUBMISSION);
-
+        try ( PreparedStatement stm = conn.prepareStatement(SQLQueries.UPDATE_SUBMISSION);){
+           
             stm.setString(1,code);
             stm.setString(2,user);
             stm.setInt(3,level);
             stm.executeUpdate();
+
+            conn.commit();
             return new Status("102");
 
         } catch (Exception e) {
             e.printStackTrace();
+            try {
+                
+                conn.rollback();
+
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
            return new Status("406");
         }
+        
 
     } 
 
@@ -1428,6 +1464,34 @@ public class DBModule {
         } catch (Exception e) {
             return new Status("406");
         }
+    }
+
+
+    public JSONArray getLeaderBoadNinjas(){
+
+        JSONArray jsonArr = null;
+        JSONObject json = null;
+        try(PreparedStatement stm = conn.prepareStatement(SQLQueries.GET_LEADERBOAD_PLAYERS)) {
+
+            ResultSet result = stm.executeQuery();
+            int count=1;
+            jsonArr = new JSONArray();
+            json = new JSONObject();
+            
+            while (result.next()) {
+                json.put("position", count);
+                json.put("firstname",  result.getString("firstname"));
+                json.put("username", result.getString("username"));
+                json.put("shurikan", result.getString("shurikan"));
+
+                jsonArr.put(json.toString());
+                count++;
+            }
+            result.close();
+        } catch (Exception e) {
+            e.printStackTrace();  
+        }
+        return jsonArr;
     }
     
     //Tournament ends here

@@ -1,10 +1,15 @@
-const sidebar = document.querySelector(".sidebar");
-const sidebarBtn = document.querySelectorAll(".sidebar a");
+const sidebar = document.querySelectorAll(".sidebar li");
+// const sidebarBtn = document.querySelectorAll(".sidebar a");
 // const sidebar_start = document.querySelector(".hover-effect");
 
-// sidebarBtn.onclick = () => {
-//     sidebarBtn.classList.toggle("active");
-// };
+sidebar.forEach(n => {
+    n.addEventListener("click", function (e) {
+        document.querySelectorAll(".sidebar .active").forEach(e => {
+            e.classList.remove("active");
+        });
+        e.target.classList.toggle("active");
+    });
+});
 
 // sidebar_start.addEventListener("mouseenter", function(event) {
 //     sidebar.classList.add("hovered");

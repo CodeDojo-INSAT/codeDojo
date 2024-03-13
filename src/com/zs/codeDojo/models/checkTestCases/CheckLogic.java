@@ -47,6 +47,7 @@ public class CheckLogic {
                     String currentTC = tcIn[i];
 
                     System.setIn(new ByteArrayInputStream(currentTC.getBytes()));
+                    streams.getCustomOut().reset();
 
                     Method mainMethod = clazz.getMethod("main", String[].class);
 
@@ -104,6 +105,10 @@ public class CheckLogic {
 
     public String getMessage() {
         return message;
+    }
+
+    public boolean hasMessage() {
+        return message != null;
     }
 
     public String[] getResultWithExecTime() {

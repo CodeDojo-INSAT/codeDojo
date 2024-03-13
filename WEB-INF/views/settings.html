@@ -3,21 +3,25 @@
     <div class="settings-sidebar">
         <nav class="setting-menu">
             <ul>
-                <li class="acc"><a>Account</a></li>
+                <li class="acc selected"><a>Account</a></li>
                 <li class="passwd"><a>Password</a></li>
                 <li class="notify"><a>Notification</a></li>
+                <li class="logout"><a>Logout</a></li>
             </ul>
         </nav>
     </div>
-    <div class="settings-content">
-        <div class="account ">
+    <div class="settings-content ">
+        <div class="account showTop">
             <span class="page-name">Settings ><span class="specific"> Account</span></span>
             <div class="field">
                 <span class="field-name">Profile</span>
                 <div class="field-value">
-                    <span class="icon"></span>
-                    <span class="remove-button">remove</span>
-                    <span class="upload-button">upload</span>
+                    <span class="icon" onclick="openFileInput()">
+                        <img src="/codeDojo/img/userprofiles/uvchan.png" alt="" class="icon-im"/>
+                        <input type="file" id="fileInput" style="visibility:hidden;height:100%;width:100%"/>
+                    </span>
+                    <!-- <span class="upload-button">  Upload  </span>
+                    <span class="remove-button">Remove</span> -->
                 </div>
             </div>
             <div class="field">
@@ -44,10 +48,16 @@
                     <input type="email" name="email" id="email" placeholder="Email" />
                 </div>
             </div>
+            <div class="field">
+                <div class="field-submit">
+                    <div class="settings-Submit">
+                        Submit
+                    </div>
+                </div>
+            </div>
         </div>
 
-
-        <div class="password showTop">
+        <div class="password">
             <span class="page-name">Settings ><span class="specific"> Password</span></span>
             <div class="field">
                 <span class="field-name">Current Password</span>
@@ -67,9 +77,16 @@
                     <input type="text" name="cnpasswd" id="cnpasswd" placeholder="Confirm password" />
                 </div>
             </div>
+            <div class="field">
+                <div class="field-submit">
+                    <div class="settings-Submit">
+                        Submit
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script>
-    loadScript("settings.js");
+        loadScript("settings.js");
 </script>

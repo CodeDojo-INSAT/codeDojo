@@ -47,7 +47,10 @@ if (!customElements.get("course-card")) {
 
 function listCourses(response) {
     response = JSON.parse(response);
-    var template = `<course-card status="#status#" title="#title#" desc="#desc#"></course-card>`;
+    console.log(response);
+    renderProgressBar(response);
+
+    var template = `<course-card status="#status#" title="#title#" desc="#desc#" id="#id#"></course-card>`;
     
     var html = "";
     var len = response.length;
@@ -55,9 +58,35 @@ function listCourses(response) {
         let res = response[i];
         html += template.replace("#status#", res.isCompleted === "true" ? 1 : -1)
         .replace("#title#", res.Title)
-        .replace("#desc#", res.description);
+        .replace("#desc#", res.description)
+        .replace("#id#", res.LevelID);
     }
     _(".course-list-wrapper").innerHTML = html;
 }
 
+function renderProgressBar(response) {
+    let totalCourse = response.length;
+    let completed = 0;
+    response.forEach(res => {
+        if (res.isCompleted === "true") {
+            completed++;
+        }
+    });
+
+    _(".completed-course").textContent = completed;
+    _(".total-course").textContent = totalCourse;
+
+    let percentage = Math.ceil((completed / totalCourse)*100);
+
+    _(".progress-bar .bar").style.width = percentage + "%";
+    _(".pb-legend .percentage").textContent = percentage + "%";
+}
+
+function setCurrentLessonTitle(response) {
+    response = JSON.parse(response);
+
+    _(".pb-legend .lesson-name").textContent = response["title"];
+}
+
+doGet("/codeDojo/services/course/getCourse", setCurrentLessonTitle);
 doGet("/codeDojo/services/course/getCourseMetaData", listCourses);

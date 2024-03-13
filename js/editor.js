@@ -1,4 +1,3 @@
-var user_level = 1;
 var autosave = true;
 
 function initEditor() {
@@ -38,17 +37,7 @@ function setLoadFromFile(eve) {
     }
 }
 
-function makeBackup() {
-    if (autosave) {
-        constants.model.onDidChangeContent(() => {
-            localStorage.setItem("code", constants.model.getValue());
-        });
-    }
-    else {
-        console.log("Storage Cleared");
-        localStorage.length = 0;
-    }
-}
+
 initEditor();
 
 setTimeout(() => {

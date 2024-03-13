@@ -2,91 +2,93 @@ constants.WELCOME_NAME_SPAN = _("#name");
 // const content = document.querySelector(".content-wrapper");
 
 function setName(name) {
-    constants.WELCOME_NAME_SPAN.textContent = name;
+	constants.WELCOME_NAME_SPAN.textContent = name;
 }
 
 function setDailyStreak(response) {
-  response = JSON.parse(response);
+	response = JSON.parse(response);
 
-  if (response.status) {
-    _(".prog #daily-streak").textContent = response.data.streak;
-  }
+	if (response.status) {
+		_(".prog #daily-streak .value").textContent = response.data.streak;
+	}
 }
 
 function setCourseTitle(response) {
-  response = JSON.parse(response);
+	response = JSON.parse(response);
 
-  if (response.title) {
-    _(".progress .title h3").textContent = response.title;
-  }
+	if (response.title) {
+		_(".progress .title h3").textContent = response.title;
+	}
+}
+
+function renderCourseProgress(response) {
+	response = JSON.parse(response);
+
+	let totalCourse = response.length;
+	let completed = 0;
+	response.forEach(res => {
+		if (res.isCompleted === "true") {
+			completed++;
+		}
+	});
+
+	let percentage = Math.ceil((completed / totalCourse) * 100);
+
+	_(".bar-wrapper .occupied").style.width = percentage + "%";
+	_(".completed-percentage").textContent = percentage + "%";
+}
+
+function loadLeaderboard(response) {
+	response = JSON.parse(response);
+
+	let template = `<div class="user-card br">
+	<p class="user-rank">#position#</p>
+	<div class="user-container">
+
+		<div class="lb-user-profile">
+			<div class="profile-pic"><img src="/codeDojo/img/profile.jpeg" alt="profile"></div>
+			<div class="user-details">
+				<p class="lb-name">#firstname#</p>
+				<p class="lb-userid">@#username#</p>
+			</div>
+		</div>
+		<div class="points">
+			<div class="pts">
+				<i class="fi fi-rs-flame"></i>
+				<span>#shurikan#</span>
+			</div>
+			<div class="pts">
+				<i class="fi fi-rs-quiz-alt"></i>
+				<span>0</span>
+			</div>
+			<div class="pts">
+				<i class="fi fi-rs-e-learning"></i>
+				<span>0</span>
+			</div>
+		</div>
+	</div>
+</div>`;
+
+	let html = "";
+	response.forEach(res => {
+		res = JSON.parse(res);
+		html += template.replace("#position#", res.position)
+				.replace("#firstname#", res.firstname)
+				.replace("#username#", res.username)
+				.replace("#shurikan#", res.shurikan);
+	});
+
+	console.log(html);
+	_(".leader-board").innerHTML = html;
 }
 
 doGet("/codeDojo/services/auth/get_name.dojo", setName);
 doGet("/codeDojo/services/dq/get_user_streak.dojo", setDailyStreak);
 doGet("/codeDojo/services/course/getCourse", setCourseTitle);
+doGet("/codeDojo/services/course/getCourseMetaData", renderCourseProgress);
+doGet("/codeDojo/services/user/getLeaderboard", loadLeaderboard);
 
-
-_(".course-progress-box button").addEventListener("click", function() {
-  console.log("button clicked");
-  window.location.href = "/codeDojo/u/course/editor";
+_(".course-progress-box button").addEventListener("click", function () {
+	console.log("button clicked");
+	window.location.href = "/codeDojo/u/course/editor";
 })
-
-
-
-// const canvas = document.getElementById('flameCanvas');
-//   const ctx = canvas.getContext('2d');
-
-//   // Set canvas size to fit the div
-//   canvas.width = 264;
-//   canvas.height = 214;
-
-//   let particles = [];
-//   const numberOfParticles = 200;
-
-//   class Particle {
-//     constructor(){
-//       // Adjust the spread and position of particles for the new canvas size
-//       this.x = canvas.width / 2 + (Math.random() * canvas.width * 0.75 - canvas.width * 0.375);
-//       this.y = canvas.height;
-//       this.size = Math.random() * 5 + 1;
-//       this.speedY = Math.random() * -3 - 1;
-//       this.speedX = Math.random() - 0.5;
-//       // this.color = 'rgba(227, ' + (Math.random() * 60 + 66) + ', ' + (Math.random() * 20 + 52) + ', 1)';
-//       this.color = `rgba(${Math.floor(Math.random() * 156)}, ${Math.floor(192 + Math.random() * 63)}, ${255}, ${Math.random()})`
-//     }
-//     update(){
-//       this.y += this.speedY;
-//       this.x += this.speedX;
-//       if (this.size > 0.1) this.size -= 0.05;
-//     }
-//     draw(){
-//       ctx.beginPath();
-//       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-//       ctx.fillStyle = this.color;
-//       ctx.fill();
-//     }
-//   }
-
-//   function init() {
-//     for (let i = 0; i < numberOfParticles; i++) {
-//       particles.push(new Particle());
-//     }
-//   }
-
-//   function animate() {
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-//     for (let i = 0; i < particles.length; i++) {
-//       particles[i].update();
-//       particles[i].draw();
-
-//       if (particles[i].size <= 0.1) {
-//         particles.splice(i, 1);
-//         i--;
-//         particles.push(new Particle());
-//       }
-//     }
-//     requestAnimationFrame(animate);
-//   }
-
-//   init();
-//   animate();

@@ -230,9 +230,11 @@ canvas { display: block; background: var(--div-background-color); }
     background-color: var(--div-background-color);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     overflow-y: scroll;
     margin-bottom: 1.5rem;
+    gap: 18px;
+    padding-top: 1.5rem;
 }
 
 .leaderboard-title {
@@ -289,6 +291,11 @@ canvas { display: block; background: var(--div-background-color); }
     color: var(--text-color);
 }
 
+.progress .title {
+    display: flex;
+    justify-content: space-between;
+}
+
 .quiz-progress,.daily-streak{
     width: 47.7%;
     height: 100%;
@@ -323,6 +330,17 @@ canvas { display: block; background: var(--div-background-color); }
 .progress .prog {
     position: absolute;
 } 
+
+.prog #daily-streak {
+    display: flex;
+    align-items: center;
+}
+
+.prog #daily-streak img {
+    width: 30px;
+    height: 30px;
+    margin-right: .5rem;
+}
 
 .water_wave {
     width: 100%;

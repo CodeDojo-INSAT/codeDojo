@@ -49,7 +49,7 @@ function renderDT(obj) {
     _(".description > p").textContent = obj.data['description'];
 
 
-    if (localStorage.getItem("code")) {
+    if (localStorage.getItem("dqCode")) {
         constants.questionCode = localStorage.getItem("code");
     }
 }
@@ -58,6 +58,18 @@ function submitCode() {
     let data = { "code": constants.model.getValue(), "level": user_level };
     // doAjax("/codeDojo/services/dq/submit_answer.dojo", data);
     doPost("/codeDojo/services/dq/submit_answer.dojo", data, renderResponse, showLoader, hideLoader);
+}
+
+function makeBackup() {
+    if (autosave) {
+        constants.model.onDidChangeContent(() => {
+            localStorage.setItem("dqCode", constants.model.getValue());
+        });
+    }
+    else {
+        console.log("Storage Cleared");
+        localStorage.length = 0;
+    }
 }
 
 function showPreview(obj) {

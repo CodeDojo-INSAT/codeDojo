@@ -72,6 +72,7 @@ public class SQLQueries {
 
     // Course query goes hereeeeeeeeeeeeeeeeeeee:+{S[;s's:s[]]}
 
+    public static final String GET_SUBMITTED_CODE = "SELECT code FROM UserSubmission where username = ? and levelID = ?;";
     public static final String GET_CURRENT_LEVEL = "Select level from UserCurrentLevel where username = ?;";
     public static final String UPDATE_CURRENT_LEVEL = "UPDATE UserCurrentLevel set level = ? WHERE username = ? ;";
     public static final String GET_LEVELS_METADATA = "SELECT CourseQuestions.levelID, CourseQuestions.title, CourseQuestions.description, CASE WHEN UserSubmission.levelId IS NOT NULL THEN 'true' ELSE 'false' END AS completed FROM CourseQuestions LEFT JOIN UserSubmission ON CourseQuestions.levelID = UserSubmission.levelId";
@@ -84,13 +85,13 @@ public class SQLQueries {
     public static final String GET_QUESTION = "SELECT * from CourseQuestions WHERE levelID = ?;";
 
     public static final String ADD_SUBMISSION = "INSERT INTO UserSubmission (levelId,username,code) VALUES(?,?,?);";
-    public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = '?'  WHERE username = '?' AND levelID = ?;";
+    public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = ?  WHERE username = ? AND levelID = ?;";
 
     // Announcements Queries go Here...
     public static final String CREATE_ANNOUNCEMENT = "insert into announcements (announcementTitle, announcementContent, createdDate, updatedDate) Values (?, ?, ?, ?)";
 
     // Tournament api starts here.........
-    public static final String ADD_STREAKS = "UPDATE UserStreaks SET streak = ? WHERE username = ?;";
-    public static final String GET_CURRENT_STREAKS = "SELECT streak from UserStreaks WHERE username = ?;";
-
+    public static final String ADD_STREAKS = "UPDATE UserShurikan SET shurikan = ? WHERE username = ?;";
+    public static final String GET_CURRENT_STREAKS = "SELECT shurikan from UserShurikan WHERE username = ?;";
+    public static final String GET_LEADERBOAD_PLAYERS ="SELECT u.username,u.id,u.shurikan,un.firstname FROM UserShurikan as u LEFT JOIN Users as un on u.username = un.username ORDER BY shurikan DESC LIMIT 10";
 }

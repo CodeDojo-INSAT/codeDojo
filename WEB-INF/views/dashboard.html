@@ -15,6 +15,7 @@
             <div class="progress">
                 <div class="title">
                     <h3>Title goes here</h3>
+                    <span class="completed-percentage"></span>
                 </div>
                 <div class="bar-wrapper">
                     <div class="occupied"></div>
@@ -24,163 +25,6 @@
         </div>
         <!-- <div class="leaderboard-title">Leaderboard</div> -->
         <div class="leader-board br">
-            <div class="user-card br">
-                <p class="user-rank">#1</p>
-                <div class="user-container">
-
-                    <div class="lb-user-profile">
-                        <div class="profile-pic"><img src="/codeDojo/img/profile1.png" alt="profile"></div>
-                        <div class="user-details">
-                            <p class="lb-name">Mark Madhukar</p>
-                            <p class="lb-userid">@programmer2215</p>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <div class="pts">
-                            <i class="fi fi-rs-flame"></i>
-                            <span>10</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-quiz-alt"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-e-learning"></i>
-                            <span>5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="user-card br">
-                <p class="user-rank">#2</p>
-                <div class="user-container">
-
-                    <div class="lb-user-profile">
-                        <div class="profile-pic"><img src="/codeDojo/img/profile.jpg" alt="profile"></div>
-                        <div class="user-details">
-                            <p class="lb-name">Magesh</p>
-                            <p class="lb-userid">@uvchan-unix</p>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <div class="pts">
-                            <i class="fi fi-rs-flame"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-quiz-alt"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-e-learning"></i>
-                            <span>3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="user-card br">
-                <p class="user-rank">#3</p>
-                <div class="user-container">
-
-                    <div class="lb-user-profile">
-                        <div class="profile-pic"><img src="/codeDojo/img/profile1.png" alt="profile"></div>
-                        <div class="user-details">
-                            <p class="lb-name">Dharshan</p>
-                            <p class="lb-userid">@dharshu_03</p>
-                        </div>
-                    </div>
-                    <!-- <div class="points">
-                        <div class="ds">
-                            <span>daily streak</span>
-                            <span>0</span>
-                        </div>
-                        <div class="ds">
-                            <span>Quiz</span>
-                            <span>0</span>
-                        </div>
-                        <div class="ds">
-                            <span>Course</span>
-                            <span>0</span>
-                        </div>
-                    </div> -->
-
-                    <div class="points">
-                        <div class="pts">
-                            <i class="fi fi-rs-flame"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-quiz-alt"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-e-learning"></i>
-                            <span>1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="user-card br">
-                <p class="user-rank">#4</p>
-                <div class="user-container">
-
-                    <div class="lb-user-profile">
-                        <div class="profile-pic"><img src="/codeDojo/img/profile.jpeg" alt="profile"></div>
-                        <div class="user-details">
-                            <p class="lb-name">Arjun</p>
-                            <p class="lb-userid">@arjun0x1c</p>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <div class="pts">
-                            <i class="fi fi-rs-flame"></i>
-                            <span>0</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-quiz-alt"></i>
-                            <span>5</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-e-learning"></i>
-                            <span>1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="user-card br">
-                <p class="user-rank">#5</p>
-                <div class="user-container">
-
-                    <div class="lb-user-profile">
-                        <div class="profile-pic"><img src="/codeDojo/img/profile.jpeg" alt="profile"></div>
-                        <div class="user-details">
-                            <p class="lb-name">User</p>
-                            <p class="lb-userid">@noname</p>
-                        </div>
-                    </div>
-                    <div class="points">
-                        <div class="pts">
-                            <i class="fi fi-rs-flame"></i>
-                            <span>0</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-quiz-alt"></i>
-                            <span>0</span>
-                        </div>
-                        <div class="pts">
-                            <i class="fi fi-rs-e-learning"></i>
-                            <span>0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
     </div>
     <div class="right-sec">
@@ -192,14 +36,19 @@
             <div class="quiz-progress br">
                 <!-- <div class="water_wave br"></div> -->
                 <div class="prog">
-                    <span id="quiz-prog">50 %</span>
+                    <span id="quiz-prog">
+                        <!-- <i class="fi fi-rs-quiz-alt"></i> -->
+                        50 %
+                    </span>
                     <h4>Quizzes</h4>
                 </div>
             </div>
             <div class="daily-streak br">
                 <!-- <canvas id="flameCanvas"></canvas> -->
                 <div class="prog">
-                    <span id="daily-streak">0</span>
+                    <span id="daily-streak">
+                        <img src="/codeDojo/img/fire.png" alt="fire"> <span class="value">1</span>
+                    </span>
                     <h4>Daily Streak</h4>
                 </div>
             </div>
@@ -208,10 +57,12 @@
         <div class="announcement br">
             <div class="anoun-title">
                 Anonucement's
-                 <!-- <i class="fi fi-rs-megaphone"></i> -->
-                </div>
+                <!-- <i class="fi fi-rs-megaphone"></i> -->
+            </div>
             <div class="announcement-card">
-                <div class="message"><p>Welcome to the codeDojo.</p></div>
+                <div class="message">
+                    <p>Welcome to the codeDojo.</p>
+                </div>
                 <div class="user">
                     <span class="profile"><img src="/codeDojo/img/profile.jpeg" alt="profile"></span>
                     <span class="name">Arjun</span>

@@ -33,7 +33,12 @@ function onLoadPage(response, options) {
     }
     if (typeof options.func === "function") {
         if (options.param) {
-            options.func(options.param);
+            if (options.param1) {
+                options.func(options.param, options.param1);
+            }
+            else {
+                options.func(options.param);
+            }
         }
         else {
             options.func();
@@ -313,3 +318,14 @@ function reformat_datestr(str){
 }
     
 addEventListenerToElements(".nav-links a", "click", listener);
+
+function loadImage(img) {
+    console.log("working");
+    document.querySelector(".profile").src = img;
+    document.querySelector(".icon-im").src = img;
+   
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+    loadImage("/codeDojo/img/userprofiles/uvchan.png");
+})

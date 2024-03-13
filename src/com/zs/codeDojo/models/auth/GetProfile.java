@@ -6,5 +6,7 @@ public class GetProfile {
         this.profileName = filename;
     }
 
-        
+    public String getProfileName() {
+        return this.profileName;
+    }    
 }
