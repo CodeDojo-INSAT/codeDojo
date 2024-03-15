@@ -1,4 +1,5 @@
 constants.WELCOME_NAME_SPAN = _("#name");
+var user_level;
 // const content = document.querySelector(".content-wrapper");
 
 function setName(name) {
@@ -18,6 +19,7 @@ function setCourseTitle(response) {
 
 	if (response.title) {
 		_(".progress .title h3").textContent = response.title;
+		user_level = response.level;
 	}
 }
 
@@ -78,8 +80,16 @@ function loadLeaderboard(response) {
 				.replace("#shurikan#", res.shurikan);
 	});
 
-	console.log(html);
+	// console.log(html);
 	_(".leader-board").innerHTML = html;
+}
+
+function updateQuizProgress(response) {
+	response = JSON.parse(response);
+
+	let total = response.quizCount;
+	let completed = response.completedCount;
+	_(".quiz-progress #quiz-prog").textContent = Math.ceil((completed/total)*100) + " %";
 }
 
 doGet("/codeDojo/services/auth/get_name.dojo", setName);
@@ -87,8 +97,10 @@ doGet("/codeDojo/services/dq/get_user_streak.dojo", setDailyStreak);
 doGet("/codeDojo/services/course/getCourse", setCourseTitle);
 doGet("/codeDojo/services/course/getCourseMetaData", renderCourseProgress);
 doGet("/codeDojo/services/user/getLeaderboard", loadLeaderboard);
+doGet("/codeDojo/services/quiz/getQuizProgress.dojo", updateQuizProgress);
 
 _(".course-progress-box button").addEventListener("click", function () {
 	console.log("button clicked");
-	window.location.href = "/codeDojo/u/course/editor";
-})
+	if (user_level) 
+		window.location.href = "/codeDojo/u/course/editor?level="+user_level;
+});

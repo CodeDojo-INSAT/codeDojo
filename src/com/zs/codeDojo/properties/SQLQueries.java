@@ -86,6 +86,7 @@ public class SQLQueries {
 
     public static final String ADD_SUBMISSION = "INSERT INTO UserSubmission (levelId,username,code) VALUES(?,?,?);";
     public static final String UPDATE_SUBMISSION = "UPDATE UserSubmission  SET code = ?  WHERE username = ? AND levelID = ?;";
+    public static final String GET_ALL_PASSED_SUBMISSION = "SELECT DISTINCT QuizID FROM QuizSubmissions WHERE Username = ? AND SubmissionStatus = \"PASS\";";
 
     // Announcements Queries go Here...
     public static final String CREATE_ANNOUNCEMENT = "insert into announcements (announcementTitle, announcementContent, createdDate, updatedDate) Values (?, ?, ?, ?)";

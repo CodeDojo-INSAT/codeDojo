@@ -13,11 +13,12 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 // import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 public class PolymorphismChecker {
-    private boolean status = false;
+    public boolean status = false;
     private Set<String> methodSignatures = new HashSet<>();
     private Map<String, String> className = new HashMap<>();
     private CompilationUnit compilationUnit;
     private List<String> errorList;
+    private boolean isExtended = false;
 
     public PolymorphismChecker(CompilationUnit cUnit, ArrayList<String> errorList) {
         this.errorList = errorList;
@@ -28,6 +29,7 @@ public class PolymorphismChecker {
     public void analyze() {
         compilationUnit.findAll(ClassOrInterfaceDeclaration.class).forEach(classDec -> {
             classDec.getExtendedTypes().forEach(extendedClasses -> {
+                isExtended = true;
                 if (extendedClasses.toString().length() > 1) {
                     className.put("extended", extendedClasses.toString() + ":" + classDec.getNameAsString());
 
@@ -57,11 +59,10 @@ public class PolymorphismChecker {
             });
         });
 
-        if (!status) {
+        if (!isExtended) {
             errorList.add("To acheive override you must be extend a class");
             System.err.println("Class not extend any class");
         }
-        // return status;
     }
 
     public boolean getStatus() {

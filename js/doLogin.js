@@ -1,5 +1,5 @@
 const login_form = document.getElementById("login-form");
-
+const signup_form = document.getElementById("signup-form");
 login_form.addEventListener("click", function (e) {
     e.preventDefault();
     let data = { "un": document.getElementById("Login-username").value, "ps": document.getElementById("Login-password").value }
@@ -23,6 +23,48 @@ login_form.addEventListener("click", function (e) {
             }
             else if (data === "true\n") {
                 window.location.href = "/codeDojo/u/dashboard";
+            }
+        });
+})
+
+
+
+signup_form.addEventListener("click", function (e) {
+    
+    const usernameElement = document.getElementById("signup-username");
+    const passwordElement = document.getElementById("signup-password");
+    const emailElement = document.getElementById("signup-email");
+    const firstnameElement = document.getElementById("signup-firstname");
+    const lastnameElement = document.getElementById("signup-lastname");
+    e.preventDefault();
+    
+    let data = {
+        "un": usernameElement.value,
+        "ps": passwordElement.value,
+        "em": emailElement.value,
+        "fn": firstnameElement.value,
+        "ln": lastnameElement.value
+    };
+
+    fetch("/codeDojo/services/auth/signup.dojo",
+        {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            }
+        })
+        
+        .then(data => {
+            console.log(data)
+            if (data === "false\n") {
+                generate_otp();
+                // window.location.href = "verify";
+            }
+            else if (data === "true") {
+                window.location.reload();
             }
         });
 })

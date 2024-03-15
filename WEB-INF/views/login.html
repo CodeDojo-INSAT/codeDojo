@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -17,13 +18,14 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/codeDojo/css/login.css">
+    
 </head>
 
 <body>
 
     <section class="login-wrapper">
 
-        <!-- <div class="moon"></div> -->
+        <div class="moon"></div>
 
         <div class="login">
 
@@ -80,7 +82,7 @@
                                     </div>
 
                                     <div class="login-button-container">
-                                        <div class="login-btn" id="login-form">
+                                        <div class="login-btn" id="login-form" >
                                             Login
                                         </div>
                                     </div>
@@ -91,39 +93,39 @@
                                         <div class="sinup-con">
                                             <i class="user-icon singnup-usr"></i>
                                             <input type="text" placeholder="Username" class="username-input-box"
-                                                spellcheck="false" />
+                                                spellcheck="false" tabindex="-1" id="signup-username"/>
                                         </div>
 
                                         <div class="sinup-con">
                                             <i class="email-icon"></i>
                                             <input type="text" placeholder="Email" class="username-input-box"
-                                                spellcheck="false" />
+                                                spellcheck="false" tabindex="-1" id="signup-email" />
                                         </div>
 
                                         <div class="firstname-lastname-container">
 
                                             <input type="text" placeholder="Firstname"
-                                                class="username-input-box firstname-lastname" spellcheck="false" />
+                                                class="username-input-box firstname-lastname" spellcheck="false" tabindex="-1" id="signup-firstname" />
                                             <input type="text" placeholder="Lastname"
-                                                class="username-input-box firstname-lastname" spellcheck="false" />
+                                                class="username-input-box firstname-lastname" spellcheck="false" tabindex="-1" id="signup-lastname" />
 
                                         </div>
 
                                         <div class="sinup-con">
                                             <i class="password-icon signup-pas1"></i>
                                             <input type="password" placeholder="Create Password"
-                                                class="username-input-box" spellcheck="false" />
+                                                class="username-input-box" spellcheck="false" tabindex="-1" id="signup-password"/>
                                         </div>
 
                                         <div class="sinup-con">
                                             <i class="password-icon signup-pas"></i>
                                             <input type="password" placeholder="Confirm Password"
-                                                class="username-input-box" spellcheck="false" />
+                                                class="username-input-box" spellcheck="false" tabindex="-1" id="signup-password2"/>
                                         </div>
 
                                     </div>
                                     <div class="signup-button-container">
-                                        <div class="signup-btn">
+                                        <div class="signup-btn" id="signup-form" >
                                             Create account
                                         </div>
                                     </div>

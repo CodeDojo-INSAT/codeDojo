@@ -1238,6 +1238,23 @@ public class DBModule {
         return new Status("800");
     }
 
+    public int getQuizProgress(User user) {
+        try (PreparedStatement stmt = conn.prepareStatement(SQLQueries.GET_ALL_PASSED_SUBMISSION)) {
+
+            stmt.setString(1, user.getUsername());
+            ResultSet res = stmt.executeQuery();
+            int count = 0;
+            while (res.next()) {
+                count++;
+            }
+            stmt.close();
+            return count;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
 
     // Course starts here
     // ..............................................................................................

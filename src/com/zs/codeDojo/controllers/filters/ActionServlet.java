@@ -56,9 +56,9 @@ public class ActionServlet implements Filter {
             uri = "/app_frame";
         }
 
-        if (!uri.equals("/app_frame")) {
-            // httpResponse.setContentType("text/plain");
-        }
+        // if (!uri.equals("/app_frame")) {
+        //     // httpResponse.setContentType("text/plain");
+        // }
 
         switch (uri) {
             case "/app_frame":

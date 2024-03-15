@@ -115,3 +115,1354 @@ java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or d
 2024-03-14 02:05:55  uvchan123
 2024-03-14 02:07:14  uvchan
 2024-03-14 02:07:14  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:32:14  All configs checked
+2024-03-14 03:32:18  SLF4J: No SLF4J providers were found.
+2024-03-14 03:32:18  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:32:18  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:32:18  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:32:18  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:32:18  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:32:27  uvchan
+2024-03-14 03:32:27  uvchan123
+2024-03-14 03:33:08  Class not extend any class
+false
+2024-03-14 03:33:08  To acheive override you must be extend a class
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:33:35  All configs checked
+2024-03-14 03:33:39  SLF4J: No SLF4J providers were found.
+2024-03-14 03:33:39  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:33:39  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:33:39  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:33:39  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:33:39  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:33:50  uvchan
+2024-03-14 03:33:50  uvchan123
+2024-03-14 03:35:20  Class not extend any class
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:36:23  All configs checked
+2024-03-14 03:36:26  SLF4J: No SLF4J providers were found.
+2024-03-14 03:36:26  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:36:26  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:36:26  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:36:26  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:36:26  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:36:38  uvchan
+2024-03-14 03:36:38  uvchan123
+java.lang.NoSuchMethodException: com.zs.codeDojo.models.checkers.PolymorphismChecker.<init>(java.util.ArrayList)
+	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2553)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.handleCompilationUnit(CheckQuestion.java:220)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.doPost(CheckQuestion.java:142)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.ActionServlet.doFilter(ActionServlet.java:104)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.CheckSession.doFilter(CheckSession.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.NoSuchMethodException: com.zs.codeDojo.models.checkers.PolymorphismChecker.<init>(java.util.ArrayList)
+	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2553)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.handleCompilationUnit(CheckQuestion.java:220)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.doPost(CheckQuestion.java:142)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.ActionServlet.doFilter(ActionServlet.java:104)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.CheckSession.doFilter(CheckSession.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:42:45  All configs checked
+2024-03-14 03:42:49  SLF4J: No SLF4J providers were found.
+2024-03-14 03:42:49  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:42:49  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:42:49  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:42:49  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:42:49  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:42:58  uvchan
+2024-03-14 03:42:58  uvchan123
+java.lang.NoSuchMethodException: com.zs.codeDojo.models.checkers.PolymorphismChecker.<init>(java.util.ArrayList)
+	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2553)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.handleCompilationUnit(CheckQuestion.java:220)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.doPost(CheckQuestion.java:142)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.ActionServlet.doFilter(ActionServlet.java:104)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.CheckSession.doFilter(CheckSession.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.lang.NoSuchMethodException: com.zs.codeDojo.models.checkers.PolymorphismChecker.<init>(java.util.ArrayList)
+	at java.base/java.lang.Class.getConstructor0(Class.java:3349)
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2553)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.handleCompilationUnit(CheckQuestion.java:220)
+	at com.zs.codeDojo.controllers.main.CheckQuestion.doPost(CheckQuestion.java:142)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.ActionServlet.doFilter(ActionServlet.java:104)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.zs.codeDojo.controllers.filters.CheckSession.doFilter(CheckSession.java:39)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:609)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1623)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:48:34  All configs checked
+2024-03-14 03:48:36  SLF4J: No SLF4J providers were found.
+2024-03-14 03:48:36  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:48:36  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:48:36  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:48:36  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:48:36  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:48:45  uvchan
+2024-03-14 03:48:45  uvchan123
+2024-03-14 03:49:00  Class not extend any class
+2024-03-14 03:49:55  Class not extend any class
+2024-03-14 03:50:05  Method not overrided in Main class
+2024-03-14 03:50:05  Class not extend any class
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:51:51  All configs checked
+2024-03-14 03:51:53  SLF4J: No SLF4J providers were found.
+2024-03-14 03:51:53  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:51:53  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:51:53  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:51:53  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:51:53  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:52:02  uvchan
+2024-03-14 03:52:02  uvchan123
+2024-03-14 03:52:11  Class not extend any class
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 03:53:08  All configs checked
+2024-03-14 03:53:10  SLF4J: No SLF4J providers were found.
+2024-03-14 03:53:10  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 03:53:10  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 03:53:10  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 03:53:10  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 03:53:10  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 03:53:18  uvchan
+2024-03-14 03:53:18  uvchan123
+2024-03-14 03:53:31  Class not extend any class
+2024-03-14 03:53:55  Method not overrided in Main class
+2024-03-14 03:54:26  Method not overrided in Main class
+2024-03-14 03:54:57  Method not overrided in Main class
+2024-03-14 03:54:57  Overrided method: test
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 07:59:09  All configs checked
+2024-03-14 07:59:11  SLF4J: No SLF4J providers were found.
+2024-03-14 07:59:11  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 07:59:11  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 07:59:11  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 07:59:11  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 07:59:11  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 07:59:27  uvchan
+2024-03-14 07:59:27  uvchan123
+2024-03-14 09:52:15  uvchan
+2024-03-14 09:52:15  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:01:33  All configs checked
+2024-03-14 10:01:35  SLF4J: No SLF4J providers were found.
+2024-03-14 10:01:35  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:01:35  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:01:35  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:01:35  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:01:35  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 10:01:44  uvchan
+2024-03-14 10:01:44  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:03:26  All configs checked
+2024-03-14 10:03:29  SLF4J: No SLF4J providers were found.
+2024-03-14 10:03:29  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:03:29  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:03:29  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:03:29  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:03:29  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:04:02  All configs checked
+2024-03-14 10:04:05  SLF4J: No SLF4J providers were found.
+2024-03-14 10:04:05  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:04:05  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:04:05  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:04:05  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:04:05  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 10:04:16  uvchan
+2024-03-14 10:04:16  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:06:42  All configs checked
+2024-03-14 10:06:44  SLF4J: No SLF4J providers were found.
+2024-03-14 10:06:44  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:06:44  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:06:44  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:06:44  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:06:44  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 10:06:55  uvchan
+2024-03-14 10:06:55  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:19:04  All configs checked
+2024-03-14 10:19:07  SLF4J: No SLF4J providers were found.
+2024-03-14 10:19:07  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:19:07  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:19:07  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:19:07  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:19:07  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 10:19:16  uvchan
+2024-03-14 10:19:16  uvchan123
+2024-03-14 10:24:15  uvchan
+2024-03-14 10:24:15  uvchan123
+2024-03-14 10:35:21  uvchan
+2024-03-14 10:35:21  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 10:39:16  All configs checked
+2024-03-14 10:39:18  SLF4J: No SLF4J providers were found.
+2024-03-14 10:39:18  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 10:39:18  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 10:39:18  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 10:39:18  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 10:39:18  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 10:40:12  uvchan
+2024-03-14 10:40:12  uvchan123
+2024-03-14 11:25:56  uvchan
+2024-03-14 11:25:56  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 11:32:48  All configs checked
+2024-03-14 11:32:51  SLF4J: No SLF4J providers were found.
+2024-03-14 11:32:51  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 11:32:51  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 11:32:51  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 11:32:51  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 11:32:51  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 11:33:01  uvchan
+2024-03-14 11:33:01  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 11:34:36  All configs checked
+2024-03-14 11:34:38  SLF4J: No SLF4J providers were found.
+2024-03-14 11:34:38  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 11:34:38  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 11:34:38  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 11:34:38  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 11:34:38  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 11:34:46  uvchan
+2024-03-14 11:34:46  uvchan123
+2024-03-14 12:02:19  uvchan
+2024-03-14 12:02:19  uvchan1223
+2024-03-14 12:02:28  uvchan
+2024-03-14 12:02:28  uvchan123
+2024-03-14 12:42:10  uvchan
+2024-03-14 12:42:10  uvchan123
+2024-03-14 12:50:44  uvchan
+2024-03-14 12:50:44  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 12:52:09  All configs checked
+2024-03-14 12:52:11  SLF4J: No SLF4J providers were found.
+2024-03-14 12:52:11  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 12:52:11  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 12:52:11  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 12:52:11  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 12:52:11  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 12:52:39  uvchan
+2024-03-14 12:52:39  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 12:54:08  All configs checked
+2024-03-14 12:54:10  SLF4J: No SLF4J providers were found.
+2024-03-14 12:54:10  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 12:54:10  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 12:54:10  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 12:54:10  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 12:54:10  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 12:54:21  uvchan
+2024-03-14 12:54:21  uvchan123
+2024-03-14 12:59:26  uvchan
+2024-03-14 12:59:26  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 01:00:03  All configs checked
+2024-03-14 01:00:05  SLF4J: No SLF4J providers were found.
+2024-03-14 01:00:05  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 01:00:05  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 01:00:05  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 01:00:05  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 01:00:05  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 01:07:22   uvchan
+2024-03-14 01:07:22  uvchan123
+2024-03-14 01:07:23   uvchan
+2024-03-14 01:07:23  uvchan123
+2024-03-14 01:07:29   uvchan
+2024-03-14 01:07:29  uvchan123
+2024-03-14 01:07:36   uvchan
+2024-03-14 01:07:36  uvchan123
+2024-03-14 01:07:37   uvchan
+2024-03-14 01:07:37  uvchan123
+2024-03-14 01:07:37   uvchan
+2024-03-14 01:07:37  uvchan123
+2024-03-14 01:07:37   uvchan
+2024-03-14 01:07:37  uvchan123
+2024-03-14 01:07:37   uvchan
+2024-03-14 01:07:37  uvchan123
+2024-03-14 01:07:37   uvchan
+2024-03-14 01:07:37  uvchan123
+2024-03-14 01:07:47   uvchan
+2024-03-14 01:07:47  uvchan123
+2024-03-14 01:07:48   uvchan
+2024-03-14 01:07:48  uvchan123
+2024-03-14 01:07:48   uvchan
+2024-03-14 01:07:48  uvchan123
+2024-03-14 01:07:48   uvchan
+2024-03-14 01:07:48  uvchan123
+2024-03-14 01:07:48   uvchan
+2024-03-14 01:07:48  uvchan123
+2024-03-14 01:07:48   uvchan
+2024-03-14 01:07:48  uvchan123
+2024-03-14 01:07:49   uvchan
+2024-03-14 01:07:49  uvchan123
+2024-03-14 01:08:05  uvchan
+2024-03-14 01:08:05  uvchan123
+2024-03-14 01:12:54  uvchan
+2024-03-14 01:12:54  uvchan123
+2024-03-14 01:45:32  uvchan
+2024-03-14 01:45:32  uvchan123
+2024-03-14 02:19:52  uvchan
+2024-03-14 02:19:52  uvchan123
+2024-03-14 02:25:58  uvchan
+2024-03-14 02:25:58  uvchan123
+2024-03-14 02:39:12  uvchan
+2024-03-14 02:39:12  uvchan123
+2024-03-14 02:47:07  uvchan
+2024-03-14 02:47:07  uvchan123
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-14 02:51:58  All configs checked
+2024-03-14 02:52:01  SLF4J: No SLF4J providers were found.
+2024-03-14 02:52:01  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-14 02:52:01  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-14 02:52:01  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-14 02:52:01  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-14 02:52:01  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-14 02:52:09  uvchan
+2024-03-14 02:52:09  uvchan123
+2024-03-14 02:52:23  Class not extend any class
+2024-03-14 02:53:10  Method not overrided in Main class
+2024-03-14 02:53:38  Method not overrided in Main class
+2024-03-14 02:53:58  Method not overrided in Main class
+2024-03-14 02:53:58  Overrided method: test
+2024-03-14 03:00:31  uvchan
+2024-03-14 03:00:31  uvchan123
+2024-03-14 03:02:17  Class not extend any class
+2024-03-14 03:02:47  Method not overrided in Main class
+2024-03-14 03:03:22  Method not overrided in Main class
+2024-03-14 03:03:22  Overrided method: test
+2024-03-14 03:26:45  Class not extend any class
+2024-03-14 03:27:25  Method not overrided in Main class
+2024-03-14 03:27:49  Method not overrided in Main class
+2024-03-14 03:27:49  Overrided method: test
+2024-03-14 03:38:52  Class not extend any class
+2024-03-14 03:38:52  Class not extend any class
+2024-03-14 03:51:21  uvchan
+2024-03-14 03:51:21  uvchan123
+2024-03-14 03:54:40  Class not extend any class
+2024-03-14 03:55:10  Method not overrided in Main class
+2024-03-14 03:55:32  Method not overrided in Main class
+2024-03-14 03:55:32  Overrided method: test
+2024-03-14 04:01:53  uvchan
+2024-03-14 04:01:53  uvchan123
+2024-03-14 04:08:44  Class not extend any class
+2024-03-14 04:15:54  Class not extend any class
+2024-03-14 04:32:06  uvchan
+2024-03-14 04:32:06  uvchan123
+2024-03-14 04:40:26  Class not extend any class
+2024-03-14 04:55:04  uvchan
+2024-03-14 04:55:04  uvchan123
+2024-03-14 05:01:37  uvchan
+2024-03-14 05:01:37  uvchan123
+2024-03-14 05:09:19  uvchan
+2024-03-14 05:09:19  uvchan123
+2024-03-14 05:13:23  Class not extend any class
+2024-03-14 05:14:04  Method not overrided in Main class
+2024-03-14 05:14:21  Method not overrided in Main class
+2024-03-14 05:14:21  Overrided method: test
+2024-03-14 05:22:06  uvchan
+2024-03-14 05:22:06  uvchan123
+2024-03-14 05:31:57  uvchan
+2024-03-14 05:31:57  uvchan123
+2024-03-14 05:34:46  uvchan
+2024-03-14 05:34:46  uvchan1234
+2024-03-14 05:34:48  uvchan
+2024-03-14 05:34:48  uvchan1234
+2024-03-14 05:34:54  uvchan
+2024-03-14 05:34:54  uvchan123
+2024-03-14 05:42:36  uvchan
+2024-03-14 05:42:36  uvchan123
+2024-03-14 05:50:34  Class not extend any class
+2024-03-14 05:53:33  Class not extend any class
+2024-03-14 06:04:28  Class not extend any class
+2024-03-14 06:05:06  Method not overrided in Main class
+2024-03-14 06:10:00  uvchan
+2024-03-14 06:10:00  uvchan123
+2024-03-14 06:15:42  uvchan
+2024-03-14 06:15:42  uvchan123
+2024-03-14 06:22:48  Class not extend any class
+2024-03-14 06:23:39  Method not overrided in Main class
+2024-03-14 06:24:04  Method not overrided in Main class
+2024-03-14 06:24:04  Overrided method: test
+2024-03-14 06:33:27  Class not extend any class
+2024-03-14 06:35:16  uvchan
+2024-03-14 06:35:16  uvchan123
+2024-03-14 06:37:22  uvchan
+2024-03-14 06:37:22  uvchan123
+2024-03-14 06:38:46  Class not extend any class
+2024-03-14 06:39:36  Method not overrided in Main class
+2024-03-14 06:40:29  Method not overrided in Main class
+2024-03-14 06:40:29  Overrided method: test
+2024-03-14 06:59:01  Class not extend any class
+2024-03-14 07:04:30  Class not extend any class
+2024-03-15 10:04:06  uvchan
+2024-03-15 10:04:06  uvchan123

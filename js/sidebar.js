@@ -4,10 +4,13 @@ const sidebar = document.querySelectorAll(".sidebar li");
 
 sidebar.forEach(n => {
     n.addEventListener("click", function (e) {
+        // console.log(e.target)
         document.querySelectorAll(".sidebar .active").forEach(e => {
             e.classList.remove("active");
         });
-        e.target.classList.toggle("active");
+        if (e.target.href) {
+            e.target.classList.toggle("active");
+        }
     });
 });
 

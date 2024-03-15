@@ -58,7 +58,7 @@ public class CheckQuestion extends HttpServlet {
 
         if (className == null) {
             JSONObject json = new JSONObject();
-            json.put("error","Class name Must be Capital case");
+            json.put("error", "Class name Must be Capital case");
             json.put("type", "oops");
             jsonResponse = new JsonResponse(false, "main class not found", json);
             response.getWriter().print(jsonResponse);
@@ -76,7 +76,7 @@ public class CheckQuestion extends HttpServlet {
 
             // writer.write(jsonObject.put("error", "this question doesn't have any checkers
             // related").toString());
-            
+
             jsonResponse = new JsonResponse(false, "Question doesn't have relate to any checker", null);
             writer.print(jsonResponse);
         } else if (type == 5) {
@@ -98,27 +98,25 @@ public class CheckQuestion extends HttpServlet {
                     if (checker.hasError()) {
                         json.put("error", checker.getError());
                         jsonResponse = new JsonResponse(false, "execution time out", json);
-                    }
-                    else {   
+                    } else {
                         json.put("result", checker.getResult());
                         json.put("sampleTestcase", testCases.getSampleTestCase());
-                        
+
                         if (!checker.isMatched()) {
                             json.put("user_output", checker.getMessage());
                             jsonResponse = new JsonResponse(false, "testcases not matched", json);
                         } else {
                             jsonResponse = new JsonResponse(true, "all testcases passed", json);
-    
-                            User user = (User)request.getSession().getAttribute("user");
+
+                            User user = (User) request.getSession().getAttribute("user");
                             int currentLevelofUser = (dbModule.getCurrentLevel(user));
-    
+
                             if (currentLevelofUser == level) {
                                 Status stat = dbModule.updateCurrentLevel(user);
                                 stat.getReturnedException();
-                                dbModule.addSubmission(user.getUsername(),level,javaCodeString);
-                            }
-                            else{
-                                dbModule.updateSubmission(user.getUsername(),level,javaCodeString);
+                                dbModule.addSubmission(user.getUsername(), level, javaCodeString);
+                            } else {
+                                dbModule.updateSubmission(user.getUsername(), level, javaCodeString);
                             }
                         }
                     }
@@ -219,28 +217,29 @@ public class CheckQuestion extends HttpServlet {
         String checkerPackage = "com.zs.codeDojo.models.checkers.";
         try {
             Class<?> clazz = Class.forName(checkerPackage + checkerName);
-            if (checkerName.equals("PolymorphismChecker")) {
-                System.err.println(handlePolymorphism(clazz, compilationUnit, error));
-                System.err.println(error.toString());
+            Object instance = null;
+
+            if (checkerName.equals("PolymorphismChecker") || checkerName.equals("OverloadingChecker")) {
+                instance = clazz.getDeclaredConstructor(CompilationUnit.class, ArrayList.class).newInstance(compilationUnit, error);
             }
             else {
-                Object instance = clazz.getDeclaredConstructor(ArrayList.class).newInstance(error);
-    
+                instance = clazz.getDeclaredConstructor(ArrayList.class).newInstance(error);
                 compilationUnit.accept((VoidVisitor<?>) instance, null);
-                Field statusField = clazz.getDeclaredField("status");
-    
-                boolean status = (boolean) statusField.get(instance);
-    
-                JSONObject json = new JSONObject();
-                json.put("type", "oops");
-    
-                if (status) {
-                    jsonResponse = new JsonResponse(status, "oops checked", json);
-                } else {
-                    Object[] err = error.toArray();
-                    json.put("error", err);
-                    jsonResponse = new JsonResponse(status, "can't check oops by checker", json);
-                }
+            }
+
+            Field statusField = clazz.getDeclaredField("status");
+
+            boolean status = (boolean) statusField.get(instance);
+
+            JSONObject json = new JSONObject();
+            json.put("type", "oops");
+
+            if (status) {
+                jsonResponse = new JsonResponse(status, "oops checked", json);
+            } else {
+                Object[] err = error.toArray();
+                json.put("error", err);
+                jsonResponse = new JsonResponse(status, "can't check oops by checker", json);
             }
             writer.print(jsonResponse);
         } catch (Exception e) {
@@ -269,12 +268,16 @@ public class CheckQuestion extends HttpServlet {
         return mainClassName;
     }
 
-    private boolean handlePolymorphism(Class<?> checker, CompilationUnit cu, ErrorList errList) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-        Object instance = checker.getDeclaredConstructor(CompilationUnit.class, ArrayList.class).newInstance(cu, errList);
-        Method method = instance.getClass().getMethod("getStatus");
+    // private boolean handlePolymorphism(Class<?> checker, CompilationUnit cu,
+    // ErrorList errList) throws InstantiationException, IllegalAccessException,
+    // IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
+    // SecurityException {
+    // Object instance = checker.getDeclaredConstructor(CompilationUnit.class,
+    // ArrayList.class).newInstance(cu, errList);
+    // Method method = instance.getClass().getMethod("getStatus");
 
-        return ((boolean) method.invoke(instance));
-    }
+    // return ((boolean) method.invoke(instance));
+    // }
 }
 
 class ErrorList extends ArrayList<String> {
