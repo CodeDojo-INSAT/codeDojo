@@ -1466,3 +1466,308 @@ java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or d
 2024-03-14 07:04:30  Class not extend any class
 2024-03-15 10:04:06  uvchan
 2024-03-15 10:04:06  uvchan123
+2024-03-15 10:07:03  uvchan
+2024-03-15 10:07:03  uvchan123
+2024-03-15 10:08:21  Class not extend any class
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-15 10:50:49  All configs checked
+2024-03-15 10:50:53  SLF4J: No SLF4J providers were found.
+2024-03-15 10:50:53  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-15 10:50:53  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-15 10:50:53  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-15 10:50:53  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-15 10:50:53  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2024-03-15 11:02:15  uvchan
+2024-03-15 11:02:15  uvchan123
+2024-03-15 11:05:18  uvchan
+2024-03-15 11:05:18  uvchan123
+2024-03-15 11:07:41  Class not extend any class
+2024-03-15 11:37:16  uvchan
+2024-03-15 11:37:16  uvchan123
+2024-03-15 12:00:39  uvchan
+2024-03-15 12:00:39  uvchan123
+2024-03-15 12:11:14  uvchan
+2024-03-15 12:11:14  uvchan123
+2024-03-15 12:12:37  Class not extend any class
+2024-03-15 12:28:03  uvchan
+2024-03-15 12:28:03  uvchan123
+2024-03-15 12:29:06  Class not extend any class
+2024-03-15 12:32:24  uvchan
+2024-03-15 12:32:24  uvchan123
+2024-03-15 12:33:42  Class not extend any class
+2024-03-15 12:36:06  Class not extend any class
+2024-03-15 12:41:45  uvchan
+2024-03-15 12:41:45  uvchan123
+2024-03-15 12:44:44  Class not extend any class
+2024-03-15 12:48:02  Method not overrided in Main class
+2024-03-15 12:48:11  Method not overrided in Main class
+2024-03-15 12:49:39  Method not overrided in Main class
+2024-03-15 12:50:08  Method not overrided in Main class
+2024-03-15 12:50:08  Overrided method: testing
+2024-03-15 12:53:20  uvchan
+2024-03-15 12:53:20  uvchan123
+2024-03-15 12:57:02  uvchan
+2024-03-15 12:57:02  uvchan
+2024-03-15 12:57:02  uvchan
+2024-03-15 12:57:02  uvchan
+2024-03-15 12:57:14  uvchan
+2024-03-15 12:57:14  uvchan123
+2024-03-15 12:58:44  Class not extend any class
+2024-03-15 12:59:28  Method not overrided in Main class
+2024-03-15 12:59:59  Method not overrided in Main class
+2024-03-15 12:59:59  Overrided method: test
+2024-03-15 01:09:43  Class not extend any class
+2024-03-15 01:13:06  Class not extend any class
+2024-03-15 01:18:31  uvchan
+2024-03-15 01:18:31  uvchan123
+2024-03-15 01:20:16  Class not extend any class
+2024-03-15 01:29:43  uvchan
+2024-03-15 01:29:43  uvchan123
+2024-03-15 01:44:11  uvchan
+2024-03-15 01:44:11  uvchan123
+2024-03-15 01:45:09  Class not extend any class
+2024-03-15 01:49:02  uvchan
+2024-03-15 01:49:02  uvchan123
+2024-03-15 01:50:22  Class not extend any class
+2024-03-15 01:51:05  Method not overrided in Main class
+2024-03-15 01:55:05  Class not extend any class
+2024-03-15 01:59:24  uvchan
+2024-03-15 01:59:24  uvchan123
+2024-03-15 02:00:51  Class not extend any class
+2024-03-15 02:09:20  Class not extend any class
+2024-03-15 02:09:48  Method not overrided in Main class
+2024-03-15 02:16:17  Class not extend any class
+2024-03-15 02:20:03  uvchan
+2024-03-15 02:20:03  uvchan123
+2024-03-15 02:22:17  Class not extend any class
+2024-03-15 02:29:07  Class not extend any class
+2024-03-15 02:29:41  Method not overrided in Main class
+2024-03-15 02:29:59  Method not overrided in Main class
+2024-03-15 02:30:14  Method not overrided in Main class
+2024-03-15 02:30:14  Overrided method: testing
+2024-03-15 02:35:42  Class not extend any class
+2024-03-15 02:41:24  uvchan
+2024-03-15 02:41:24  uvchan123
+2024-03-15 02:46:43  Class not extend any class
+2024-03-15 02:47:15  Method not overrided in Main class
+2024-03-15 02:54:42  uvchan
+2024-03-15 02:54:42  uvchan123
+2024-03-15 02:56:17  Class not extend any class
+2024-03-15 02:58:00  Method not overrided in Main class
+2024-03-15 03:03:31  Class not extend any class
+2024-03-15 03:05:45  Method not overrided in Main class
+2024-03-15 03:06:04  Method not overrided in Main class
+2024-03-15 03:06:04  Method not overrided in Main class
+2024-03-15 03:06:14  Method not overrided in Main class
+2024-03-15 03:06:14  Overrided method: test
+2024-03-15 03:13:04  Class not extend any class
+2024-03-15 03:13:31  Method not overrided in Main class
+2024-03-15 03:14:21  Method not overrided in Main class
+2024-03-15 03:14:21  Overrided method: test
+2024-03-15 03:17:17  uvchan
+2024-03-15 03:17:17  uvchan123
+2024-03-15 03:20:07  Class not extend any class
+2024-03-15 03:23:39  Class not extend any class
+2024-03-15 03:24:16  Method not overrided in Main class
+2024-03-15 03:24:29  Method not overrided in Main class
+2024-03-15 03:24:29  Overrided method: test
+2024-03-15 03:41:20  Class not extend any class
+2024-03-15 03:41:36  Class not extend any class
+2024-03-15 03:54:23  uvchan
+2024-03-15 03:54:23  uvchan123
+2024-03-15 03:57:29  Class not extend any class
+2024-03-15 03:57:46  Class not extend any class
+2024-03-15 03:58:15  Method not overrided in Main class
+2024-03-15 03:58:38  Method not overrided in Main class
+2024-03-15 03:58:38  Overrided method: dummy
+2024-03-15 04:04:50  Class not extend any class
+2024-03-15 04:13:25  Class not extend any class
+2024-03-15 04:14:18  Method not overrided in Main class
+2024-03-15 04:14:28  Method not overrided in Main class
+2024-03-15 04:14:28  Overrided method: test
+2024-03-15 04:19:06  uvchan
+2024-03-15 04:19:06  uvchan123
+2024-03-15 04:21:19  Class not extend any class
+2024-03-15 04:22:29  Class not extend any class
+2024-03-15 04:23:02  Method not overrided in Main class
+2024-03-15 04:23:40  Method not overrided in Main class
+2024-03-15 04:23:40  Overrided method: test
+2024-03-15 04:29:19  uvchan
+2024-03-15 04:29:19  uvchan123
+2024-03-15 04:30:50  Class not extend any class
+2024-03-15 04:38:58  Class not extend any class
+2024-03-15 04:39:41  Method not overrided in Main class
+2024-03-15 04:40:09  Method not overrided in Main class
+2024-03-15 04:40:09  Overrided method: test
+2024-03-15 04:55:51  Class not extend any class
+2024-03-15 04:59:59  uvchan
+2024-03-15 04:59:59  uvchan123
+2024-03-15 05:02:53  Class not extend any class
+2024-03-15 05:09:13  uvchan
+2024-03-15 05:09:13  uvchan123
+2024-03-15 05:11:02  Class not extend any class
+2024-03-15 05:11:30  Method not overrided in Main class
+2024-03-15 05:11:44  Method not overrided in Main class
+2024-03-15 05:11:44  Overrided method: test
+2024-03-15 05:13:16  uvchan
+2024-03-15 05:13:16  uvchan123
+2024-03-15 05:15:25  uvchan
+2024-03-15 05:15:25  uvchan123
+2024-03-15 05:17:40  Class not extend any class
+2024-03-15 05:21:23  uvchan
+2024-03-15 05:21:23  uvchan123
+2024-03-15 05:22:46  Class not extend any class
+2024-03-15 05:27:23  Class not extend any class
+2024-03-15 05:27:34  Class not extend any class
+2024-03-15 05:28:12  Method not overrided in Main class
+2024-03-15 05:29:25  Method not overrided in Main class
+2024-03-15 05:29:25  Overrided method: print
+2024-03-15 05:36:06  Class not extend any class
+2024-03-15 05:38:03  Method not overrided in Main class
+2024-03-15 05:38:29  Method not overrided in Main class
+2024-03-15 05:38:29  Overrided method: smaple
+2024-03-15 05:47:15  Class not extend any class
+2024-03-15 05:48:43  Method not overrided in Main class
+2024-03-15 05:49:17  Method not overrided in Main class
+2024-03-15 05:49:17  Overrided method: test
+2024-03-15 05:55:56  Class not extend any class
+2024-03-15 06:00:11  Class not extend any class
+2024-03-15 06:00:56  Method not overrided in Main class
+2024-03-15 06:01:12  Method not overrided in Main class
+2024-03-15 06:01:12  Overrided method: test
+2024-03-15 06:03:23  uvchan
+2024-03-15 06:03:23  uvchan123
+2024-03-15 06:05:10  Class not extend any class
+2024-03-15 06:05:40  Method not overrided in Main class
+2024-03-15 06:06:21  Method not overrided in Main class
+2024-03-15 06:06:21  Overrided method: test
+2024-03-15 06:09:21  Class not extend any class
+2024-03-15 06:16:19  Class not extend any class
+2024-03-15 06:16:53  Method not overrided in Main class
+2024-03-15 06:18:44  Method not overrided in Test class
+2024-03-15 06:19:24  Method not overrided in Test class
+2024-03-15 06:20:07  Overrided method: test
+2024-03-15 06:28:34  Class not extend any class
+2024-03-15 06:30:20  Method not overrided in Main class
+2024-03-15 06:30:42  Method not overrided in Main class
+2024-03-15 06:30:42  Overrided method: sample
+2024-03-15 06:33:43  uvchan
+2024-03-15 06:33:43  uvchan123
+2024-03-15 06:35:29  Class not extend any class
+2024-03-15 06:38:25  uvchan
+2024-03-15 06:38:25  uvchan123
+2024-03-15 06:41:35  uvchan
+2024-03-15 06:41:35  uvchan123
+2024-03-15 06:45:28  uvchan
+2024-03-15 06:45:28  uvchan123
+2024-03-15 06:53:14  Class not extend any class
+2024-03-15 06:53:30  Class not extend any class
+2024-03-15 07:00:43  uvchan
+2024-03-15 07:00:43  uvchan123
+2024-03-15 07:04:01  Class not extend any class
+2024-03-15 07:08:57  Class not extend any class
+2024-03-15 07:15:07  Class not extend any class
+2024-03-15 07:16:29  Class not extend any class
+2024-03-15 07:19:21  Class not extend any class
+2024-03-15 07:26:03  Class not extend any class
+2024-03-15 07:27:36  Method not overrided in Main class
+2024-03-15 07:28:21  Method not overrided in Main class
+2024-03-15 07:28:21  Overrided method: sample
+2024-03-15 07:29:28  Method not overrided in Main class
+2024-03-15 07:29:28  Overrided method: sample
+2024-03-15 07:29:28  Method not overrided in Main class
+2024-03-15 07:29:28  Overrided method: sample
+java.io.FileNotFoundException: ../models/SQLScripts/procedure.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createProcedure(Config.java:64)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:50)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.FileNotFoundException: ../models/SQLScripts/event.sql (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.zs.codeDojo.models.config.Config.readScript(Config.java:87)
+	at com.zs.codeDojo.models.config.Config.createEvent(Config.java:76)
+	at com.zs.codeDojo.models.config.Config.contextInitialized(Config.java:51)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4699)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5165)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:743)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:719)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1125)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1859)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-03-21 12:27:59  All configs checked
+2024-03-21 12:28:02  SLF4J: No SLF4J providers were found.
+2024-03-21 12:28:02  SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-21 12:28:02  SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+2024-03-21 12:28:02  SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+2024-03-21 12:28:02  SLF4J: Ignoring binding found at [jar:file:/opt/apache/webapps/struts2/WEB-INF/lib/log4j-slf4j-impl-2.20.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+2024-03-21 12:28:02  SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
