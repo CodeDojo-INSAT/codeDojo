@@ -1,20 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/codeDojo/css/login.css">
+    
 </head>
-<body>
-    <form action="" method="post" id="login-form">
-        <label for="username">Enter username: </label>
-        <input type="text" name="username" placeholder="Enter username"><br><br>
-        <label for="password">Enter password: </label>
-        <input type="password" name="password" id="passwd" placeholder="Enter password">
 
-        <input type="submit" value="login">
-    </form>
+<body>
+
+    <section class="login-wrapper">
+
+        <div class="moon"></div>
+
+        <div class="login">
+
+            <div class="login-inner-wrapper">
+
+                <div class="login-ninja-img-container">
+                    <div class="ninja-image-card">
+                        <div class="signup-ninja-img z-index"></div>
+                        <div class="login-ninja-img"></div>
+                    </div>
+                </div>
+
+                <div class="login-content-wrapper">
+
+                    <div class="login-content-innerwrapper">
+
+                        <div class="login-signup-toggles">
+                            <div class="login-toggle-container">
+                                <div class="login-toggle login-toggled">Login</div>
+                                <div class="signup-toggle">Signup</div>
+                            </div>
+                        </div>
+
+                        <div class="login-signup-content-wrapper">
+                            <div class="login-signup-content-contaier">
+                                <div class="login-container">
+                                    <div class="login-input-elements">
+
+                                        <div class="username-input-field">
+                                            <i class="user-icon">
+
+                                            </i>
+                                            <input type="text" placeholder="Username" class="username-input-box"
+                                                spellcheck="false" id="Login-username" />
+                                        </div>
+
+                                        <div class="username-input-field">
+                                            <i class="password-icon"></i>
+                                            <input type="password" placeholder="Password" class="username-input-box"
+                                                spellcheck="false" id="Login-password" />
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="login-forgetpassword">
+                                        <div class="remember-me" onclick="rememberMe()" id="rememberMe">
+                                            <i class="fa fa-square-o" aria-hidden="true" id="rememberMein"></i>
+                                            Remember Me
+                                        </div>
+                                        <div class="forget-password">
+                                            Forget password?
+                                        </div>
+                                    </div>
+
+                                    <div class="login-button-container">
+                                        <div class="login-btn" id="login-form" >
+                                            Login
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="signup-container">
+                                    <div class="signup-input-elements">
+
+                                        <div class="sinup-con">
+                                            <i class="user-icon singnup-usr"></i>
+                                            <input type="text" placeholder="Username" class="username-input-box"
+                                                spellcheck="false" tabindex="-1" id="signup-username"/>
+                                        </div>
+
+                                        <div class="sinup-con">
+                                            <i class="email-icon"></i>
+                                            <input type="text" placeholder="Email" class="username-input-box"
+                                                spellcheck="false" tabindex="-1" id="signup-email" />
+                                        </div>
+
+                                        <div class="firstname-lastname-container">
+
+                                            <input type="text" placeholder="Firstname"
+                                                class="username-input-box firstname-lastname" spellcheck="false" tabindex="-1" id="signup-firstname" />
+                                            <input type="text" placeholder="Lastname"
+                                                class="username-input-box firstname-lastname" spellcheck="false" tabindex="-1" id="signup-lastname" />
+
+                                        </div>
+
+                                        <div class="sinup-con">
+                                            <i class="password-icon signup-pas1"></i>
+                                            <input type="password" placeholder="Create Password"
+                                                class="username-input-box" spellcheck="false" tabindex="-1" id="signup-password"/>
+                                        </div>
+
+                                        <div class="sinup-con">
+                                            <i class="password-icon signup-pas"></i>
+                                            <input type="password" placeholder="Confirm Password"
+                                                class="username-input-box" spellcheck="false" tabindex="-1" id="signup-password2"/>
+                                        </div>
+
+                                    </div>
+                                    <div class="signup-button-container">
+                                        <div class="signup-btn" id="signup-form" >
+                                            Create account
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </body>
+
 <script src="/codeDojo/js/doLogin.js"></script>
-<script src="/codeDojo/js/script.js"></script>
+<!-- <script src="/codeDojo/js/script.js"></script> -->
+
 </html>

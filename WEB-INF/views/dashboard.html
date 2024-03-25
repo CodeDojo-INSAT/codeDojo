@@ -1,32 +1,78 @@
-<div class="left-sec">
-    <div class="welcome-box br">
-        <h1 class="h1">Hello Buddy, <span id="name"></span></h1>
-        <h4 class="h4">Good to see you again.</h4>
-    </div>
-    <div class="course-progress-box br"></div>
-    <div class="leader-board br"></div>
-</div>
-<div class="right-sec">
-    <div class="profile-box br">
-        <div class="gap br"></div>
-        <div class="profile-icon br"></div>
-    </div>
-    <div class="progress">
-        <div class="quiz-progress br">
-            <div class="prog">
-                <span id="quiz-prog">0%</span>
-                <h4>Quizzes</h4>
+<link rel="stylesheet" href="/codeDojo/css/dashboard.css">
+<section class="content-wrapper1">
+    <div class="left-sec">
+        <div class="welcome-box br">
+            <div class="content">
+                <h1 class="h1">Konnichiwa, <span id="name"></span></h1>
+                <h4 class="h4">Good to see you again. </h4>
             </div>
-        </div>
-        <div class="daily-streak br">
-            <div class="prog">
-                <span id="daily-streak">0</span>
-                <h4>Daily Streak</h4>
-            </div>
-        </div>
-    </div>
 
-    <div class="announcement br"></div>
-    <div class="daily-tip br"></div>
-</div>
-</div>
+            <div class="img-sec">
+                <img src="/codeDojo/img/ninja1.png" alt="i'm satoshi" style="width: 220px;" />
+            </div>
+        </div>
+        <div class="course-progress-box br">
+            <div class="progress">
+                <div class="title">
+                    <h3>Title goes here</h3>
+                    <span class="completed-percentage"></span>
+                </div>
+                <div class="bar-wrapper">
+                    <div class="occupied"></div>
+                </div>
+            </div>
+            <button>Continue</button>
+        </div>
+        <!-- <div class="leaderboard-title">Leaderboard</div> -->
+        <div class="leader-board br">
+        </div>
+    </div>
+    <div class="right-sec">
+        <!-- <div class="profile-box br">
+            <div class="gap br"></div>
+            <div class="profile-icon br"></div>
+        </div> -->
+        <div class="progress">
+            <div class="quiz-progress br">
+                <!-- <div class="water_wave br"></div> -->
+                <div class="prog">
+                    <span id="quiz-prog">
+                        <!-- <i class="fi fi-rs-quiz-alt"></i> -->
+                        50 %
+                    </span>
+                    <h4>Quizzes</h4>
+                </div>
+            </div>
+            <div class="daily-streak br">
+                <!-- <canvas id="flameCanvas"></canvas> -->
+                <div class="prog">
+                    <span id="daily-streak">
+                        <img src="/codeDojo/img/fire.png" alt="fire"> <span class="value">1</span>
+                    </span>
+                    <h4>Daily Streak</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="announcement br">
+            <div class="anoun-title">
+                Announcement's
+                <!-- <i class="fi fi-rs-megaphone"></i> -->
+            </div>
+            <div class="announcement-card">
+                <div class="message">
+                    <p>Welcome to the codeDojo.</p>
+                </div>
+                <div class="user">
+                    <span class="profile"><img src="/codeDojo/img/profile.jpeg" alt="profile"></span>
+                    <span class="name">Arjun</span>
+                </div>
+            </div>
+        </div>
+        <div class="daily-tip br"></div>
+    </div>
+</section>
+
+<script>
+    loadScript("dashboard.js");
+</script>

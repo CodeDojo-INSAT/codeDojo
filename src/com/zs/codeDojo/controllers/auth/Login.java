@@ -24,9 +24,11 @@ public class Login extends HttpServlet {
         BufferedReader reader = req.getReader();
         StringBuilder payload = new StringBuilder();
         String line;
+
         while ((line = reader.readLine()) != null){
             payload.append(line);
         }
+
         JSONObject jsonObject = new JSONObject(payload.toString());
         String usrnme = jsonObject.getString("un");
         String password = jsonObject.getString("ps");
@@ -51,7 +53,7 @@ public class Login extends HttpServlet {
 
                 // User user = new User(resolvedUser.getUsername(), resolvedUser.getEmail(), resolvedUser.getFirstName(), resolvedUser.getLastName(), true);
                 session.setAttribute("user", resolvedUser);
-                res.addCookie(setCookie(resolvedUser));
+                res.addCookie(createCookie(resolvedUser));
                 
                 if (!resolvedUser.isVerified()){
                     pw.println("false");
@@ -67,13 +69,13 @@ public class Login extends HttpServlet {
         }
     }
 
-    private Cookie setCookie(User user) {
+    private Cookie createCookie(User user) {
         Cookie cookie = new Cookie("name", user.getFirstName());
 
         cookie.setMaxAge(60 * 60 * 24);
-        cookie.setPath("/");
-        cookie.setSecure(true);        
-        cookie.setHttpOnly(true);
+        // cookie.setPath("/");
+        // cookie.setSecure(true);        
+        // cookie.setHttpOnly(true);
         return cookie;
     }
 }

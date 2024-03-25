@@ -15,12 +15,13 @@ Meanwhile, the compiled output files will be generated in the `WEB-INF/classes` 
 
 - Daily questions Api's
     - /services/dq/submit_answer.dojo `[POST]`
-    - /services/dq/get_userstreak.dojo `[GET]`
+    - /services/dq/get_user_streak.dojo `[GET]`
     - /services/dq/get_question.dojo `[GET]`
 
 - Course api's
-    - /services/course/get_course_question.dojo `[GET]`
+    <!-- - /services/course/get_course_question.dojo `[GET]` -->
     - /services/course/check_answer.dojo `[POST]`
+    - /services/course/getCourse?level=1 `[GET]`
     
 - Auth api's
     - /auth/home 

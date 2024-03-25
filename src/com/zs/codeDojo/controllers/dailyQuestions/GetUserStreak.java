@@ -7,11 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
+import com.zs.codeDojo.models.DAO.User;
 
 public class GetUserStreak extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +22,10 @@ public class GetUserStreak extends HttpServlet {
 
         DBModule dbModule = (DBModule) context.getAttribute("db");
 
-        int streak = dbModule.getStreakForUser(1);
+        HttpSession session = request.getSession(false);
+        User user = (User) session.getAttribute("user");
+
+        int streak = dbModule.getStreakForUser(user.getUsername());
 
         JsonResponse jsonResponse = null;
         if (streak >= 0) {

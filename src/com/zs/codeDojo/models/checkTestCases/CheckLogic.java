@@ -42,10 +42,12 @@ public class CheckLogic {
 
         synchronized (lock) {
             try {
+                streams.getCustomOut().reset();
                 for (int i=0; i<tc.getSize(); i++) {
                     String currentTC = tcIn[i];
 
                     System.setIn(new ByteArrayInputStream(currentTC.getBytes()));
+                    streams.getCustomOut().reset();
 
                     Method mainMethod = clazz.getMethod("main", String[].class);
 
@@ -78,10 +80,7 @@ public class CheckLogic {
                     else {
                         res[i] = 0;
                         if (message == null) {
-                            message = "Your output: \n"
-                                    + runtimeOutput + "\n"
-                                    + "Expected output: \n"
-                                    + tcOut[i] + "\n";
+                            message = runtimeOutput;
                         }
                     }
                     
@@ -106,6 +105,10 @@ public class CheckLogic {
 
     public String getMessage() {
         return message;
+    }
+
+    public boolean hasMessage() {
+        return message != null;
     }
 
     public String[] getResultWithExecTime() {

@@ -1,13 +1,13 @@
 package com.zs.codeDojo.properties;
 
 public class Properties {
-    public final static String sqlScriptsBase = "/opt/apache/webapps/codeDojo/src/com/zs/codeDojo/models/SQLScripts/";
+    public final static String sqlScriptsBase = "../models/SQLScripts/";
 
     public static final String procedureScript = sqlScriptsBase + "procedure.sql";
     public static final String eventScript = sqlScriptsBase + "event.sql";
 
-    public static final String logPath = "/opt/apache/webapps/codeDojo/src/com/zs/codeDojo/logs/error.log";
-
+    static ClassLoader classLoader = new Properties().getClass().getClassLoader();
+    public static final String logPath = classLoader.getResource("com/zs/codeDojo/logs/error.log").getFile();
 
     public static final String db_username = "arjun";
     public static final String db_password = "password@1";

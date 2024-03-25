@@ -4,6 +4,7 @@ import org.json.JSONArray;
 // import org.json.JSONObject;
 
 import com.zs.codeDojo.models.DAO.DBModule;
+import com.zs.codeDojo.models.DAO.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,7 +29,8 @@ public class GetQuizzes extends HttpServlet {
             PrintWriter pw = res.getWriter();
             // DBConnector conn = new DBConnector("mark.main", "plsletmein123#");
             DBModule conn = (DBModule)context.getAttribute("db");
-            JSONArray quizzes = conn.getQuizzes();
+            User user = (User) req.getSession().getAttribute("user");
+            JSONArray quizzes = conn.getQuizzes(user);
 
             pw.println(quizzes.toString());
 

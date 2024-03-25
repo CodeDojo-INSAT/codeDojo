@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import com.zs.codeDojo.models.DAO.DBModule;
 import com.zs.codeDojo.models.DAO.JsonResponse;
 import com.zs.codeDojo.models.DAO.Question;
+import com.zs.codeDojo.models.DAO.User;
 
 public class GetQuestion extends HttpServlet { 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,6 +29,9 @@ public class GetQuestion extends HttpServlet {
 
             json.put("title", todayQuestion.getTitle());
             json.put("description", todayQuestion.getDescription());
+
+            String username = ((User) request.getSession(false).getAttribute("user")).getUsername();
+            json.put("completed", dbModule.isCompleted(username));
 
             jsonResponse = new JsonResponse(true, "successfully fetched today question", json);
         }

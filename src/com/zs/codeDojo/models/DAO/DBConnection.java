@@ -15,9 +15,13 @@ public class DBConnection {
                 conn = DriverManager.getConnection("jdbc:mysql://" + Properties.db_host + ":" + Properties.db_port + "/" + Properties.db_name, Properties.db_username, Properties.db_password);
             }
             catch (Exception e) {
+
                 e.printStackTrace();
+
             }
         }
         return conn;
+
     }
+    
 }

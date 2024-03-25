@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/codeDojo/css/markdown.css">
+<link rel="stylesheet" href="/codeDojo/css/editor.css">
+<!-- <div class="top-nav">
+    <p>Java Course</p>
+</div> -->
+<div class="course-section">
+    <div class="description">
+        <div class="title">
+            <h2></h2>
+        </div>
+        <p>
+        </p>
+
+        <!-- <zero-md>
+             Write your markdown inside a `<script type="text/markdown">` tag 
+            <script type="text/markdown">
+              # **This** is my [markdown](https://example.com)
+            </script>
+          </zero-md> -->
+    </div>
+    <div class="editor">
+        <div class="top-panel">
+            <div class="filename">Main.java</div>
+            <label for="codeFile">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </label>
+            <input type="file" accept=".java" class="upload-file" value="Upload file" id="codeFile" style="display: none;"/>
+
+            <!-- <span class="settings">
+                <i class="fi fi-rs-settings-sliders"></i>
+                <div class="settings-drop-down">
+                    <div class="settings-name">Font size <span class="setting-value">18px</span></div>
+                    <div class="settings-name">Font <span class="setting-value">18px</span></div>
+                </div>
+            </span> -->
+        </div>
+        <div id="editor-container"></div>
+
+        <!-- <div class="terminal-top-panel">
+                <div class="panel-name">CodeDojo - Terminal</div>
+                <div class="action-btns">
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                </div>
+            </div>
+
+            <div class="terminal"></div> -->
+        <div class="submit-area">
+            <span id="result" class="hide"><span id="count">2/5</span> Test cases failed :( </span>
+            <button id="next" class="hide">next</button>
+            <button id="submit">submit</button>
+        </div>
+
+        <div class="result-area hide">
+            <div class="loader-page">
+                Loading
+            </div>
+            <div class="msg hide">
+                please submit your code to get result.
+            </div>
+            <div class="left">
+                <h3>Test cases:</h3>
+                <div class="testcase-container ">
+                    <div class="testcase">
+                        <h4>Test Case 0 <span><i class="fi fi-rs-check"></i> </span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <fieldset class="compiler-message">
+                    <legend>Compiler message</legend>
+                    <div class="content">
+                        <span>Wrong answer</span>
+                    </div>
+                </fieldset>
+
+                <fieldset class="input">
+                    <legend>Input</legend>
+                    <div class="content"></div>
+                </fieldset>
+
+                <fieldset class="expected-output">
+                    <legend>Expected output</legend>
+                    <div class="content"></div>
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    loadScript("editor.js");
+</script>

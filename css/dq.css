@@ -1,0 +1,104 @@
+body {
+    overflow: hidden;
+}
+.dq-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #16171b;
+    /* align-items: center; */
+}
+
+.dq-wrapper .container {
+    margin-top: 16%;
+    /* border: 1px solid #fff; */
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.dq-wrapper .page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    /* border: 1px solid; */
+}
+
+
+.container .page-title .question-status  {
+    border: 1px solid #ea2831;
+    color: #ea2831;
+    padding: 8px 16px;
+    font-size: .8rem;
+    margin-left: 2%;
+    border-radius: 4px;
+    /* color: #39e079; */
+}
+
+.yes {
+    border: 1px solid #39e079 !important;
+    color: #39e079 !important;
+}
+
+.container .question-card {
+    margin-top: 5%;
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,  
+              100%, 0.075),
+              /* shadow ring 👇 */
+              0 0 0 1px hsla(0, 0%, 7%, 0.05),
+              /* multiple soft shadows 👇 */
+              0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+              0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+              0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+    border-radius: 16px;
+    padding: 16px;
+    width: 100%;
+    padding-left: 1rem;
+}
+
+.container .question-title {
+    font-size: 1.3rem;
+    /* margin-top: 5%; */
+    /* margin-bottom: ; */
+    margin-right: auto;
+    text-decoration: underline;
+    margin-bottom: 1%;
+    color: #f9f9f9;
+}
+
+.container .question-description {
+    font-size: 1.3rem;
+    width: 100%;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .question-description p {
+    width: 85%;
+}
+
+.container .button {
+    border: 1px solid #444;
+    padding: 0 16px;
+    border-radius: 8px;
+    /* margin-left: auto; */
+    /* margin-top: 2%; */
+    margin-right: 2%;
+    position: relative;
+    font-size: 18px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    width: fit-content;
+}

@@ -10,9 +10,10 @@ public class User {
     private String lastName = null;
 
     private boolean verified;
-    private boolean isLoggedin;
+    // private boolean isLoggedin;
 
     @Override
+    
     public String toString() {
         return getUsername() + getEmail() + getFirstName() + getLastName();
     }
@@ -41,7 +42,7 @@ public class User {
         this.email = email;
         this.firstName = firstname;
         this.lastName = lastname;
-        this.isLoggedin = isLoggedin;
+        // this.isLoggedin = isLoggedin;
     }
 
     public String getUsername() {
@@ -72,3 +73,4 @@ public class User {
         return verified;
     }
 }
+ 

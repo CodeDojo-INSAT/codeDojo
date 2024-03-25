@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/codeDojo/css/settings.css">
+<div class="settings-wrapper">
+    <div class="settings-sidebar">
+        <nav class="setting-menu">
+            <ul>
+                <li class="acc selected"><a>Account</a></li>
+                <li class="passwd"><a>Password</a></li>
+                <li class="notify"><a>Notification</a></li>
+                <li class="logout"><a>Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="settings-content ">
+        <div class="account showTop">
+            <span class="page-name">Settings ><span class="specific"> Account</span></span>
+            <div class="field">
+                <span class="field-name">Profile</span>
+                <div class="field-value">
+                    <span class="icon" onclick="openFileInput()">
+                        <img src="/codeDojo/img/userprofiles/uvchan.png" alt="" class="icon-im"/>
+                        <input type="file" id="fileInput" style="visibility:hidden;height:100%;width:100%"/>
+                    </span>
+                    <!-- <span class="upload-button">  Upload  </span>
+                    <span class="remove-button">Remove</span> -->
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">First name</span>
+                <div class="field-value">
+                    <input type="text" name="fname" id="fname" placeholder="First name" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Last name</span>
+                <div class="field-value">
+                    <input type="text" name="lname" id="lname" placeholder="Last name" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">username</span>
+                <div class="field-value">
+                    <input type="text" name="username" id="uname" placeholder="Username" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Email</span>
+                <div class="field-value">
+                    <input type="email" name="email" id="email" placeholder="Email" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-submit">
+                    <div class="settings-Submit">
+                        Submit
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="password">
+            <span class="page-name">Settings ><span class="specific"> Password</span></span>
+            <div class="field">
+                <span class="field-name">Current Password</span>
+                <div class="field-value">
+                    <input type="text" name="cpasswd" id="cpasswd" placeholder="Current Password" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">New Password</span>
+                <div class="field-value">
+                    <input type="text" name="npasswd" id="npasswd" placeholder="New Password" />
+                </div>
+            </div>
+            <div class="field">
+                <span class="field-name">Confirm Password</span>
+                <div class="field-value">
+                    <input type="text" name="cnpasswd" id="cnpasswd" placeholder="Confirm password" />
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-submit">
+                    <div class="settings-Submit">
+                        Submit
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        loadScript("settings.js");
+</script>

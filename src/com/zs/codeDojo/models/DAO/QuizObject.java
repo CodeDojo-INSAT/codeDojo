@@ -13,6 +13,21 @@ public class QuizObject {
 
     private int numQuestions;
 
+    private JSONObject submissionInfo = null;
+
+    private String toJSONType = "DEF";
+
+    public QuizObject(String quizID, String quizName, String quizType, String createdDate, String lastUpdated, int numQuestions, JSONObject submissionInfo) {
+        this.quizID = quizID;
+        this.quizName = quizName;
+        this.quizType = quizType;
+        this.createdDate = createdDate;
+        this.lastUpdated = lastUpdated;
+        this.numQuestions = numQuestions;
+        this.submissionInfo = submissionInfo;
+        this.toJSONType = "ADV";
+    }
+
     public QuizObject(String quizID, String quizName, String quizType, String createdDate, String lastUpdated, int numQuestions) {
         this.quizID = quizID;
         this.quizName = quizName;
@@ -36,6 +51,9 @@ public class QuizObject {
         obj.put("numQuestions", this.numQuestions);
         obj.put("createdOn", this.createdDate);
         obj.put("lastUpdated", this.lastUpdated);
+        if (toJSONType == "ADV") {
+            obj.put("submissionInfo", submissionInfo);
+        }
 
         return obj;
 
