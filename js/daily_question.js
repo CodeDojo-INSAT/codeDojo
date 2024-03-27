@@ -1,4 +1,5 @@
 function getTodayQuestion(response) {
+    // hello
     // console.log("getTodayQuestion response "+ response);
     data = JSON.parse(response);
     // console.log("getTodayQuestion " + data);
